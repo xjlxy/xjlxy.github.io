@@ -10,6 +10,8 @@
 
     <!--Description-->
     
+        <meta name="description" content="FPM的安装1234567yum install -y rubygems ruby-devel rubygems-devel rpm-buildgem listgem source --listgem source --addd https://ruby.taobao.orggem source -">
+    
 
     <!--Author-->
     
@@ -18,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="XJL"/>
+        <meta property="og:title" content="rpm包制作"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +31,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +42,7 @@
 
     <!-- Title -->
     
-    <title>Archiv - XJL</title>
+    <title>rpm包制作 - XJL</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -126,76 +128,60 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://p1.bqimg.com/575659/70341d6549c552dc.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archiv</h1>
+                <div class="post-heading">
+                    <h1>rpm包制作</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-05-05
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2017/05/05/fpm/">
-        <h1 class="post-title archive">
-            rpm包制作
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-05
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="FPM的安装"><a href="#FPM的安装" class="headerlink" title="FPM的安装"></a>FPM的安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">yum install -y rubygems ruby-devel rubygems-devel rpm-build</div><div class="line">gem list</div><div class="line">gem <span class="built_in">source</span> --list</div><div class="line">gem <span class="built_in">source</span> --addd https://ruby.taobao.org</div><div class="line">gem <span class="built_in">source</span> --remove http://rubygems.org</div><div class="line">gem install json -v 1.8.3 -V</div><div class="line">gem install fpm -v 1.4.0 -V</div></pre></td></tr></table></figure>
+<h2 id="FPM常用参数"><a href="#FPM常用参数" class="headerlink" title="FPM常用参数"></a>FPM常用参数</h2><p>  -s:指定源类型<br>  -t:指定目标类型，即想要制作为什么包<br>  -n:指定包的名字<br>  -v:指定包的版本号<br>  -C:指定打包的相对路径<br>  -d:指定依赖于哪些包<br>  -f:第二次包时目录下如果有同名安装包存在，则覆盖它<br>  -p:输出的安装包的目录，不想放在当前目录下就需要指定  –post-install:软件包安装完成之后所要运行的脚本；同–offer-install<br>  –pre-install:软件包安装完成之前所要运行的脚本；同–before-install<br>  –post-uninstall:软件包卸载完成之后所要运行的脚本；同–offer-remove<br>  –pre-uninstall:软件包卸载完成之前所要运行的脚本；同—before-remove</p>
+<h2 id="know-errors"><a href="#know-errors" class="headerlink" title="know errors"></a>know errors</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.Need executable ‘rpmbuild’ to convert dir to rpm &#123;:level=&gt;:error&#125;</div><div class="line"></div><div class="line">solution： </div><div class="line">[root@localhost]# yum install -y rpm-build</div></pre></td></tr></table></figure>
+<h2 id="EX"><a href="#EX" class="headerlink" title="EX"></a>EX</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">fpm <span class="_">-s</span> dir -t rpm -n nginx -v 1.10.1 \</div><div class="line">--post-install /root/ngpost.sh \</div><div class="line"><span class="_">-f</span> /usr/<span class="built_in">local</span>/nginx</div><div class="line"><span class="_">-d</span> <span class="string">'zlib-devel,pcre-devel,openssl-devel'</span> \</div><div class="line">no value <span class="keyword">for</span> epoch is <span class="built_in">set</span>, defaulting to nil &#123;:level=&gt;:warn&#125;</div><div class="line">no value <span class="keyword">for</span> epoch is <span class="built_in">set</span>, defaulting to nil &#123;:level=&gt;:warn&#125;</div><div class="line">Created package &#123;:path=&gt;<span class="string">"nginx-1.10.1-1.x86_64.rpm"</span>&#125;</div><div class="line">ll</div><div class="line">-rw-r--r--. 1 root root 2475253 11月 30 20:24 nginx-1.10.1-1.x86_64.rpm</div></pre></td></tr></table></figure>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2017/05/05/fork_boom/">
-        <h1 class="post-title archive">
-            Fork boom
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-05
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2017/05/05/hello-world/">
-        <h1 class="post-title archive">
-            Hello World
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-05
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
