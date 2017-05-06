@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="cacti dependencephp123#/etc/php.inisafe_mode = Offdate.timezone = &quot;Asia/Shanghai&quot;
+mysql12345678910111213141516171819#my.cnf[mysqld]basedir = /opt/mysq">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="centos部署cacti 1.X"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="XJL"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>centos部署cacti 1.X - XJL</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/xjlxy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://p1.bqimg.com/575659/70341d6549c552dc.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>centos部署cacti 1.X</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-05-06
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="cacti-dependence"><a href="#cacti-dependence" class="headerlink" title="cacti dependence"></a>cacti dependence</h2><h2 id="php"><a href="#php" class="headerlink" title="php"></a>php</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#/etc/php.ini</div><div class="line">safe_mode = Off</div><div class="line">date.timezone = "Asia/Shanghai"</div></pre></td></tr></table></figure>
+<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#my.cnf</div><div class="line">[mysqld]</div><div class="line">basedir = /opt/mysql_cacti/</div><div class="line">datadir = /opt/mysql_cacti/data</div><div class="line">bind-address= 0.0.0.0</div><div class="line">port = 3333</div><div class="line">user=mysql</div><div class="line"># server_id = .....</div><div class="line">socket = /opt/mysql_cacti/mysql.sock</div><div class="line">max_heap_table_size=1567M</div><div class="line">max_allowed_packet=16777216</div><div class="line">join_buffer_size=64M</div><div class="line">tmp_table_size=64M</div><div class="line">innodb_buffer_pool_size=7835M</div><div class="line">innodb_doublewrite=0</div><div class="line">innodb_additional_mem_pool_size=80M</div><div class="line">innodb_flush_log_at_timeout=3</div><div class="line">innodb_read_io_threads=32</div><div class="line">innodb_write_io_threads=16</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">shell&gt; yum install net-snmp net-snmp-libs net-snmp-utils rrdtool perl-devel perl-CPAN perl-YAML</div><div class="line"><span class="comment">#安装依赖</span></div><div class="line"></div><div class="line">shell&gt; wget http://www.cacti.net/downloads/cacti-1.1.3.tar.gz</div><div class="line">shell&gt; tar xzf cacti-1.1.3.tar.gz -C /www/</div><div class="line">shell&gt; ln <span class="_">-s</span> /www/cacti-1.1.3/ /www/cacti</div><div class="line">shell&gt; <span class="built_in">cd</span> /www/cacti/</div><div class="line"></div><div class="line">shell&gt; mysql -root -p</div><div class="line">mysql&gt; create database cacti;</div><div class="line">Query OK, 1 row affected (0.00 sec)</div><div class="line"></div><div class="line">mysql&gt; show databases;</div><div class="line">+--------------------+</div><div class="line">| Database           |</div><div class="line">+--------------------+</div><div class="line">| information_schema |</div><div class="line">| cacti              |</div><div class="line">| mysql              |</div><div class="line">| performance_schema |</div><div class="line">+--------------------+</div><div class="line">4 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</div><div class="line"><span class="comment">#创建数据库</span></div><div class="line"></div><div class="line">mysql&gt; <span class="built_in">source</span> cacti.sql</div><div class="line"><span class="comment">#导入数据</span></div><div class="line"></div><div class="line">mysql&gt; GRANT ALL ON cacti.* TO cactiuser@localhost IDENTIFIED BY <span class="string">'somepassword'</span>;</div><div class="line">mysql&gt; flush privileges;</div><div class="line">mysql&gt; <span class="built_in">exit</span></div><div class="line"><span class="comment">#创建cacti帐号，赋予权限</span></div><div class="line"></div><div class="line">shell&gt; chown -R cactiuser rra/ <span class="built_in">log</span>/</div><div class="line"><span class="comment">#/etc/crontab</span></div><div class="line">*/5 * * * * cactiuser php /var/www/html/cacti/poller.php &gt; /dev/null 2&gt;&amp;1</div><div class="line"><span class="comment">#将每5分钟执行一次的数据获取脚本加入crontab</span></div></pre></td></tr></table></figure>
+<h2 id="cacti-configure"><a href="#cacti-configure" class="headerlink" title="cacti configure"></a>cacti configure</h2><blockquote>
+<p>Edit “include/config.php” and specify the database type, name, host,user and password for your Cacti configuration.<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="formula">$database_type = "mysql";</span></div><div class="line">$database_default = "cacti";</div><div class="line"><span class="formula">$database_hostname = "127.0.0.1";</span></div><div class="line">$database_username = "cactiuser";</div><div class="line"><span class="formula">$database_password = "cacti";</span></div><div class="line">$database_port     = '3333';</div><div class="line">#修改数据库连接配置</div><div class="line"></div><div class="line">/* load up old style plugins here */</div><div class="line"><span class="formula">$plugins = array();</span></div><div class="line">//$plugins[] = 'thold';</div><div class="line"></div><div class="line">/*</div><div class="line">   Edit this to point to the default URL of your Cacti install</div><div class="line">   ex: if your cacti install as at http://serverip/cacti/ this</div><div class="line">   would be set to /cacti/</div><div class="line">*/</div><div class="line"><span class="formula">$url_path = "/cacti/";</span></div><div class="line"></div><div class="line">/* Default session name - Session name must contain alpha characters */</div><div class="line">#$cacti_session_name = "Cacti";</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>重启nginx php mysql<br>访问 <a href="http://localhost/cacti" target="_blank" rel="external">http://localhost/cacti</a> </p>
+<p>无错误即可，到此安装完毕</p>
+<p>#更多内容详见官方手册<br><a href="http://docs.cacti.net/manual" target="_blank" rel="external">http://docs.cacti.net/manual</a></p>
+<h2 id="know-errors"><a href="#know-errors" class="headerlink" title="know errors"></a>know errors</h2><p>1.</p>
+<blockquote>
+<p>ERROR:Your Cacti database login account does not have access to the<br>MySQL TimeZone database. Please provide the Cacti database account<br>“select” access to the “time_zone_name” table in the “mysql” database,<br>and populate MySQL’s TimeZone information before proceeding. mysql&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GRANT SELECT ON mysql.time_zone_name TO cactiuser@localhost IDENTIFIED BY &apos;cacti&apos;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>2.</p>
+<blockquote>
+<p>ERROR: Your MySQL TimeZone database is not populated. Please populate<br>this database before proceeding.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql_tzinfo_to_sql /usr/share/zoneinfo/ | mysql -u root -p mysql</div></pre></td></tr></table></figure></p>
+</blockquote>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/xjlxy" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
