@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="XtraBackupxtrabackup包含两个主要的工具，即xtrabackup和innobackupex，二者区别如下：（1）xtrabackup只能备份innodb和xtradb两种引擎的表，而不能备份myisam引擎的表；
+（2）innobackupex是一个封装了xtrabackup的Pe">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="xtrabackup"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="XJL"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>xtrabackup - XJL</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/xjlxy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://p1.bqimg.com/575659/70341d6549c552dc.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>xtrabackup</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-05-11
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="XtraBackup"><a href="#XtraBackup" class="headerlink" title="XtraBackup"></a>XtraBackup</h1><p>xtrabackup包含两个主要的工具，即xtrabackup和innobackupex，二者区别如下：<br>（1）xtrabackup只能备份innodb和xtradb两种引擎的表，而不能备份myisam引擎的表；</p>
+<p>（2）innobackupex是一个封装了xtrabackup的Perl脚本，支持同时备份innodb和myisam，但在对myisam备份时需要加一个全局的读锁。还有就是myisam不支持增量备份。</p>
+<p>备份方式<br>  热备份：读写不受影响（mysqldump–&gt;innodb）<br>  温备份：仅可以执行读操作（mysqldump–&gt;myisam）<br>  冷备份：离线备份，读写都不可用<br>  逻辑备份：将数据导出文本文件中（mysqldump）<br>  物理备份：将数据文件拷贝（xtrabackup、mysqlhotcopy）</p>
+<p>  完整备份：备份所有数据<br>  增量备份：仅备份上次完整备份或增量备份以来变化的数据<br>  差异备份：仅备份上次完整备份以来变化的数据</p>
+<h2 id="configure"><a href="#configure" class="headerlink" title="configure"></a>configure</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">  mysql&gt; grant reload,lock tables,replication client on *.* to <span class="string">'bak'</span>@<span class="string">'localhost'</span> identified by <span class="string">'123456'</span>;</div><div class="line">  mysql&gt; flush privileges;</div><div class="line"></div><div class="line">mysql --version</div><div class="line"><span class="comment">#Error: Built-in InnoDB in MySQL 5.1 is not supported in this release. You can either use Percona XtraBackup 2.0, or upgrade to InnoDB plugin.</span></div><div class="line"></div><div class="line">cat /etc/my.cnf |grep datadir</div><div class="line"><span class="comment">##my.cnf中必须有datadir=/var/lib/mysql</span></div><div class="line"></div><div class="line"><span class="comment">#XtraBackup 2.0.6</span></div><div class="line">https://www.percona.com/downloads/XtraBackup/XtraBackup-2.0.6/RPM/rhel6/x86_64/percona-xtrabackup-2.0.6-521.rhel6.x86_64.rpm</div><div class="line"></div><div class="line"><span class="comment">#XtraBackup 2.0.8</span></div><div class="line">https://www.percona.com/downloads/XtraBackup/XtraBackup-2.0.8/RPM/rhel6/x86_64/percona-xtrabackup-20-2.0.8-587.rhel6.x86_64.rpm</div><div class="line"></div><div class="line"><span class="comment">##Xtrabackup 2.0.7 or 2.1.2 failed: expected log block no. 5458041, but got no. 1070811265 from the log file</span></div><div class="line"></div><div class="line">https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.6/binary/redhat/6/x86_64/percona-xtrabackup-24-2.4.6-2.el6.x86_64.rpm</div></pre></td></tr></table></figure>
+<h2 id="options"><a href="#options" class="headerlink" title="options"></a>options</h2><p>参数<br>  –user= #指定数据库备份用户<br>  –password= #指定数据库备份用户密码<br>  –port= #指定数据库端口<br>  –host= #指定备份主机<br>  –socket= #指定socket文件路径<br>  –databases= #备份指定数据库,多个空格隔开，如–databases=”dbname1 dbname2”,不加备份所有库<br>  –defaults-file= #指定my.cnf配置文件<br>  –apply-log #日志回滚<br>  –incremental= #增量备份，后跟增量备份路径<br>  –incremental-basedir= #增量备份，指上次增量备份路径<br>  –redo-only #合并全备和增量备份数据文件<br>  –copy-back #将备份数据复制到数据库，数据库目录要为空<br>  –no-timestamp #生成备份文件不以时间戳为目录名<br>  –stream= #指定流的格式做备份,–stream=tar,将备份文件归档<br>  –remote-host=user@ip DST_DIR #备份到远程主机</p>
+<h2 id="backup"><a href="#backup" class="headerlink" title="backup"></a>backup</h2><h3 id="全备"><a href="#全备" class="headerlink" title="全备"></a>全备</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">  innobackupex --stream=tar  --user=root --password=123456 \</div><div class="line">  /root/mysql_backup/full/ \</div><div class="line">  2&gt;&gt;/root/mysql_backup/xtrabackup.log \</div><div class="line">  | gzip &gt; /root/mysql_backup/full-backup.tar.gz</div><div class="line"></div><div class="line">#注：</div><div class="line">#/data/back_data/ ##指定备份目录</div><div class="line">#  2&gt;/data/back_data/zztx.log 输出信息写入日志中</div><div class="line">#  1&gt;/data/back_data/zztx.tar.gz 打包压缩存储到该文件中</div></pre></td></tr></table></figure>
+<h3 id="增备"><a href="#增备" class="headerlink" title="增备"></a>增备</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">innobackupex --user=root --password=123456 \</div><div class="line">--incremental --incremental-basedir=/root/mysql_backup/full/2017-04-06_21-41-07/ \</div><div class="line">/root/mysql_backup/incremental/</div><div class="line"></div><div class="line">#incremental-basedir=指定增备基准目录</div></pre></td></tr></table></figure>
+<h2 id="resotre"><a href="#resotre" class="headerlink" title="resotre"></a>resotre</h2><h3 id="全备恢复"><a href="#全备恢复" class="headerlink" title="全备恢复"></a>全备恢复</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">tar -izxvf full-backup.tar.gz -C /root/mysql_backup/</div><div class="line"></div><div class="line">innobackupex --apply-log  /root/mysql_backup/2017-04-06_21-41-07 </div><div class="line"></div><div class="line">innobackupex --copy-back  /root/mysql_backup/2017-04-06_21-41-07 </div><div class="line"></div><div class="line">chown -R mysql:mysql /var/lib/mysql</div><div class="line">service mysqld restart</div></pre></td></tr></table></figure>
+<h3 id="增备恢复"><a href="#增备恢复" class="headerlink" title="增备恢复"></a>增备恢复</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">恢复完全备份</div><div class="line">恢复增量备份到完全备份（开始恢复的增量备份要添加--redo-only参数，到最后一次增量备份去掉--redo-only参数）</div><div class="line">对整体的完全备份进行恢复，回滚那些未提交的数据</div><div class="line">恢复完全备份（注意这里一定要加--redo-only参数，该参数的意思是只应用xtrabackup日志中已提交的事务数据，不回滚还未提交的数据）</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">innobackupex --apply-log --redo-only \</div><div class="line">/full/2017-04-07_23-35-54/</div><div class="line"></div><div class="line">innobackupex --apply-log --redo-only \</div><div class="line">/full/2017-04-07_23-35-54/ \</div><div class="line">--incremental-dir=/incremental/2014-04-07_23-42-46/</div><div class="line"></div><div class="line">innobackupex --apply-log \</div><div class="line">/full/2017-04-07_23-35-54/ \</div><div class="line">--incremental-dir=/incremental/2017-04-07_23-41-31/</div><div class="line"></div><div class="line">chown -R mysql:mysql /var/lib/mysql</div><div class="line">service mysqld restart</div></pre></td></tr></table></figure>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/xjlxy" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

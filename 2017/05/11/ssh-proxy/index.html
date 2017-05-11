@@ -10,8 +10,7 @@
 
     <!--Description-->
     
-        <meta name="description" content="Error/var/log/auth.log阿X云部分主机没有这个文件
-1234# ls /var/log/alternatives.log apt dmesg.0 gshell.log mysql.log mysql.log.3.gz mysql.log.6.gz repair.logaltern">
+        <meta name="description" content="sshoptions123456789101112131415161718192021-1：强制使用ssh协议版本1；-2：强制使用ssh协议版本2；-4：强制使用IPv4地址；-6：强制使用IPv6地址；-A：开启认证代理连接转发功能；-a：关闭认证代理连接转发功能；-b：使用本机指定地址作为对应">
     
 
     <!--Author-->
@@ -21,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="auth.log文件不存在"/>
+        <meta property="og:title" content="ssh proxy"/>
     
 
     <!--Open Graph Description-->
@@ -43,7 +42,7 @@
 
     <!-- Title -->
     
-    <title>auth.log文件不存在 - XJL</title>
+    <title>ssh proxy - XJL</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -137,12 +136,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>auth.log文件不存在</h1>
+                    <h1>ssh proxy</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
-                        2017-05-09
+                        2017-05-11
                     </span>
                 </div>
             </div>
@@ -162,7 +161,7 @@
                         
 
 
-<a href="/tags/ubuntu/">#ubuntu</a> <a href="/tags/rsyslog/">#rsyslog</a> <a href="/tags/know-errors/">#know errors</a>
+<a href="/tags/ssh/">#ssh</a> <a href="/tags/proxy/">#proxy</a>
 
 
                     
@@ -177,18 +176,10 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h2 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h2><p>/var/log/auth.log<br>阿X云部分主机没有这个文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ls /var/log/</span></div><div class="line">alternatives.log apt dmesg.0 gshell.log mysql.log mysql.log.3.gz mysql.log.6.gz repair.log</div><div class="line">alternatives.log.1 boot.log dpkg.log mysql mysql.log.1.gz mysql.log.4.gz mysql.log.7.gz udev</div><div class="line">apache2 dmesg dpkg.log.1 mysql.err mysql.log.2.gz mysql.log.5.gz ntp.log upstart</div></pre></td></tr></table></figure>
-<h2 id="问题排查"><a href="#问题排查" class="headerlink" title="问题排查"></a>问题排查</h2><h3 id="首先确认rsyslog进程是否正常运行："><a href="#首先确认rsyslog进程是否正常运行：" class="headerlink" title="首先确认rsyslog进程是否正常运行："></a>首先确认rsyslog进程是否正常运行：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ps aux | grep syslog</span></div><div class="line">changmi 17590 0.0 0.0 11740 932 pts/0 S+ 17:42 0:00 \_ grep --color=auto syslog</div><div class="line">syslog 17389 0.0 0.0 190304 1148 ? Ssl 17:31 0:00 rsyslogd</div></pre></td></tr></table></figure>
-<h3 id="排查rsyslog配置："><a href="#排查rsyslog配置：" class="headerlink" title="排查rsyslog配置："></a>排查rsyslog配置：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">grep authpriv /etc/rsyslog.d/50-default.conf </div><div class="line">auth,authpriv.*         /var/<span class="built_in">log</span>/auth.log</div><div class="line">*.*;auth,authpriv.none      -/var/<span class="built_in">log</span>/syslog</div></pre></td></tr></table></figure>
-<p>可以看到也是默认的配置，并没有做任何改动。</p>
-<p>md5sum对比两个服务器(正常，异常)的rsyslog.conf，md5值一致<br>有资料提到ssh配置文件的问题，比较后两个服务器配置文件也是一致的</p>
-<p>在保证配置文件是一致的情况下，重启了rsyslog、ssh，但是/var/log/auth.log 依然没有</p>
-<h3 id="尝试手动创建文件"><a href="#尝试手动创建文件" class="headerlink" title="尝试手动创建文件"></a>尝试手动创建文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#按照正常服务器上的auth.log</span></div><div class="line">ll /var/<span class="built_in">log</span>/auth.log</div><div class="line">-rw-r----- 1 syslog adm 68691 May 9 17:21 /var/<span class="built_in">log</span>/auth.log</div><div class="line"><span class="comment">#按照以上信息，手动创建文件</span></div><div class="line"> touch /var/<span class="built_in">log</span>/auth.log</div><div class="line"> chmod 640 /var/<span class="built_in">log</span>/auth.log</div><div class="line"> chown syslog.adm /var/<span class="built_in">log</span>/auth.log</div><div class="line"> ls -la /var/<span class="built_in">log</span>/auth.log</div><div class="line">-rw-r----- 1 syslog adm 4217 May 9 17:45 /var/<span class="built_in">log</span>/auth.log</div></pre></td></tr></table></figure>
-<p>断开ssh重新登录<br>cat /var/log/auth.log<br>已经开始记录信息<br>大致可以断定问题在权限上</p>
-<p>继续排查目录权限<br>最终定位：/var/log<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># server not ok</span></div><div class="line">ls <span class="_">-l</span> /var/ | grep <span class="built_in">log</span></div><div class="line">drwxr-xr-x 5 root root 4096 May 9 17:36 <span class="built_in">log</span></div><div class="line"></div><div class="line"><span class="comment"># server ok</span></div><div class="line">ls <span class="_">-l</span> /var/ | grep <span class="built_in">log</span></div><div class="line">drwxrwxr-x 18 root syslog 4096 May 9 10:52 <span class="built_in">log</span></div></pre></td></tr></table></figure></p>
-<p>可以看出，的确是权限导致的</p>
-<p>The end:<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">问题：/var/log/auth.log文件不存在</div><div class="line">排查路径：</div><div class="line">  进程：rsyslog</div><div class="line">  配置：rsyslog.conf</div><div class="line">  权限：/var/log</div></pre></td></tr></table></figure></p>
+                <h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><h2 id="options"><a href="#options" class="headerlink" title="options"></a>options</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">-1：强制使用ssh协议版本1；</div><div class="line">-2：强制使用ssh协议版本2；</div><div class="line">-4：强制使用IPv4地址；</div><div class="line">-6：强制使用IPv6地址；</div><div class="line">-A：开启认证代理连接转发功能；</div><div class="line">-a：关闭认证代理连接转发功能；</div><div class="line">-b：使用本机指定地址作为对应连接的源ip地址；</div><div class="line">-C：请求压缩所有数据；</div><div class="line">-F：指定ssh指令的配置文件；</div><div class="line">-f：后台执行ssh指令；</div><div class="line">-g：允许远程主机连接主机的转发端口；</div><div class="line">-i：指定身份文件；</div><div class="line">-l：指定连接远程服务器登录用户名；</div><div class="line">-N：不执行远程指令；</div><div class="line">-o：指定配置选项；</div><div class="line">-p：指定远程服务器上的端口；</div><div class="line">-q：静默模式；</div><div class="line">-X：开启X11转发功能；</div><div class="line">-x：关闭X11转发功能；</div><div class="line">-y：开启信任X11转发功能</div><div class="line">-D：SOCK port</div></pre></td></tr></table></figure>
+<h2 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh -L 6666:c_ip:80 b_user@b_ip</div><div class="line"><span class="comment">#监听本地6666端口，通过主机b访问主机C的80端口</span></div></pre></td></tr></table></figure>
+<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh -Rg b_port:127.0.0.1:80 b_user@b_ip</div><div class="line"><span class="comment">#监听Host b_port，访问b_ip:b_port转到本地80端口</span></div></pre></td></tr></table></figure>
+<h2 id="SOCK-proxy"><a href="#SOCK-proxy" class="headerlink" title="SOCK proxy"></a>SOCK proxy</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh -CN<span class="built_in">fg</span>D 6666 user@host_ip</div><div class="line"><span class="comment">#监听本地6666端口，转发数据到host_ip主机</span></div></pre></td></tr></table></figure>
 
 
                 
