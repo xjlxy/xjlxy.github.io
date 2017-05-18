@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="create account12GRANT USAGE ON *.* TO &#39;zabbix&#39;@&#39;127.0.0.1&#39; IDENTIFIED BY &#39;zabbx_admin&#39;;flush privileges;
+userparameter_mysql.conf12345#复制userparameter">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="zabbix 3 监控 mysql"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="XJL"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>zabbix 3 监控 mysql - XJL</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/xjlxy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://p1.bqimg.com/575659/70341d6549c552dc.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>zabbix 3 监控 mysql</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-05-18
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/zabbix/">#zabbix</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="create-account"><a href="#create-account" class="headerlink" title="create account"></a>create account</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">GRANT</span> <span class="keyword">USAGE</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'zabbix'</span>@<span class="string">'127.0.0.1'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'zabbx_admin'</span>;</div><div class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</div></pre></td></tr></table></figure>
+<h2 id="userparameter-mysql-conf"><a href="#userparameter-mysql-conf" class="headerlink" title="userparameter_mysql.conf"></a>userparameter_mysql.conf</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#复制userparameter_mysql.conf模板到zabbix配置文件所在目录</div><div class="line">cp ./zabbix-3.2.5/conf/zabbix_agentd/userparameter_mysql.conf /usr/local/etc/zabbix_agentd.conf.d/</div><div class="line"></div><div class="line">#HOME目录修改为zabbix配置文件所在目录</div><div class="line">sed -i &apos;s@/var/lib/zabbix@/usr/local/etc@g&apos; /usr/local/etc/zabbix_agentd.conf.d/userparameter_mysql.conf</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#userparameter_mysql.conf</div><div class="line">UserParameter=mysql.status[*],echo &quot;show global status where Variable_name=&apos;$1&apos;;&quot; | HOME=/usr/local/etc mysql -N | awk &apos;&#123;print $$2&#125;&apos;</div><div class="line">UserParameter=mysql.size[*],bash -c &apos;echo &quot;select sum($(case &quot;$3&quot; in both|&quot;&quot;) echo &quot;data_length+index_length&quot;;; data|index) echo &quot;$3_length&quot;;; free) echo &quot;data_free&quot;;; esac)) from information_schema.tables$([[ &quot;$1&quot; = &quot;all&quot; || ! &quot;$1&quot; ]] || echo &quot; where table_schema=\&quot;$1\&quot;&quot;)$([[ &quot;$2&quot; = &quot;all&quot; || ! &quot;$2&quot; ]] || echo &quot;and table_name=\&quot;$2\&quot;&quot;);&quot; | HOME=/usr/local/etc mysql -N&apos;</div><div class="line">UserParameter=mysql.ping,HOME=/usr/local/etc mysqladmin ping | grep -c alive</div><div class="line">UserParameter=mysql.version,mysql -V</div></pre></td></tr></table></figure>
+<h2 id="my-cnf"><a href="#my-cnf" class="headerlink" title=".my.cnf"></a>.my.cnf</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">echo '[mysql]</div><div class="line">host=127.0.0.1</div><div class="line">port=3333</div><div class="line">user=zabbix</div><div class="line">password=zabbix_admin</div><div class="line">socket = /opt/mysql_cacti/mysql.sock</div><div class="line"></div><div class="line">[mysqladmin]</div><div class="line">host=127.0.0.1</div><div class="line">port=3333</div><div class="line">user=zabbix</div><div class="line">password=zabbix_admin</div><div class="line">socket = /opt/mysql_cacti/mysql.sock' &gt; /usr/local/etc/.my.cnf</div></pre></td></tr></table></figure>
+<h2 id="zabbix-agentd-conf"><a href="#zabbix-agentd-conf" class="headerlink" title="zabbix_agentd.conf"></a>zabbix_agentd.conf</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#追加配置到zabbix_agentd.conf</div><div class="line">echo &apos;Include=/usr/local/etc/zabbix_agentd.conf.d/&apos; &gt;&gt; zabbix_agentd.conf</div><div class="line"></div><div class="line">#重启zabbix_agentd</div><div class="line">/etc/init.d/zabbix_agentd restart</div></pre></td></tr></table></figure>
+<h2 id="test-on-zabbix-server"><a href="#test-on-zabbix-server" class="headerlink" title="test on zabbix server"></a>test on zabbix server</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">shell&gt; zabbix_get <span class="_">-s</span> 127.0.0.1 -p 10050 -k <span class="string">'mysql.ping'</span></div><div class="line">1</div><div class="line"></div><div class="line">shell&gt; zabbix_get <span class="_">-s</span> 127.0.0.1 -p 10050 -k mysql.version</div><div class="line">/opt/mysql_cacti/bin/mysql Ver 14.14 Distrib 5.6.35, <span class="keyword">for</span> linux-glibc2.5 (x86_64) using EditLine wrapper</div><div class="line"></div><div class="line"><span class="comment">##注：</span></div><div class="line"><span class="comment">#如报错：sh: mysql: command not found</span></div><div class="line"><span class="comment"># sh: mysqladmin: command not found</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#修改userparameter_mysql.conf:</span></div><div class="line"><span class="comment"># mysql mysqladmin命令的路径为绝对路径</span></div></pre></td></tr></table></figure>
+<p>最终效果<br><img src="/2017/05/18/zabbix-mysql/20170517170310.png" alt="logo"></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/xjlxy" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

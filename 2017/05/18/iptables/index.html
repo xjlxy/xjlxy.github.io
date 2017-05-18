@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="iptables 表与链iptables具有Filter, NAT, Mangle, Raw四种内建表：
+1. Filter表Filter表示iptables的默认表，没有自定义表，默认使用filter表1234#Filter表内建链：- INPUT链 – 处理来自外部的数据。- OUTPUT链 –">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="iptables"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="XJL"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>iptables - XJL</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/xjlxy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://p1.bqimg.com/575659/70341d6549c552dc.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>iptables</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-05-18
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/iptables/">#iptables</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><img src="/2017/05/18/iptables/Netfilter-packet-flow.svg" alt="pic"></p>
+<h2 id="iptables-表与链"><a href="#iptables-表与链" class="headerlink" title="iptables 表与链"></a>iptables 表与链</h2><p>iptables具有Filter, NAT, Mangle, Raw四种内建表：</p>
+<h3 id="1-Filter表"><a href="#1-Filter表" class="headerlink" title="1. Filter表"></a>1. Filter表</h3><p>Filter表示iptables的默认表，没有自定义表，默认使用filter表<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#Filter表内建链：</div><div class="line">- INPUT链 – 处理来自外部的数据。</div><div class="line">- OUTPUT链 – 处理向外发送的数据。</div><div class="line">- FORWARD链 – 将数据转发到本机的其他网卡设备上。</div></pre></td></tr></table></figure></p>
+<h3 id="2-NAT表"><a href="#2-NAT表" class="headerlink" title="2. NAT表"></a>2. NAT表</h3><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#NAT表内建链：</div><div class="line">- PREROUTING链 – 处理刚到达本机并在路由转发前的数据包。它会转换数据包中的目标IP地址（destination ip address），通常用于DNAT(destination NAT)。</div><div class="line">- POSTROUTING链 – 处理即将离开本机的数据包。它会转换数据包中的源IP地址（source ip address），通常用于SNAT（source NAT）。</div><div class="line">- OUTPUT链 – 处理本机产生的数据包。</div></pre></td></tr></table></figure>
+<h3 id="3-Mangle表"><a href="#3-Mangle表" class="headerlink" title="3. Mangle表"></a>3. Mangle表</h3><p>Mangle表用于指定如何处理数据包。它能改变TCP头中的QoS位。<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#Mangle表具有5个内建链：</div><div class="line">- PREROUTING</div><div class="line">- OUTPUT</div><div class="line">- FORWARD</div><div class="line">- INPUT</div><div class="line">- POSTROUTING</div></pre></td></tr></table></figure></p>
+<h3 id="4-Raw表"><a href="#4-Raw表" class="headerlink" title="4. Raw表"></a>4. Raw表</h3><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#Raw表用于处理异常，它具有2个内建链：</div><div class="line"></div><div class="line">- PREROUTING chain</div><div class="line">- OUTPUT chain</div></pre></td></tr></table></figure>
+<h2 id="开启内核转发"><a href="#开启内核转发" class="headerlink" title="开启内核转发"></a>开启内核转发</h2><p>net.ipv4.ip_forward</p>
+<h3 id="临时"><a href="#临时" class="headerlink" title="临时"></a>临时</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"1"</span> &gt; /proc/sys/net/ipv4/ip_forward</div><div class="line">sysctl net.ipv4.ip_forward＝１</div></pre></td></tr></table></figure>
+<h3 id="永久"><a href="#永久" class="headerlink" title="永久"></a>永久</h3><p>echo ‘net.ipv4.ip_forward＝１’ &gt;&gt; /etc/sysctl.conf<br>sysctl -p</p>
+<h2 id="重置规则"><a href="#重置规则" class="headerlink" title="重置规则"></a>重置规则</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#清除规则</span></div><div class="line">iptables-restore &lt; /etc/iptables/empty.rules</div><div class="line">iptables --flush</div></pre></td></tr></table></figure>
+<p>##常用命令及参数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#命令</span></div><div class="line">iptables -L -n --line-numbers <span class="comment">#显示行号</span></div><div class="line">iptables -D INPUT 1 <span class="comment">#根据行号删除</span></div><div class="line"></div><div class="line">iptables-save &gt; iptables.save <span class="comment">#导出规则到文件</span></div><div class="line">iptables-restore -c iptables.save <span class="comment">#从文件恢复规则</span></div><div class="line"></div><div class="line"><span class="comment">#参数</span></div><div class="line">-t&lt;表&gt;：指定要操纵的表；</div><div class="line">-A：向规则链中添加条目；</div><div class="line">-D：从规则链中删除条目；</div><div class="line">-i：向规则链中插入条目；</div><div class="line">-R：替换规则链中的条目；</div><div class="line">-L：显示规则链中已有的条目；</div><div class="line">-F：清楚规则链中已有的条目；</div><div class="line">-Z：清空规则链中的数据包计算器和字节计数器；</div><div class="line">-N：创建新的用户自定义规则链；</div><div class="line">-P：定义规则链中的默认目标；</div><div class="line">-h：显示帮助信息；</div><div class="line">-p：指定要匹配的数据包协议类型；</div><div class="line"><span class="_">-s</span>：指定要匹配的数据包源ip地址；</div><div class="line">-j&lt;目标&gt;：指定要跳转的目标；</div><div class="line">-i&lt;网络接口&gt;：指定数据包进入本机的网络接口；</div><div class="line">-o&lt;网络接口&gt;：指定数据包要离开本机所使用的网络接口。</div></pre></td></tr></table></figure></p>
+<h2 id="ubuntu-开机自动加载规则"><a href="#ubuntu-开机自动加载规则" class="headerlink" title="ubuntu 开机自动加载规则"></a>ubuntu 开机自动加载规则</h2><p>sudo nano /etc/network/interfaces<br>在末尾加入：<br>pre-up iptables-restore &lt;/etc/iptables-rules</p>
+<p>或者加入<br>rc.local</p>
+<h2 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h2><p>参考：<br><a href="http://www.netfilter.org/documentation/HOWTO//NAT-HOWTO-6.html#ss6.1" target="_blank" rel="external">http://www.netfilter.org/documentation/HOWTO//NAT-HOWTO-6.html#ss6.1</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#多端口转发：</span></div><div class="line"><span class="comment">#(将访问本地tcp端口50000~65535转发至目标1.1.1.1:50000~65535)</span></div><div class="line">-A PREROUTING -p tcp -m tcp --dport 50000:65535 -j DNAT --to-destination 1.1.1.1</div><div class="line">-A POSTROUTING <span class="_">-d</span> 1.1.1.1/32 -p tcp -m tcp --dport 50000:65535 -j SNAT --to-source [本地服务器IP]</div><div class="line"></div><div class="line"><span class="comment">#转发1.1.1.1的数据包</span></div><div class="line">-A FORWARD <span class="_">-s</span> 1.1.1.1 -j ACCEPT</div><div class="line">-A FORWARD <span class="_">-d</span> 1.1.1.1 -j ACCEPT</div><div class="line"></div><div class="line"><span class="comment">#不同端口转发：</span></div><div class="line"><span class="comment">#（将访问本地tcp端口60000转发至目标1.1.1.1：50000）</span></div><div class="line">-A PREROUTING -p tcp -m tcp --dport 60000 -j DNAT --to-destination 1.1.1.1:50000</div><div class="line">-A POSTROUTING <span class="_">-d</span> 1.1.1.1/32 -p tcp -m tcp --dport 50000 -j SNAT --to-source [本地服务器IP]</div><div class="line"></div><div class="line"><span class="comment">#转发1.1.1.1的数据包</span></div><div class="line">-A FORWARD <span class="_">-s</span> 1.1.1.1 -j ACCEPT</div><div class="line">-A FORWARD <span class="_">-d</span> 1.1.1.1 -j ACCEPT</div><div class="line"></div><div class="line"><span class="comment">## Masquerade everything out ppp0</span></div><div class="line"><span class="comment">#伪装所有从ppp0出去的ip</span></div><div class="line">iptables -t nat -A POSTROUTING -o ppp0 -j MASQUERADE</div><div class="line"></div><div class="line"><span class="comment">#将外网访问80端口的数据转发到8080端口</span></div><div class="line">iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080</div><div class="line"></div><div class="line"><span class="comment">#local to local</span></div><div class="line"><span class="comment">#将访问本机80端口的转发到本机8080</span></div><div class="line">iptables -t nat -A OUTPUT -p tcp <span class="_">-d</span> 127.0.0.1 --dport 80 -j DNAT --to 127.0.0.1:8080</div><div class="line">iptables -t nat -A OUTPUT -p tcp <span class="_">-d</span> 192.168.1.128 --dport 80 -j DNAT --to 127.0.0.1:8080</div><div class="line"></div><div class="line"><span class="comment">#本地连接指的是在本机上，用 127.0.0.1 或者本机 IP 来访问本机的端口。本地连接的数据包不会通过网卡，而是由内核处理后直接发给本地进程。这种数据包在 iptables 中只经过 OUTPUT 链，而不会经过 PREROUTING 链。所以需要在 OUTPUT 链中进行 DNAT。除了对 127.0.0.1 之外，对本机 IP (即 192.168.1.128) 的访问也属于本地连接。</span></div></pre></td></tr></table></figure></p>
+<h2 id="limit-限速"><a href="#limit-限速" class="headerlink" title="limit 限速"></a>limit 限速</h2><p>参考:<br><a href="http://www.netfilter.org/documentation/HOWTO/de/packet-filtering-HOWTO-7.html" target="_blank" rel="external">http://www.netfilter.org/documentation/HOWTO/de/packet-filtering-HOWTO-7.html</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">-A FORWARD <span class="_">-s</span> 192.168.100.121/32 -m <span class="built_in">limit</span> --limit 100/s -j ACCEPT</div><div class="line">-A FORWARD <span class="_">-d</span> 192.168.100.121/32 -m <span class="built_in">limit</span> --limit 100/s -j ACCEPT</div><div class="line"><span class="comment">#限制每秒到达/发送192.168.100.121的数据包为100个</span></div><div class="line">-A FORWARD <span class="_">-d</span> 192.168.100.121/32 -m connlimit --connlimit-above 100 -j DROP</div><div class="line"><span class="comment">#限制100连接数</span></div><div class="line">-A FORWARD <span class="_">-s</span> 192.168.100.121/32 -j DROP</div><div class="line">-A FORWARD <span class="_">-d</span> 192.168.100.121/32 -j DROP</div><div class="line"><span class="comment">#丢弃所有超过限制的数据包</span></div></pre></td></tr></table></figure></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/xjlxy" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
