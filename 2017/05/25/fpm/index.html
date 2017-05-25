@@ -10,8 +10,7 @@
 
     <!--Description-->
     
-        <meta name="description" content="zabbix_agentd.conf1UserParameter=discovery.tcpport,$zabbix_agentd_script/discovery_tcp_port.sh \$1
-123chmod +s /bin/netstat#ORecho &#39;zabbix ALL=NOPASSW">
+        <meta name="description" content="FPM的安装1234567yum install -y rubygems ruby-devel rubygems-devel rpm-buildgem listgem source --listgem source --addd https://ruby.taobao.orggem source -">
     
 
     <!--Author-->
@@ -21,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="zabbix discovery tcp port"/>
+        <meta property="og:title" content="rpm包制作"/>
     
 
     <!--Open Graph Description-->
@@ -43,7 +42,7 @@
 
     <!-- Title -->
     
-    <title>zabbix discovery tcp port - XJL</title>
+    <title>rpm包制作 - XJL</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -137,7 +136,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>zabbix discovery tcp port</h1>
+                    <h1>rpm包制作</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -157,34 +156,16 @@
 
             <!-- Tags and categories -->
            
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
-
-
-<a href="/tags/zabbix/">#zabbix</a> <a href="/tags/discovery/">#discovery</a>
-
-
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                </div>
-            
 
             <!-- Gallery -->
             
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h2 id="zabbix-agentd-conf"><a href="#zabbix-agentd-conf" class="headerlink" title="zabbix_agentd.conf"></a>zabbix_agentd.conf</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UserParameter=discovery.tcpport,<span class="formula">$zabbix_agentd_script/discovery_tcp_port.sh <span class="tag">\<span class="name">$</span></span>1</span></div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">chmod +s /bin/netstat</div><div class="line"><span class="comment">#OR</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'zabbix ALL=NOPASSWD:/bin/netstat'</span> &gt;&gt; /etc/sudoers</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#discovery_tcp_port.sh</span></div><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">portarray=(`netstat -tnlp|egrep -i <span class="string">"<span class="variable">$1</span>"</span>|awk &#123;<span class="string">'print $4'</span>&#125;|awk -F<span class="string">':'</span> <span class="string">'&#123;if ($NF~/^[0-9]*$/) print $NF&#125;'</span>|sort|uniq`)</div><div class="line">length=<span class="variable">$&#123;#portarray[@]&#125;</span></div><div class="line"><span class="built_in">printf</span> <span class="string">"&#123;\n"</span></div><div class="line"><span class="built_in">printf</span> <span class="string">'\t'</span><span class="string">"\"data\":["</span></div><div class="line"><span class="keyword">for</span> ((i=0;i&lt;<span class="variable">$length</span>;i++))</div><div class="line">  <span class="keyword">do</span></div><div class="line">  <span class="built_in">printf</span> <span class="string">'\n\t\t&#123;'</span></div><div class="line">  <span class="built_in">printf</span> <span class="string">"\"&#123;#TCP_PORT&#125;\":\"<span class="variable">$&#123;portarray[$i]&#125;</span>\"&#125;"</span></div><div class="line">  <span class="keyword">if</span> [ <span class="variable">$i</span> <span class="_">-lt</span> $[<span class="variable">$length</span>-1] ];<span class="keyword">then</span></div><div class="line">  <span class="built_in">printf</span> <span class="string">','</span></div><div class="line">  <span class="keyword">fi</span></div><div class="line">  <span class="keyword">done</span></div><div class="line"><span class="built_in">printf</span> <span class="string">"\n\t]\n"</span></div><div class="line"><span class="built_in">printf</span> <span class="string">"&#125;\n"</span></div></pre></td></tr></table></figure>
-<h2 id="Create-discovery-rule"><a href="#Create-discovery-rule" class="headerlink" title="Create discovery rule"></a>Create discovery rule</h2><p>Discovery rules –&gt;Create discovery rule<br><img src="/2017/05/25/zabbix-discovery-tcp-port/pic0.png" alt="pic0"></p>
-<p>Item prototypes –&gt; Create item prototype<br><img src="/2017/05/25/zabbix-discovery-tcp-port/pic1.png" alt="pic1"></p>
-<p>Trigger prototypes –&gt; Create trigger prototype<br><img src="/2017/05/25/zabbix-discovery-tcp-port/pic2.png" alt="pic2"></p>
-<p>Latest data<br><img src="/2017/05/25/zabbix-discovery-tcp-port/pic3.png" alt="pic3"></p>
-<p><img src="/2017/05/25/zabbix-discovery-tcp-port/pic4.png" alt="pic3"></p>
+                <h2 id="FPM的安装"><a href="#FPM的安装" class="headerlink" title="FPM的安装"></a>FPM的安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">yum install -y rubygems ruby-devel rubygems-devel rpm-build</div><div class="line">gem list</div><div class="line">gem <span class="built_in">source</span> --list</div><div class="line">gem <span class="built_in">source</span> --addd https://ruby.taobao.org</div><div class="line">gem <span class="built_in">source</span> --remove http://rubygems.org</div><div class="line">gem install json -v 1.8.3 -V</div><div class="line">gem install fpm -v 1.4.0 -V</div></pre></td></tr></table></figure>
+<h2 id="FPM常用参数"><a href="#FPM常用参数" class="headerlink" title="FPM常用参数"></a>FPM常用参数</h2><p>  -s:指定源类型<br>  -t:指定目标类型，即想要制作为什么包<br>  -n:指定包的名字<br>  -v:指定包的版本号<br>  -C:指定打包的相对路径<br>  -d:指定依赖于哪些包<br>  -f:第二次包时目录下如果有同名安装包存在，则覆盖它<br>  -p:输出的安装包的目录，不想放在当前目录下就需要指定  –post-install:软件包安装完成之后所要运行的脚本；同–offer-install<br>  –pre-install:软件包安装完成之前所要运行的脚本；同–before-install<br>  –post-uninstall:软件包卸载完成之后所要运行的脚本；同–offer-remove<br>  –pre-uninstall:软件包卸载完成之前所要运行的脚本；同—before-remove</p>
+<h2 id="know-errors"><a href="#know-errors" class="headerlink" title="know errors"></a>know errors</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.Need executable ‘rpmbuild’ to convert dir to rpm &#123;:level=&gt;:error&#125;</div><div class="line"></div><div class="line">solution： </div><div class="line">[root@localhost]# yum install -y rpm-build</div></pre></td></tr></table></figure>
+<h2 id="EX"><a href="#EX" class="headerlink" title="EX"></a>EX</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">fpm <span class="_">-s</span> dir -t rpm -n nginx -v 1.10.1 \</div><div class="line">--post-install /root/ngpost.sh \</div><div class="line"><span class="_">-f</span> /usr/<span class="built_in">local</span>/nginx</div><div class="line"><span class="_">-d</span> <span class="string">'zlib-devel,pcre-devel,openssl-devel'</span> \</div><div class="line">no value <span class="keyword">for</span> epoch is <span class="built_in">set</span>, defaulting to nil &#123;:level=&gt;:warn&#125;</div><div class="line">no value <span class="keyword">for</span> epoch is <span class="built_in">set</span>, defaulting to nil &#123;:level=&gt;:warn&#125;</div><div class="line">Created package &#123;:path=&gt;<span class="string">"nginx-1.10.1-1.x86_64.rpm"</span>&#125;</div><div class="line">ll</div><div class="line">-rw-r--r--. 1 root root 2475253 11月 30 20:24 nginx-1.10.1-1.x86_64.rpm</div></pre></td></tr></table></figure>
 
 
                 
