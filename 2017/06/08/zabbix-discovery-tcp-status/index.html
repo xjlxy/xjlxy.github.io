@@ -10,8 +10,7 @@
 
     <!--Description-->
     
-        <meta name="description" content="create account12GRANT USAGE ON *.* TO &#39;zabbix&#39;@&#39;127.0.0.1&#39; IDENTIFIED BY &#39;zabbx_admin&#39;;flush privileges;
-userparameter_mysql.conf12345#复制userparameter">
+        <meta name="description" content="zabbix_agentd.conf12UserParameter=discovery.tcp_status,/script/discovery_tcp_status.shUserParameter=tcp_status.check[*],/script/tcp_status_check.sh $1">
     
 
     <!--Author-->
@@ -21,7 +20,7 @@ userparameter_mysql.conf12345#复制userparameter">
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="zabbix mysql"/>
+        <meta property="og:title" content="zabbix discovery tcp status"/>
     
 
     <!--Open Graph Description-->
@@ -43,7 +42,7 @@ userparameter_mysql.conf12345#复制userparameter">
 
     <!-- Title -->
     
-    <title>zabbix mysql - XJL</title>
+    <title>zabbix discovery tcp status - XJL</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -137,12 +136,12 @@ userparameter_mysql.conf12345#复制userparameter">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>zabbix mysql</h1>
+                    <h1>zabbix discovery tcp status</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
-                        2017-05-18
+                        2017-06-08
                     </span>
                 </div>
             </div>
@@ -162,7 +161,7 @@ userparameter_mysql.conf12345#复制userparameter">
                         
 
 
-<a href="/tags/mysql/">#mysql</a> <a href="/tags/zabbix/">#zabbix</a>
+<a href="/tags/zabbix/">#zabbix</a> <a href="/tags/discovery/">#discovery</a>
 
 
                     
@@ -177,13 +176,14 @@ userparameter_mysql.conf12345#复制userparameter">
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h2 id="create-account"><a href="#create-account" class="headerlink" title="create account"></a>create account</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">GRANT</span> <span class="keyword">USAGE</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'zabbix'</span>@<span class="string">'127.0.0.1'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'zabbx_admin'</span>;</div><div class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</div></pre></td></tr></table></figure>
-<h2 id="userparameter-mysql-conf"><a href="#userparameter-mysql-conf" class="headerlink" title="userparameter_mysql.conf"></a>userparameter_mysql.conf</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#复制userparameter_mysql.conf模板到zabbix配置文件所在目录</div><div class="line">cp ./zabbix-3.2.5/conf/zabbix_agentd/userparameter_mysql.conf /usr/local/etc/zabbix_agentd.conf.d/</div><div class="line"></div><div class="line">#HOME目录修改为zabbix配置文件所在目录</div><div class="line">sed -i &apos;s@/var/lib/zabbix@/usr/local/etc@g&apos; /usr/local/etc/zabbix_agentd.conf.d/userparameter_mysql.conf</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#userparameter_mysql.conf</div><div class="line">UserParameter=mysql.status[*],echo &quot;show global status where Variable_name=&apos;$1&apos;;&quot; | HOME=/usr/local/etc mysql -N | awk &apos;&#123;print $$2&#125;&apos;</div><div class="line">UserParameter=mysql.size[*],bash -c &apos;echo &quot;select sum($(case &quot;$3&quot; in both|&quot;&quot;) echo &quot;data_length+index_length&quot;;; data|index) echo &quot;$3_length&quot;;; free) echo &quot;data_free&quot;;; esac)) from information_schema.tables$([[ &quot;$1&quot; = &quot;all&quot; || ! &quot;$1&quot; ]] || echo &quot; where table_schema=\&quot;$1\&quot;&quot;)$([[ &quot;$2&quot; = &quot;all&quot; || ! &quot;$2&quot; ]] || echo &quot;and table_name=\&quot;$2\&quot;&quot;);&quot; | HOME=/usr/local/etc mysql -N&apos;</div><div class="line">UserParameter=mysql.ping,HOME=/usr/local/etc mysqladmin ping | grep -c alive</div><div class="line">UserParameter=mysql.version,mysql -V</div></pre></td></tr></table></figure>
-<h2 id="my-cnf"><a href="#my-cnf" class="headerlink" title=".my.cnf"></a>.my.cnf</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">echo '[mysql]</div><div class="line">host=127.0.0.1</div><div class="line">port=3333</div><div class="line">user=zabbix</div><div class="line">password=zabbix_admin</div><div class="line">socket = /opt/mysql_cacti/mysql.sock</div><div class="line"></div><div class="line">[mysqladmin]</div><div class="line">host=127.0.0.1</div><div class="line">port=3333</div><div class="line">user=zabbix</div><div class="line">password=zabbix_admin</div><div class="line">socket = /opt/mysql_cacti/mysql.sock' &gt; /usr/local/etc/.my.cnf</div></pre></td></tr></table></figure>
-<h2 id="zabbix-agentd-conf"><a href="#zabbix-agentd-conf" class="headerlink" title="zabbix_agentd.conf"></a>zabbix_agentd.conf</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#追加配置到zabbix_agentd.conf</div><div class="line">echo &apos;Include=/usr/local/etc/zabbix_agentd.conf.d/&apos; &gt;&gt; zabbix_agentd.conf</div><div class="line"></div><div class="line">#重启zabbix_agentd</div><div class="line">/etc/init.d/zabbix_agentd restart</div></pre></td></tr></table></figure>
-<h2 id="test-on-zabbix-server"><a href="#test-on-zabbix-server" class="headerlink" title="test on zabbix server"></a>test on zabbix server</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">shell&gt; zabbix_get <span class="_">-s</span> 127.0.0.1 -p 10050 -k <span class="string">'mysql.ping'</span></div><div class="line">1</div><div class="line"></div><div class="line">shell&gt; zabbix_get <span class="_">-s</span> 127.0.0.1 -p 10050 -k mysql.version</div><div class="line">/opt/mysql_cacti/bin/mysql Ver 14.14 Distrib 5.6.35, <span class="keyword">for</span> linux-glibc2.5 (x86_64) using EditLine wrapper</div><div class="line"></div><div class="line"><span class="comment">##注：</span></div><div class="line"><span class="comment">#如报错：sh: mysql: command not found</span></div><div class="line"><span class="comment"># sh: mysqladmin: command not found</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#修改userparameter_mysql.conf:</span></div><div class="line"><span class="comment"># mysql mysqladmin命令的路径为绝对路径</span></div></pre></td></tr></table></figure>
-<p>最终效果<br><img src="/2017/05/18/zabbix-mysql/20170517170310.png" alt="logo"></p>
+                <h2 id="zabbix-agentd-conf"><a href="#zabbix-agentd-conf" class="headerlink" title="zabbix_agentd.conf"></a>zabbix_agentd.conf</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UserParameter=discovery.tcp_status,/script/discovery_tcp_status.sh</div><div class="line">UserParameter=tcp_status.check[*],/script/tcp_status_check.sh <span class="formula">$1</span></div></pre></td></tr></table></figure>
+<h2 id="discovery-tcp-status-sh"><a href="#discovery-tcp-status-sh" class="headerlink" title="discovery_tcp_status.sh"></a>discovery_tcp_status.sh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="built_in">export</span> PATH=/bin:/sbin:/usr/sbin:/usr/bin</div><div class="line"><span class="comment">#/bin/bash</span></div><div class="line">portarray=( $(ss -nt |awk <span class="string">'&#123;print $1&#125;'</span> |sort -u) )</div><div class="line">length=<span class="variable">$&#123;#portarray[@]&#125;</span></div><div class="line"><span class="built_in">printf</span> <span class="string">"&#123;\n"</span></div><div class="line"><span class="built_in">printf</span> <span class="string">'\t'</span><span class="string">"\"data\":["</span></div><div class="line"><span class="keyword">for</span> ((i=0;i&lt;<span class="variable">$length</span>;i++))</div><div class="line">  <span class="keyword">do</span></div><div class="line">  <span class="built_in">printf</span> <span class="string">'\n\t\t&#123;'</span></div><div class="line">  <span class="built_in">printf</span> <span class="string">"\"&#123;#TCP_STATUS&#125;\":\"<span class="variable">$&#123;portarray[$i]&#125;</span>\"&#125;"</span></div><div class="line">  <span class="keyword">if</span> [ <span class="variable">$i</span> <span class="_">-lt</span> $[<span class="variable">$length</span>-1] ];<span class="keyword">then</span></div><div class="line">  <span class="built_in">printf</span> <span class="string">','</span></div><div class="line">  <span class="keyword">fi</span></div><div class="line">  <span class="keyword">done</span></div><div class="line"><span class="built_in">printf</span> <span class="string">"\n\t]\n"</span></div><div class="line"><span class="built_in">printf</span> <span class="string">"&#125;\n"</span></div></pre></td></tr></table></figure>
+<h2 id="tcp-status-check-sh"><a href="#tcp-status-check-sh" class="headerlink" title="tcp_status_check.sh"></a>tcp_status_check.sh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="built_in">export</span> PATH=/bin:/sbin:/usr/sbin:/usr/bin</div><div class="line">ss -nt | awk <span class="string">'&#123;++s[$1]&#125; END &#123;for(k in s) print k,s[k]&#125;'</span> | awk <span class="string">"/<span class="variable">$1</span>/ &#123;print \$NF&#125;"</span></div></pre></td></tr></table></figure>
+<h1 id="zabbix-server"><a href="#zabbix-server" class="headerlink" title="zabbix server"></a>zabbix server</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">shell&gt; zabbix_get <span class="_">-s</span> localhost -k discovery.tcp_status</div><div class="line">&#123;</div><div class="line">    <span class="string">"data"</span>:[</div><div class="line">        &#123;<span class="string">"&#123;#TCP_STATUS&#125;"</span>:<span class="string">"ESTAB"</span>&#125;,</div><div class="line">        &#123;<span class="string">"&#123;#TCP_STATUS&#125;"</span>:<span class="string">"LAST-ACK"</span>&#125;,</div><div class="line">        &#123;<span class="string">"&#123;#TCP_STATUS&#125;"</span>:<span class="string">"SYN-SENT"</span>&#125;,</div><div class="line">        &#123;<span class="string">"&#123;#TCP_STATUS&#125;"</span>:<span class="string">"State"</span>&#125;</div><div class="line">    ]</div><div class="line">&#125;</div><div class="line"></div><div class="line">shell&gt; zabbix_get <span class="_">-s</span> localhost -k tcp_status.check[ESTAB]</div><div class="line">60</div></pre></td></tr></table></figure>
+<h2 id="Create-discovery-rule"><a href="#Create-discovery-rule" class="headerlink" title="Create discovery rule"></a>Create discovery rule</h2><p>Discovery rules –&gt;Create discovery rule<br><img src="/2017/06/08/zabbix-discovery-tcp-status/pic0.png" alt="pic0"></p>
+<p>Item prototypes –&gt; Create item prototype<br><img src="/2017/06/08/zabbix-discovery-tcp-status/pic1.png" alt="pic1"></p>
+<p>Trigger prototypes –&gt; Create trigger prototype<br><img src="/2017/06/08/zabbix-discovery-tcp-status/pic2.png" alt="pic2"></p>
+<p>Latest data<br><img src="/2017/06/08/zabbix-discovery-tcp-status/pic3.png" alt="pic3"></p>
 
 
                 

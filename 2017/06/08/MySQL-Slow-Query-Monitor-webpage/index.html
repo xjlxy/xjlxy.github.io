@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="MySQL Slow Query Monitor webpage"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="XJL"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>MySQL Slow Query Monitor webpage - XJL</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/xjlxy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>MySQL Slow Query Monitor webpage</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-06-08
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/mysql/">#mysql</a> <a href="/tags/monitor/">#monitor</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- install.sql</span></div><div class="line"><span class="comment">-- Create the database needed for the Query-Digest-UI</span></div><div class="line"><span class="keyword">DROP</span> <span class="keyword">DATABASE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> slow_query_log;</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> slow_query_log;</div><div class="line"><span class="keyword">USE</span> slow_query_log;</div><div class="line"></div><div class="line"><span class="comment">-- Create the global query review table</span></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`global_query_review`</span> (</div><div class="line">  <span class="string">`checksum`</span> <span class="built_in">bigint</span>(<span class="number">20</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`fingerprint`</span> <span class="built_in">text</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`sample`</span> longtext <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`first_seen`</span> datetime <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`last_seen`</span> datetime <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`reviewed_by`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`reviewed_on`</span> datetime <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`comments`</span> <span class="built_in">text</span>,</div><div class="line">  <span class="string">`reviewed_status`</span> <span class="built_in">varchar</span>(<span class="number">24</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`checksum`</span>)</div><div class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</div><div class="line"></div><div class="line"><span class="comment">-- Create the historical query review table</span></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`global_query_review_history`</span> (</div><div class="line">  <span class="string">`hostname_max`</span> <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`db_max`</span> <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`checksum`</span> <span class="built_in">bigint</span>(<span class="number">20</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`sample`</span> longtext <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`ts_min`</span> datetime <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'0000-00-00 00:00:00'</span>,</div><div class="line">  <span class="string">`ts_max`</span> datetime <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'0000-00-00 00:00:00'</span>,</div><div class="line">  <span class="string">`ts_cnt`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Query_time_sum`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Query_time_min`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Query_time_max`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Query_time_pct_95`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Query_time_stddev`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Query_time_median`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Lock_time_sum`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Lock_time_min`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Lock_time_max`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Lock_time_pct_95`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Lock_time_stddev`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Lock_time_median`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_sent_sum`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_sent_min`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_sent_max`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_sent_pct_95`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_sent_stddev`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_sent_median`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_examined_sum`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_examined_min`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_examined_max`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_examined_pct_95`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_examined_stddev`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_examined_median`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_affected_sum`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_affected_min`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_affected_max`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_affected_pct_95`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_affected_stddev`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_affected_median`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_read_sum`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_read_min`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_read_max`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_read_pct_95`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_read_stddev`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Rows_read_median`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Merge_passes_sum`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Merge_passes_min`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Merge_passes_max`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Merge_passes_pct_95`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Merge_passes_stddev`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Merge_passes_median`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_IO_r_ops_min`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_IO_r_ops_max`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_IO_r_ops_pct_95`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_IO_r_bytes_pct_95`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_IO_r_bytes_stddev`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_IO_r_bytes_median`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_IO_r_wait_min`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_IO_r_wait_max`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_IO_r_wait_pct_95`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_IO_r_ops_stddev`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_IO_r_ops_median`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_IO_r_bytes_min`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_IO_r_bytes_max`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_IO_r_wait_stddev`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_IO_r_wait_median`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_rec_lock_wait_min`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_rec_lock_wait_max`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_rec_lock_wait_pct_95`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_rec_lock_wait_stddev`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_rec_lock_wait_median`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_queue_wait_min`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_queue_wait_max`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_queue_wait_pct_95`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_queue_wait_stddev`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_queue_wait_median`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_pages_distinct_min`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_pages_distinct_max`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_pages_distinct_pct_95`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_pages_distinct_stddev`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`InnoDB_pages_distinct_median`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`QC_Hit_cnt`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`QC_Hit_sum`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Full_scan_cnt`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Full_scan_sum`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Full_join_cnt`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Full_join_sum`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Tmp_table_cnt`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Tmp_table_sum`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Filesort_cnt`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Filesort_sum`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Tmp_table_on_disk_cnt`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Tmp_table_on_disk_sum`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Filesort_on_disk_cnt`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Filesort_on_disk_sum`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Bytes_sum`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Bytes_min`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Bytes_max`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Bytes_pct_95`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Bytes_stddev`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`Bytes_median`</span> <span class="built_in">float</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="keyword">UNIQUE</span> <span class="keyword">KEY</span> <span class="string">`hostname_max`</span> (<span class="string">`hostname_max`</span>,<span class="string">`checksum`</span>,<span class="string">`ts_min`</span>,<span class="string">`ts_max`</span>),</div><div class="line">  <span class="keyword">KEY</span> <span class="string">`ts_min`</span> (<span class="string">`ts_min`</span>),</div><div class="line">  <span class="keyword">KEY</span> <span class="string">`checksum`</span> (<span class="string">`checksum`</span>)</div><div class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql &lt; install.sql</div><div class="line">mysql <span class="_">-e</span> <span class="string">"grant ALL ON slow_query_log.* to 'slowlog'@'localhost' IDENTIFIED BY '123456';flush privileges;"</span></div></pre></td></tr></table></figure>
+<h2 id="Query-Digest-UI"><a href="#Query-Digest-UI" class="headerlink" title="Query-Digest-UI"></a>Query-Digest-UI</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/kormoc/Query-Digest-UI.git</div><div class="line"><span class="built_in">cd</span> Query-Digest-UI</div><div class="line">cp config.php.example config.php</div><div class="line"></div><div class="line"><span class="comment"># configure</span></div><div class="line">vi config.php</div><div class="line"><span class="variable">$reviewhost</span> = array(</div><div class="line">// Replace hostname and database <span class="keyword">in</span> this setting</div><div class="line">// use host=hostname;port=portnum <span class="keyword">if</span> not the default port</div><div class="line">  <span class="string">'dsn'</span> =&gt; <span class="string">'mysql:host=192.168.1.190;port=3306;dbname=slow_query_log'</span>,</div><div class="line">  <span class="string">'user'</span> =&gt; <span class="string">'slowlog'</span>,</div><div class="line">  <span class="string">'password'</span> =&gt; <span class="string">'123456'</span>,</div><div class="line">// See http://www.percona.com/doc/percona-toolkit/2.1/pt-query-digest.html<span class="comment">#cmdoption-pt-query-digest--review</span></div><div class="line">  <span class="string">'review_table'</span> =&gt; <span class="string">'global_query_review'</span>,</div><div class="line">// This table is optional. You don<span class="string">'t need it, but you lose detailed stats</span></div><div class="line">// Set to a blank string to disable</div><div class="line">// See http://www.percona.com/doc/percona-toolkit/2.1/pt-query-digest.html#cmdoption-pt-query-digest--review-history</div><div class="line">  'history_table<span class="string">' =&gt; '</span>global_query_review_history<span class="string">',</span></div><div class="line">);</div></pre></td></tr></table></figure>
+<p><img src="/2017/06/08/MySQL-Slow-Query-Monitor-webpage/pic0.png" alt="pic0"></p>
+<h2 id="Anemometer"><a href="#Anemometer" class="headerlink" title="Anemometer"></a>Anemometer</h2><p>Put some data in the DB<br>Next, grab that slow query log file you have (mine’s called “slow.log”!), and run pt-query-digest on it: NOTE: I’m using a BASH 3.0 shell here on my MySQL database server! This is so the “$HOSTNAME” variable properly replaces with “db.example.com”)</p>
+<ul>
+<li>For pt-query-digest version &lt; 2.2</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ pt-query-digest --user=anemometer --password=superSecurePass \</div><div class="line">  --review h=db.example.com,D=slow_query_log,t=global_query_review \</div><div class="line">  --review-history h=db.example.com,D=slow_query_log,t=global_query_review_history \</div><div class="line">  --no-report --limit=0% \</div><div class="line">  --filter=<span class="string">" \$event-&gt;&#123;Bytes&#125; = length(\$event-&gt;&#123;arg&#125;) and \$event-&gt;&#123;hostname&#125;=\"<span class="variable">$HOSTNAME</span>\""</span> \</div><div class="line">  /var/lib/mysql/db.example.com-slow.log</div></pre></td></tr></table></figure>
+<ul>
+<li>For pt-query-digest version &gt;= 2.2<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ pt-query-digest --user=anemometer --password=superSecurePass \</div><div class="line">  --review h=db.example.com,D=slow_query_log,t=global_query_review \</div><div class="line">  --history h=db.example.com,D=slow_query_log,t=global_query_review_history \</div><div class="line">  --no-report --limit=0% \</div><div class="line">  --filter=<span class="string">" \$event-&gt;&#123;Bytes&#125; = length(\$event-&gt;&#123;arg&#125;) and \$event-&gt;&#123;hostname&#125;=\"<span class="variable">$HOSTNAME</span>\""</span> \</div><div class="line">  /var/lib/mysql/db.example.com-slow.log</div><div class="line">Pipeline process 11 (aggregate fingerprint) caused an error: Argument <span class="string">"57A"</span> isn<span class="string">'t numeric in numeric gt (&gt;) at (eval 40) line 6, &lt;&gt; line 27.</span></div><div class="line">Pipeline process 11 (aggregate fingerprint) caused an error: Argument "57B" isn't numeric <span class="keyword">in</span> numeric gt (&gt;) at (<span class="built_in">eval</span> 40) line 6, &lt;&gt; line 28.</div><div class="line">Pipeline process 11 (aggregate fingerprint) caused an error: Argument <span class="string">"57C"</span> isn<span class="string">'t numeric in numeric gt (&gt;) at (eval 40) line 6, &lt;&gt; line 29.</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/box/Anemometer.git anemometer</div><div class="line"><span class="built_in">cd</span> anemometer</div><div class="line">cp sample.config.inc.php config.inc.php</div></pre></td></tr></table></figure>
+<p>configure<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">vi config.inc.php</div><div class="line">#45</div><div class="line"><span class="formula">$conf['datasources']['mysql56'] = array(</span></div><div class="line">  'host' =&gt; '127.0.0.1',</div><div class="line">  'port' =&gt; 3333,</div><div class="line">  'db' =&gt; 'slow_query_log',</div><div class="line">  'user' =&gt; 'slowlog',</div><div class="line">  'password' =&gt; '123456',</div><div class="line">  'tables' =&gt; array(</div><div class="line">  'global_query_review' =&gt; 'fact',</div><div class="line">  'global_query_review_history' =&gt; 'dimension'</div><div class="line">  ),</div><div class="line">  'source_type' =&gt; 'slow_query_log'</div><div class="line">);</div><div class="line"></div><div class="line">#286</div><div class="line">$conf['plugins'] = array(</div><div class="line">  ...</div><div class="line">  'explain' =&gt; function (<span class="formula">$sample) &#123;</span></div><div class="line">  $conn['host'] = '127.0.0.1';</div><div class="line">  <span class="formula">$conn['port'] = 3333 ;</span></div><div class="line">  $conn['db'] = 'slow_query_log';</div><div class="line">  <span class="formula">$conn['user'] = 'slowlog';</span></div><div class="line">  $conn['password'] = '123456';</div><div class="line">  return <span class="formula">$conn;</span></div><div class="line">## fix Error in Query Explain Plugin: Missing field host</div><div class="line">#http://www.it165.net/database/html/201604/15309.html</div><div class="line"></div><div class="line">  $conn['user'] = 'slowlog';</div><div class="line">  <span class="formula">$conn['password'] = '123456';</span></div><div class="line"></div><div class="line">  return $conn;</div><div class="line">  &#125;,</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p><img src="/2017/06/08/MySQL-Slow-Query-Monitor-webpage/pic1.png" alt="pic1"></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:424187951@qq.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
