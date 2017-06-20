@@ -10,6 +10,10 @@
 
     <!--Description-->
     
+        <meta name="description" content="zabbix_agentd.conf1EnableRemoteCommands=1
+/etc/sudoers1234zabbix ALL=NOPASSWD: /usr/bin/python##注释掉如下一行，否则命令无法执行：# Default requiretty
+zabbix webConfig">
+    
 
     <!--Author-->
     
@@ -18,7 +22,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="XJL"/>
+        <meta property="og:title" content="zabbix restart agentd services"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>zabbix - XJL</title>
+    <title>zabbix restart agentd services - XJL</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -126,141 +130,75 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>#zabbix</h1>
+                <div class="post-heading">
+                    <h1>zabbix restart agentd services</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-05-27
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/zabbix/">#zabbix</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2017/06/19/zabbix-discovery-access-user-ip/">
-        <h1 class="post-title archive">
-            zabbix discovery access user ip
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-06-19
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2017/06/08/zabbix-discovery-tcp-status/">
-        <h1 class="post-title archive">
-            zabbix discovery tcp status
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-06-08
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="zabbix-agentd-conf"><a href="#zabbix-agentd-conf" class="headerlink" title="zabbix_agentd.conf"></a>zabbix_agentd.conf</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">EnableRemoteCommands=1</div></pre></td></tr></table></figure>
+<h2 id="etc-sudoers"><a href="#etc-sudoers" class="headerlink" title="/etc/sudoers"></a>/etc/sudoers</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">zabbix ALL=NOPASSWD: /usr/bin/python</div><div class="line"></div><div class="line">##注释掉如下一行，否则命令无法执行：</div><div class="line"># Default requiretty</div></pre></td></tr></table></figure>
+<h2 id="zabbix-web"><a href="#zabbix-web" class="headerlink" title="zabbix web"></a>zabbix web</h2><p>Configuration–&gt; Actions–&gt; Create action<br>Conditions:可以加入更多信息，使判断更具针对性<br><img src="/2017/05/27/zabbix-restart-agentd-services/zabbix0.png" alt="pic"></p>
+<h3 id="Operations"><a href="#Operations" class="headerlink" title="Operations:"></a>Operations:</h3><p>每分钟执行一次commands，一共执行5次，条件不存在则中断commands<br><img src="/2017/05/27/zabbix-restart-agentd-services/zabbix1.png" alt="pic"></p>
+<h3 id="Action-logs"><a href="#Action-logs" class="headerlink" title="Action logs:"></a>Action logs:</h3><p>可以看到已经触发动作;<br><img src="/2017/05/27/zabbix-restart-agentd-services/zabbix2.png" alt="pic"></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2017/05/27/zabbix-restart-agentd-services/">
-        <h1 class="post-title archive">
-            zabbix restart agentd services
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-27
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2017/05/27/grafana-zabbix/">
-        <h1 class="post-title archive">
-            grafana-zabbix
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-27
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/27/zabbix-discovery-network-interface-IPaddr/">
-        <h1 class="post-title archive">
-            zabbix discovery network interface IPaddr
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-27
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/25/zabbix-discovery-tcp-port/">
-        <h1 class="post-title archive">
-            zabbix discovery tcp port
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-25
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/25/zabbix-discovery-process-CPU-MEM/">
-        <h1 class="post-title archive">
-            zabbix discovery process CPU MEM
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-25
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/18/zabbix-mysql/">
-        <h1 class="post-title archive">
-            zabbix mysql
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-18
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
