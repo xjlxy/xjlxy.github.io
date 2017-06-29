@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="ionice修改进程IO调度策略
+12345678910111213141516171819202122232425262728293031323334ionice --helpUsage: ionice [options] -p &amp;lt;pid&amp;gt;... ionice [options] -P">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="CPU IO priority"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="XJL"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>CPU IO priority - XJL</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/xjlxy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>CPU IO priority</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-06-26
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="ionice"><a href="#ionice" class="headerlink" title="ionice"></a>ionice</h2><p>修改进程IO调度策略</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">ionice --help</div><div class="line"></div><div class="line">Usage:</div><div class="line"> ionice [options] -p &lt;pid&gt;...</div><div class="line"> ionice [options] -P &lt;pgid&gt;...</div><div class="line"> ionice [options] -u &lt;uid&gt;...</div><div class="line"> ionice [options] &lt;command&gt;</div><div class="line"></div><div class="line">Show or change the I/O-scheduling class and priority of a process.</div><div class="line"></div><div class="line">Options:</div><div class="line"> -c, --class &lt;class&gt; name or number of scheduling class,</div><div class="line">  0: none, 1: realtime, 2: best-effort, 3: idle</div><div class="line"> -n, --classdata &lt;num&gt; priority (0..7) in the specified scheduling class,</div><div class="line">  only for the realtime and best-effort classes</div><div class="line"> -p, --pid &lt;pid&gt;... act on these already running processes</div><div class="line"> -P, --pgid &lt;pgrp&gt;... act on already running processes in these groups</div><div class="line"> -t, --ignore ignore failures</div><div class="line"> -u, --uid &lt;uid&gt;... act on already running processes owned by these users</div><div class="line"></div><div class="line"> -h, --help display this help and exit</div><div class="line"> -V, --version output version information and exit</div><div class="line"></div><div class="line">For more details see ionice(1).</div><div class="line"></div><div class="line">ilde：</div><div class="line">空闲磁盘调度，该调度策略是在当前系统没有其他进程需要进行磁盘IO时，才能进行磁盘；因此该策略对当前系统的影响基本为0；当然，该调度策略不能带有任何优先级参数；目前，普通用户是可以使用该调度策略（自从内核2.6.25开始）。</div><div class="line"></div><div class="line">Best effort：</div><div class="line">是缺省的磁盘IO调度策略；(1)该调度策略可以指定优先级参数(范围是0~7，数值越小，优先级越高)；(2)针对处于同一优先级的程序将采round-robin方式；(3)对于best effort调度策略，8个优先级等级可以说明在给定的一个调度窗口中时间片的大小。(4)目前，普调用户(非root用户)是可以使用该调度策略。(5)在内核2.6.26之前，没有设置IO优先级的进程会使用“none”作为调度策略，但是这种策略使得进程看起来像是采用了best effort调度策略，因为其优先级是通过关于cpu nice有关的公式计算得到的：io_priority = (cpu_nice + 20) /5。(6)在内核2.6.26之后，如果当前系统使用的是CFQ调度器，那么如果进程没有设置IO优先级级别，将采用与内核2.6.26之前版本同样</div><div class="line">的方式，推到出io优先级级别。</div><div class="line"></div><div class="line">Real time：</div><div class="line">实时调度策略，如果设置了该磁盘IO调度策略，则立即访问磁盘，不管系统中其他进程是否有IO。因此使用实时调度策略，需要注意的是，该访问策略可能会使得其他进程处于等待状态。</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">shell&gt; ionice -c1 -n7 tail <span class="_">-f</span> /etc/passwd</div><div class="line"></div><div class="line">shell&gt; ps -aux |grep <span class="string">'/etc/passwd'</span></div><div class="line">root 7221 0.0 0.0 71252 4164 pts/31 S+ 12:09 0:00 sudo ionice -c1 -n7 tail <span class="_">-f</span> /etc/passwd</div><div class="line">root 7222 0.0 0.0 11448 684 pts/31 S+ 12:09 0:00 tail <span class="_">-f</span> /etc/passwd</div><div class="line">xy 7247 0.0 0.0 15956 2324 pts/28 S+ 12:10 0:00 grep --color=auto /etc/passwd</div><div class="line"></div><div class="line">shell&gt; ionice -p 7222</div><div class="line">realtime: prio 7</div><div class="line"></div><div class="line">shell&gt; ionice -p 6666 -c3</div><div class="line"><span class="comment">#修改PID:6666的IO调度策略为ilde</span></div></pre></td></tr></table></figure>
+<h2 id="nice"><a href="#nice" class="headerlink" title="nice"></a>nice</h2><p>修改进程CPU调度策略<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">shell&gt; nice --help</div><div class="line">Usage: nice [OPTION] [COMMAND [ARG]...]</div><div class="line">Run COMMAND with an adjusted niceness, which affects process scheduling.</div><div class="line">With no COMMAND, print the current niceness. Niceness values range from</div><div class="line">-20 (most favorable to the process) to 19 (least favorable to the process).</div><div class="line"></div><div class="line">Mandatory arguments to long options are mandatory for short options too.</div><div class="line">  -n, --adjustment=N add integer N to the niceness (default 10)</div><div class="line">  --help display this help and exit</div><div class="line">  --version output version information and exit</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">nice -n -5 mysqld_safe</div><div class="line"><span class="comment">#OR</span></div><div class="line">nice --5 mysqld_safe</div></pre></td></tr></table></figure>
+<h2 id="renice"><a href="#renice" class="headerlink" title="renice"></a>renice</h2><p>修改以及存在的进程CPU调度策略<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">shell&gt; renice --help</div><div class="line"></div><div class="line">Usage:</div><div class="line"> renice [-n] &lt;priority&gt; [-p|--pid] &lt;pid&gt;...</div><div class="line"> renice [-n] &lt;priority&gt; -g|--pgrp &lt;pgid&gt;...</div><div class="line"> renice [-n] &lt;priority&gt; -u|--user &lt;user&gt;...</div><div class="line"></div><div class="line">Alter the priority of running processes.</div><div class="line"></div><div class="line">Options:</div><div class="line"> -n, --priority &lt;num&gt; specify the nice increment value</div><div class="line"> -p, --pid &lt;id&gt; interpret argument as process ID (default)</div><div class="line"> -g, --pgrp &lt;id&gt; interpret argument as process group ID</div><div class="line"> -u, --user &lt;name&gt;|&lt;id&gt; interpret argument as username or user ID</div><div class="line"></div><div class="line"> -h, --help display this help and exit</div><div class="line"> -V, --version output version information and exit</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">renice -5 -p 6666</div><div class="line">OR</div><div class="line">renice -5 6666</div><div class="line"><span class="comment">#PID:6666 nice设置为-5</span></div></pre></td></tr></table></figure>
+<h2 id="taskset"><a href="#taskset" class="headerlink" title="taskset"></a>taskset</h2><p>把进程运行到指定CPU（即修改进程的”CPU亲和性”）：<br>两个名词<br>SMP (Symmetrical Multi-Processing)：指在一个计算机上汇集了一组处理器(多CPU)，各CPU之间共享内存子系统以及总线结构<br>CPU affinity：中文唤作“CPU亲和性”，是指在CMP架构下，能够将一个或多个进程绑定到一个或多个处理器上运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">shell&gt; taskset -c -p 3 2362</div><div class="line">pid 2362<span class="string">'s current affinity list: 0-3</span></div><div class="line">pid 2362's new affinity list: 3</div><div class="line"><span class="comment">#指定PID 2362,到cpu#3上</span></div><div class="line"></div><div class="line"><span class="comment">#启动时指定</span></div><div class="line">taskset -c 1  mysqld_safe</div></pre></td></tr></table></figure>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:424187951@qq.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
