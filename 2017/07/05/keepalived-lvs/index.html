@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="1、介绍
+Keeaplived 主要有两种应用场景，一个是通过配置keepalived结合ipvs做到负载均衡（LVS+Keepalived）。另一个是通过自身健康检查、资源接管功能做高可用（双机热备），实现故障转移。
+2、keepalived主要作用
+keepalived采用VRRP（virtua">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Keepalived LVS"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="XJL"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Keepalived LVS - XJL</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/xjlxy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Keepalived LVS</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-07-05
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/keepalived/">#keepalived</a> <a href="/tags/lvs/">#lvs</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>1、介绍</p>
+<p>Keeaplived 主要有两种应用场景，一个是通过配置keepalived结合ipvs做到负载均衡（LVS+Keepalived）。另一个是通过自身健康检查、资源接管功能做高可用（双机热备），实现故障转移。</p>
+<p>2、keepalived主要作用</p>
+<p>keepalived采用VRRP（virtual router redundancy protocol），虚拟路由冗余协议，以软件的形式实现服务器热备功能。通常情况下是将两台linux服务器组成一个热备组（master-backup），同一时间热备组内只有一台主服务器（master）提供服务，同时master会虚拟出一个共用IP地址（VIP），这个VIP只存在master上并对外提供服务。如果keepalived检测到master宕机或服务故障，备服务器（backup）会自动接管VIP成为master，keepalived并将master从热备组移除，当master恢复后，会自动加入到热备组，默认再抢占成为master，起到故障转移功能。</p>
+<p>3、工作在三层、四层和七层原理</p>
+<p>Layer3：工作在三层时，keepalived会定期向热备组中的服务器发送一个ICMP数据包，来判断某台服务器是否故障，如果故障则将这台服务器从热备组移除。</p>
+<p>Layer4：工作在四层时，keepalived以TCP端口的状态判断服务器是否故障，比如检测mysql 3306端口，如果故障则将这台服务器从热备组移除。</p>
+<h2 id="keepalived-UserGuide"><a href="#keepalived-UserGuide" class="headerlink" title="keepalived UserGuide:"></a>keepalived UserGuide:</h2><p><a href="http://www.keepalived.org/pdf/UserGuide.pdf" target="_blank" rel="external">http://www.keepalived.org/pdf/UserGuide.pdf</a></p>
+<h2 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h2><p><img src="/2017/07/05/keepalived-lvs/pic0.png" alt=""></p>
+<p><img src="/2017/07/05/keepalived-lvs/lvs.png" alt="map"></p>
+<h2 id="Install-Keepalived"><a href="#Install-Keepalived" class="headerlink" title="Install Keepalived"></a>Install Keepalived</h2><p><a href="http://www.keepalived.org/download.html" target="_blank" rel="external">http://www.keepalived.org/download.html</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">yum install -y openssl-devel libnl3-devel ipset-devel iptables-devel libnfnetlink-devel net-snmp-devel libnl-devel</div><div class="line"></div><div class="line">version=<span class="string">'1.3.5'</span></div><div class="line">wget http://www.keepalived.org/software/keepalived-<span class="variable">$&#123;version&#125;</span>.tar.gz</div><div class="line"><span class="built_in">cd</span> keepalived-<span class="variable">$&#123;version&#125;</span>/</div><div class="line">./configure &amp;&amp; make -j4</div><div class="line"></div><div class="line">![pic](./pic1.png)</div><div class="line">make install</div><div class="line"></div><div class="line">cp <span class="_">-a</span> keepalived/etc/init.d/keepalived /etc/init.d/</div><div class="line">chmod +x /etc/init.d/keepalived</div><div class="line">sed -i <span class="string">'s@daemon keepalived@daemon /usr/local/sbin/keepalived@'</span> /etc/init.d/keepalived</div><div class="line">cp <span class="_">-a</span> keepalived/etc/sysconfig/keepalived /etc/sysconfig/</div><div class="line">cp <span class="_">-a</span> keepalived/etc/keepalived/ /etc/</div><div class="line">chkconfig --add keepalived</div><div class="line">chkconfig keepalived on</div><div class="line"></div><div class="line">keepalived --version</div><div class="line">Keepalived v1.3.5 (03/19,2017), git commit v1.3.5-6-g6fa32f2</div><div class="line"></div><div class="line">Copyright(C) 2001-2017 Alexandre Cassen, &lt;acassen@gmail.com&gt;</div><div class="line"></div><div class="line">Build options: PIPE2 LIBNL3 LIBIPTC LIBIPSET_DYNAMIC LVS LIBIPVS_NETLINK VRRP VRRP_AUTH VRRP_VMAC SOCK_NONBLOCK SOCK_CLOEXEC FIB_ROUTING SO_MARK</div></pre></td></tr></table></figure>
+<h2 id="KeepAlived-Master-configure"><a href="#KeepAlived-Master-configure" class="headerlink" title="KeepAlived Master configure"></a>KeepAlived Master configure</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">#/etc/keepalived/keepalived.conf</div><div class="line">! Configuration File for keepalived</div><div class="line">global_defs &#123;</div><div class="line">  router_id LVS_MASTER</div><div class="line">&#125;</div><div class="line"></div><div class="line">vrrp_instance VI_1 &#123;</div><div class="line">  state MASTER</div><div class="line">  interface eth3 ##指定VIP网卡</div><div class="line">  virtual_router_id 60</div><div class="line">##     nopreempt</div><div class="line">##     当主down时，备接管，主恢复，不自动接管;;</div><div class="line">##     设置不抢占，该配置只能设置在state为BACKUP的主机上，  --而且priority必须要高于另一台主机。</div><div class="line">  priority 100</div><div class="line">  advert_int 1</div><div class="line">  authentication &#123;</div><div class="line">  auth_type PASS</div><div class="line">  auth_pass 1111</div><div class="line">  &#125;</div><div class="line">  virtual_ipaddress &#123;</div><div class="line">  192.168.2.120 ##VIP地址</div><div class="line">  &#125;</div><div class="line">     notify_master /etc/keepalived/be_master.sh</div><div class="line">&#125;</div><div class="line"></div><div class="line">virtual_server 192.168.2.120 80 &#123;</div><div class="line">  delay_loop 6</div><div class="line">  lb_algo rr</div><div class="line">  lb_kind DR</div><div class="line">  nat_mask 255.255.255.0</div><div class="line">  persistence_timeout 50</div><div class="line">  ##这个参数的意义是保持客户端的请求在这个时间段内全部发到同一个真实服务器</div><div class="line">  protocol TCP</div><div class="line"></div><div class="line">  real_server 192.168.1.252 80 &#123;</div><div class="line">weight 1</div><div class="line">  TCP_CHECK &#123;</div><div class="line">  connect_timeout 3</div><div class="line">  nb_get_retry 3</div><div class="line">  delay_before_retry 3</div><div class="line">  &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  real_server 192.168.1.28 80 &#123;</div><div class="line">  weight 1</div><div class="line">  TCP_CHECK &#123;</div><div class="line">  connect_timeout 3</div><div class="line">  nb_get_retry 3</div><div class="line">  delay_before_retry 3</div><div class="line">  &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#/etc/keepalived/be_master.sh</span></div><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="built_in">export</span> PAHT=<span class="variable">$PATH</span></div><div class="line">interface=$(route -n |awk <span class="string">'/^0/ &#123;print $NF&#125;'</span>)</div><div class="line">ipaddr=$(ip ad |grep -v inet6 | awk <span class="string">"/<span class="variable">$interface</span>\$/ &#123;print \$2&#125;"</span> |cut <span class="_">-d</span><span class="string">'/'</span> <span class="_">-f</span>1 |head -n1)</div><div class="line"></div><div class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$(date +%F' '%T)</span></span></div><div class="line"><span class="variable">$&#123;ipaddr&#125;</span> change to master." \</div><div class="line">     |mailx <span class="_">-s</span> <span class="string">"keepalived Master-Backup Change Status"</span> -r xjl@ops.com Triggers@qq.com</div></pre></td></tr></table></figure>
+<h2 id="check-VIP"><a href="#check-VIP" class="headerlink" title="check VIP"></a>check VIP</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">shell&gt; /etc/init.d/keepalived start</div><div class="line">shell&gt; ip a s eth3</div><div class="line">3: eth3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000</div><div class="line">  link/ether 00:0c:29:6c:dc:eb brd ff:ff:ff:ff:ff:ff</div><div class="line">  inet 192.168.2.129/24 brd 192.168.2.255 scope global eth3</div><div class="line">  inet 192.168.2.120/32 scope global eth3</div><div class="line">  inet6 fe80::20c:29ff:fe6c:dceb/64 scope link</div><div class="line">  valid_lft forever preferred_lft forever</div><div class="line"></div><div class="line">shell&gt; pidof keepalived |wc -w</div><div class="line">3</div><div class="line"><span class="comment">##共启动3个进程:</span></div><div class="line"><span class="comment">##  一个父进程，负责监控其子进程;</span></div><div class="line"><span class="comment">##  vrrp子进程;</span></div><div class="line"><span class="comment">##  checkers子进程</span></div></pre></td></tr></table></figure>
+<h2 id="KeepAlived-backup-configure"><a href="#KeepAlived-backup-configure" class="headerlink" title="KeepAlived backup configure"></a>KeepAlived backup configure</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#/etc/keepalived/keepalived.conf</div><div class="line">## 修改Master配置文件以下几项即可：</div><div class="line">global_defs &#123;</div><div class="line">router_id LVS_backup</div><div class="line">&#125;</div><div class="line"></div><div class="line">vrrp_instance VI_1 &#123;</div><div class="line">  interface eth0</div><div class="line">  state BACKUP</div><div class="line">  priority 50</div><div class="line"></div><div class="line">  notify_master /etc/keepalived/be_master.sh</div><div class="line">  notify_backup /etc/keepalived/be_backup.sh</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">shell&gt; /etc/init.d/keepalived start</div><div class="line">shell&gt; ip a s eth4</div><div class="line">2: eth4: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000</div><div class="line">  link/ether 00:50:56:3d:a5:e6 brd ff:ff:ff:ff:ff:ff</div><div class="line">  inet 192.168.2.128/24 brd 192.168.2.255 scope global eth4</div><div class="line">  inet6 fe80::250:56ff:fe3d:a5e6/64 scope link</div><div class="line">  valid_lft forever preferred_lft forever</div></pre></td></tr></table></figure>
+<h2 id="all-web-server"><a href="#all-web-server" class="headerlink" title="all web server"></a>all web server</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">VIP=<span class="string">'192.168.2.120'</span></div><div class="line">ip addr add <span class="variable">$VIP</span> dev lo</div><div class="line"> <span class="built_in">echo</span> <span class="string">"1"</span> &gt;/proc/sys/net/ipv4/conf/lo/arp_ignore</div><div class="line"> <span class="built_in">echo</span> <span class="string">"2"</span> &gt;/proc/sys/net/ipv4/conf/lo/arp_announce</div><div class="line"> <span class="built_in">echo</span> <span class="string">"1"</span> &gt;/proc/sys/net/ipv4/conf/all/arp_ignore</div><div class="line"> <span class="built_in">echo</span> <span class="string">"2"</span> &gt;/proc/sys/net/ipv4/conf/all/arp_announce</div><div class="line"> sysctl -p &gt;/dev/null 2&gt;&amp;1</div></pre></td></tr></table></figure>
+<p>test web page<br><img src="/2017/07/05/keepalived-lvs/pic2.png" alt=""></p>
+<h2 id="模拟KeepAlived故障"><a href="#模拟KeepAlived故障" class="headerlink" title="模拟KeepAlived故障"></a>模拟KeepAlived故障</h2><p>stop lvs_master keepslaved<br><img src="/2017/07/05/keepalived-lvs/pic3.png" alt=""></p>
+<p>lvs_backup:<br><img src="/2017/07/05/keepalived-lvs/pic4.png" alt=""></p>
+<p>关闭lvs_master之后 lvs_backup 自动接管vip并开始接受请求;<br>可以看到当backup接管master时，发出了邮件<br><img src="/2017/07/05/keepalived-lvs/pic5.png" alt=""></p>
+<p>当master恢复后，backup会被接管;<br><img src="/2017/07/05/keepalived-lvs/pic6.png" alt=""></p>
+<p><img src="/2017/07/05/keepalived-lvs/pic7.png" alt=""></p>
+<h2 id="模拟-web-server故障"><a href="#模拟-web-server故障" class="headerlink" title="模拟 web server故障"></a>模拟 web server故障</h2><p>关闭web1后，自动将服务器从virtual server table里面移除，此时只能访问web2;<br>web1恢复后会自动添加到virtual server table<br><img src="/2017/07/05/keepalived-lvs/pic8.png" alt=""></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:424187951@qq.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
