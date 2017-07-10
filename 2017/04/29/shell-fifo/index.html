@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="FIFOFIFO中可以很好地解决在无关进程间数据交换的要求，并且由于它们是存在于文件系统中的，这也提供了一种比匿名管道更持久稳定的通信办法。FIFO的通信方式类似于在进程中使用文件来传输数据，只不过FIFO类型文件同时具有管道的特性。在数据读出时，FIFO管道中同时清除数据。
+12345678910">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="shell fifo"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="XJL"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>shell fifo - XJL</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/xjlxy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>shell fifo</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-04-29
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/bash/">#bash</a> <a href="/tags/shell/">#shell</a> <a href="/tags/fifo/">#fifo</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="FIFO"><a href="#FIFO" class="headerlink" title="FIFO"></a>FIFO</h2><p>FIFO中可以很好地解决在无关进程间数据交换的要求，并且由于它们是存在于文件系统中的，这也提供了一种比匿名管道更持久稳定的通信办法。FIFO的通信方式类似于在进程中使用文件来传输数据，只不过FIFO类型文件同时具有管道的特性。在数据读出时，FIFO管道中同时清除数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">SEND_THREAD_NUM=7</div><div class="line">tmp_fifofile=&quot;/tmp/$$.fifo&quot;</div><div class="line">mkfifo -m 600 &quot;$tmp_fifofile&quot;</div><div class="line">exec 6&lt;&gt;&quot;$tmp_fifofile&quot;</div><div class="line"></div><div class="line">for ((i=0;i&lt;$SEND_THREAD_NUM;i++));do</div><div class="line">  echo</div><div class="line">done &gt;&amp;6</div><div class="line"></div><div class="line">for i in `seq 1 100`;do</div><div class="line">  read -u6</div><div class="line"></div><div class="line">  &#123;</div><div class="line">  echo $i</div><div class="line">  sleep 3</div><div class="line">  echo &gt;&amp;6</div><div class="line">  &#125; &amp;</div><div class="line"></div><div class="line">  pid=$!</div><div class="line">  echo $pid</div><div class="line">done</div><div class="line"></div><div class="line">wait</div><div class="line"></div><div class="line">exec 6&gt;&amp;-</div><div class="line"></div><div class="line">exit 0</div></pre></td></tr></table></figure>
+<p>以下为详细注解。<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">#设置线程数，在这里所谓的线程，其实就是几乎同时放入后台（使用&amp;）执行的进程。</div><div class="line">SEND_THREAD_NUM=13</div><div class="line"># 脚本运行的当前进程ID号作为文件名，其实这样命名只是为了防止创建管道文件时与现有文件名重复，从而引起创建失败，别无他用。</div><div class="line">tmp_fifofile="/tmp/<span class="formula">$$.fifo"</span></div><div class="line">#创建管道文件,并赋予权限</div><div class="line">mkfifo -m 600 "$tmp_fifofile"</div><div class="line">#把文件描述符6指向管道文件，文件描述符可以使用3-9任意一个即可（除了5），0、1、2、5已有定义，具体可参考关于文件描述符的文章。</div><div class="line">EXEC 6&lt;&gt;"$tmp_fifofile"</div><div class="line">#删除管道文件,其实删不删无所谓，看你自己了。</div><div class="line">rm -f $tmp_fifofile</div><div class="line"></div><div class="line">#使用一个for循环向管道中输入$SEND_THREAD_NUM个空行；&gt;符号为输出重导向；&amp;符号表示6为文件描述符，也就是说&amp;6表示文件描述符6.</div><div class="line">for ((i=0;i&lt;$SEND_THREAD_NUM;i++));do</div><div class="line">  echo</div><div class="line">done &gt;&amp;6</div><div class="line"></div><div class="line">for i in `seq 1 100`;do # 100 次 for 循环开始，也就是说表示100次你的实际应用</div><div class="line">  read -u6 # 从文件描述符6（即管道）中读取行，每次读一行，由于是管道，读一行，管道中便少一行，每次只能读取一行，注意：如果读完了，便会挂起，直到管道中再次有可读的行。</div><div class="line"></div><div class="line">  &#123;</div><div class="line">  echo $i # 打印i,这里代表整个脚本的应用部分，可以替换成你的实际应用。</div><div class="line">  sleep 3 # 暂停3秒，这里是关键点，其实引入管道模拟多线程的关键就是为了这个暂停的3秒（实际上是微大于3秒的），让系统有个缓冲的时间，起到限制所谓并发的进程数量。</div><div class="line">  echo &gt;&amp;6 # 再次往管道文件中写入一个空行，为了挂起的for循环能够继续执行。</div><div class="line">  &#125; &amp; ＃注意这里要放到后台，也就是说echo $i这个你的应用有13个是几乎同时在后台执行的，为什么是13个呢？当for循环完13次后会挂起，因为管道已经空了，read -u6会暂时挂起，直到管道中有了空行。由于本commands block（即&#123;&#125;中的内容）是放在后台执行的，可以理想的看成这13次循环是同时执行的，大家同时sleep了3秒，而又同时向管道中输入了空行，所以管道在读空之后差不多3秒的时候又瞬时多了13次空行，使得read -u6能够继续读行，for循环得以继续执行。</div><div class="line"></div><div class="line">  pid=$! # $!代表在后台执行的最后一个进程。</div><div class="line">  echo $pid #打印最后一个进入后台的子进程id；打印的pid结果印证了非并发，非多线程。</div><div class="line"></div><div class="line">done</div><div class="line"></div><div class="line">wait #等到后台的进程都执行完毕。</div><div class="line"></div><div class="line">exec 6&gt;&amp;- #删除文件描述符6</div></pre></td></tr></table></figure></p>
+<p>出处：<a href="http://findingcc.blog.51cto.com/1045158/287417" target="_blank" rel="external">http://findingcc.blog.51cto.com/1045158/287417</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:424187951@qq.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
