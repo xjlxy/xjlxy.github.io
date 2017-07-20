@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="ssh_scan是一个面向 Linux 和 UNIX 服务器的易用的 SSH 服务参数配置和策略的扫描器程序，其思路来自Mozilla OpenSSH 安全指南，这个指南为 SSH 服务参数配置提供了一个可靠的安全策略基线的建议，如加密算法（Ciphers），报文认证信息码算法（MAC），密钥交换算">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="ssh scan"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="XJL"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>ssh scan - XJL</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/xjlxy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>ssh scan</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-07-11
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="ssh-scan"><a href="#ssh-scan" class="headerlink" title="ssh_scan"></a>ssh_scan</h2><pre><code>是一个面向 Linux 和 UNIX 服务器的易用的 SSH 服务参数配置和策略的扫描器程序，其思路来自Mozilla OpenSSH 安全指南，这个指南为 SSH 服务参数配置提供了一个可靠的安全策略基线的建议，如加密算法（Ciphers），报文认证信息码算法（MAC），密钥交换算法（KexAlgos）和其它
+</code></pre><p>git <a href="https://github.com/mozilla/ssh_scan" target="_blank" rel="external">https://github.com/mozilla/ssh_scan</a></p>
+<h2 id="setup"><a href="#setup" class="headerlink" title="setup"></a>setup</h2><h4 id="Debian-Ubuntu"><a href="#Debian-Ubuntu" class="headerlink" title="Debian/Ubuntu"></a>Debian/Ubuntu</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get install rubygems</div><div class="line">gem install ssh_scan</div></pre></td></tr></table></figure>
+<h4 id="CentOS-RHEL"><a href="#CentOS-RHEL" class="headerlink" title="CentOS/RHEL"></a>CentOS/RHEL</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install ruby rubygems</div><div class="line">gem install ssh_scan</div></pre></td></tr></table></figure>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div></pre></td><td class="code"><pre><div class="line">shell&gt; ssh_scan -t 127.0.0.1 -p 22</div><div class="line">[</div><div class="line">  &#123;</div><div class="line">  <span class="string">"ssh_scan_version"</span>: <span class="string">"0.0.25"</span>,</div><div class="line">  <span class="string">"ip"</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">  <span class="string">"hostname"</span>: <span class="string">"localhost"</span>,</div><div class="line">  <span class="string">"port"</span>: 22,</div><div class="line">  <span class="string">"server_banner"</span>: <span class="string">"SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.2"</span>,</div><div class="line">  <span class="string">"ssh_version"</span>: 2.0,</div><div class="line">  <span class="string">"os"</span>: <span class="string">"ubuntu"</span>,</div><div class="line">  <span class="string">"os_cpe"</span>: <span class="string">"o:canonical:ubuntu:16.04"</span>,</div><div class="line">  <span class="string">"ssh_lib"</span>: <span class="string">"openssh"</span>,</div><div class="line">  <span class="string">"ssh_lib_cpe"</span>: <span class="string">"a:openssh:openssh:7.2p2"</span>,</div><div class="line">  <span class="string">"key_algorithms"</span>: [</div><div class="line">  <span class="string">"curve25519-sha256@libssh.org"</span>,</div><div class="line">  <span class="string">"ecdh-sha2-nistp521"</span>,</div><div class="line">  <span class="string">"ecdh-sha2-nistp384"</span>,</div><div class="line">  <span class="string">"ecdh-sha2-nistp256"</span>,</div><div class="line">  <span class="string">"diffie-hellman-group-exchange-sha256"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"encryption_algorithms_client_to_server"</span>: [</div><div class="line">  <span class="string">"chacha20-poly1305@openssh.com"</span>,</div><div class="line">  <span class="string">"aes256-gcm@openssh.com"</span>,</div><div class="line">  <span class="string">"aes128-gcm@openssh.com"</span>,</div><div class="line">  <span class="string">"aes256-ctr"</span>,</div><div class="line">  <span class="string">"aes192-ctr"</span>,</div><div class="line">  <span class="string">"aes128-ctr"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"encryption_algorithms_server_to_client"</span>: [</div><div class="line">  <span class="string">"chacha20-poly1305@openssh.com"</span>,</div><div class="line">  <span class="string">"aes256-gcm@openssh.com"</span>,</div><div class="line">  <span class="string">"aes128-gcm@openssh.com"</span>,</div><div class="line">  <span class="string">"aes256-ctr"</span>,</div><div class="line">  <span class="string">"aes192-ctr"</span>,</div><div class="line">  <span class="string">"aes128-ctr"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"mac_algorithms_client_to_server"</span>: [</div><div class="line">  <span class="string">"hmac-sha2-512-etm@openssh.com"</span>,</div><div class="line">  <span class="string">"hmac-sha2-256-etm@openssh.com"</span>,</div><div class="line">  <span class="string">"umac-128-etm@openssh.com"</span>,</div><div class="line">  <span class="string">"umac-128@openssh.com"</span>,</div><div class="line">  <span class="string">"hmac-sha2-512"</span>,</div><div class="line">  <span class="string">"hmac-sha2-256"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"mac_algorithms_server_to_client"</span>: [</div><div class="line">  <span class="string">"hmac-sha2-512-etm@openssh.com"</span>,</div><div class="line">  <span class="string">"hmac-sha2-256-etm@openssh.com"</span>,</div><div class="line">  <span class="string">"umac-128-etm@openssh.com"</span>,</div><div class="line">  <span class="string">"umac-128@openssh.com"</span>,</div><div class="line">  <span class="string">"hmac-sha2-512"</span>,</div><div class="line">  <span class="string">"hmac-sha2-256"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"compression_algorithms_client_to_server"</span>: [</div><div class="line">  <span class="string">"none"</span>,</div><div class="line">  <span class="string">"zlib@openssh.com"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"compression_algorithms_server_to_client"</span>: [</div><div class="line">  <span class="string">"none"</span>,</div><div class="line">  <span class="string">"zlib@openssh.com"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"languages_client_to_server"</span>: [</div><div class="line"></div><div class="line">  ],</div><div class="line">  <span class="string">"languages_server_to_client"</span>: [</div><div class="line"></div><div class="line">  ],</div><div class="line">  <span class="string">"auth_methods"</span>: [</div><div class="line">  <span class="string">"publickey"</span>,</div><div class="line">  <span class="string">"password"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"fingerprints"</span>: &#123;</div><div class="line">  <span class="string">"rsa"</span>: &#123;</div><div class="line">  <span class="string">"known_bad"</span>: <span class="string">"false"</span>,</div><div class="line">  <span class="string">"md5"</span>: <span class="string">"c1:53:4b:ae:b9:38:c6:11:a2:1d:51:2d:de:19:45:c1"</span>,</div><div class="line">  <span class="string">"sha1"</span>: <span class="string">"26:7d:79:42:4e:6e:9b:03:d1:e4:f0:45:c1:b2:6c:f2:61:9d:4c:d6"</span>,</div><div class="line">  <span class="string">"sha256"</span>: <span class="string">"9a:46:57:e9:08:a3:ce:2a:72:dd:f0:9f:ce:16:6e:ff:58:36:24:df:0a:d1:17:ea:41:60:1c:07:63:ea:7a:07"</span></div><div class="line">  &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="string">"duplicate_host_key_ips"</span>: [</div><div class="line"></div><div class="line">  ],</div><div class="line">  <span class="string">"compliance"</span>: &#123;</div><div class="line">  <span class="string">"policy"</span>: <span class="string">"Mozilla Modern"</span>,</div><div class="line">  <span class="string">"compliant"</span>: <span class="literal">false</span>,</div><div class="line">  <span class="string">"recommendations"</span>: [</div><div class="line">  <span class="string">"Remove these authentication methods: password"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"references"</span>: [</div><div class="line">  <span class="string">"https://wiki.mozilla.org/Security/Guidelines/OpenSSH"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"grade"</span>: <span class="string">"B"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"start_time"</span>: <span class="string">"2017-07-11 20:34:29 +0800"</span>,</div><div class="line">  <span class="string">"end_time"</span>: <span class="string">"2017-07-11 20:34:29 +0800"</span>,</div><div class="line">  <span class="string">"scan_duration_seconds"</span>: 0.075674793</div><div class="line">  &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:424187951@qq.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
