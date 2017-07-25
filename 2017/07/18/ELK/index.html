@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="ELK堆栈设置有四个主要组件：Logstash：处理传入日志的Logstash的服务器组件Elasticsearch：存储所有日志Kibana：用于搜索和可视化日志的Web界面，将通过NginxFilebeat代理：安装在将其日志发送到Logstash的客户端服务器，Filebeat充当日志传送代理">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="ELK"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="XJL"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>ELK - XJL</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/xjlxy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>ELK</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-07-18
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/logstash/">#logstash</a> <a href="/tags/elasticsearch/">#elasticsearch</a> <a href="/tags/kibana/">#kibana</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>ELK堆栈设置有四个主要组件：<br>Logstash：处理传入日志的Logstash的服务器组件<br>Elasticsearch：存储所有日志<br>Kibana：用于搜索和可视化日志的Web界面，将通过Nginx<br>Filebeat代理：安装在将其日志发送到Logstash的客户端服务器，Filebeat充当日志传送代理，利用伐木工具网络协议与Logstash进行通信<br><img src="/2017/07/18/ELK/pic0.jpg" alt="pic"></p>
+<p>Home page:<br>  <a href="https://www.elastic.co/cn/products" target="_blank" rel="external">https://www.elastic.co/cn/products</a></p>
+<p>Docs:<br>  <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html" target="_blank" rel="external">https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html</a></p>
+<h2 id="setup-java8"><a href="#setup-java8" class="headerlink" title="setup java8"></a>setup java8</h2><p>yum install java-1.8.0 -y</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Home page:</div><div class="line">  http://www.oracle.com/technetwork/java/javase/downloads/index.html</div><div class="line"></div><div class="line">http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm</div><div class="line"></div><div class="line">http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz</div></pre></td></tr></table></figure>
+<h2 id="elasticsearch"><a href="#elasticsearch" class="headerlink" title="elasticsearch"></a>elasticsearch</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">wget -c https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.4.3.rpm \</div><div class="line">  https://artifacts.elastic.co/downloads/logstash/logstash-5.4.3.rpm \</div><div class="line">  https://artifacts.elastic.co/downloads/kibana/kibana-5.4.3-x86_64.rpm</div><div class="line"></div><div class="line">rpm -ivh elasticsearch-5.4.3.rpm</div><div class="line">chkconfig --add elasticsearch</div><div class="line">chkconfig elasticsearch on</div><div class="line"></div><div class="line"><span class="comment">## make sure elasticsearch is running</span></div><div class="line">shell&gt; curl -XGET <span class="string">'localhost:9200/?pretty'</span></div><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span> : <span class="string">"0rQVMcY"</span>,</div><div class="line">  <span class="string">"cluster_name"</span> : <span class="string">"elasticsearch"</span>,</div><div class="line">  <span class="string">"cluster_uuid"</span> : <span class="string">"WctRHe5eTtm85OBYiDrgcA"</span>,</div><div class="line">  <span class="string">"version"</span> : &#123;</div><div class="line">  <span class="string">"number"</span> : <span class="string">"5.4.3"</span>,</div><div class="line">  <span class="string">"build_hash"</span> : <span class="string">"eed30a8"</span>,</div><div class="line">  <span class="string">"build_date"</span> : <span class="string">"2017-06-22T00:34:03.743Z"</span>,</div><div class="line">  <span class="string">"build_snapshot"</span> : <span class="literal">false</span>,</div><div class="line">  <span class="string">"lucene_version"</span> : <span class="string">"6.5.1"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"tagline"</span> : <span class="string">"You Know, for Search"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">## /etc/elasticsearch/elasticsearch.yml</span></div><div class="line">```tex</div><div class="line">node.name: node-1</div><div class="line">path.data: /var/lib/elasticsearch</div><div class="line">path.logs: /var/<span class="built_in">log</span>/elasticsearch</div><div class="line">bootstrap.system_call_filter: <span class="literal">false</span></div><div class="line">network.host: 192.168.1.28</div><div class="line">http.port: 9200</div><div class="line"></div><div class="line"><span class="comment">## /etc/security/limits.conf</span></div><div class="line">```tex</div><div class="line">* soft nofile 65536</div><div class="line">* hard nofile 131072</div><div class="line">* soft nproc 2048</div><div class="line">* hard nproc 4096</div><div class="line"></div><div class="line"><span class="comment">## /etc/security/limits.d/90-nproc.conf</span></div><div class="line">* soft nproc 2048</div><div class="line">root soft nproc unlimited</div><div class="line"></div><div class="line">shell&gt; chown -R elasticsearch /var/lib/elasticsearch/ /var/<span class="built_in">log</span>/elasticsearch/</div><div class="line"></div><div class="line"><span class="comment">## /etc/sysconfig/elasticsearch</span></div><div class="line">ES_HOME=/usr/share/elasticsearch</div><div class="line">JAVA_HOME=/usr/java/jdk1.8.0_111</div><div class="line">CONF_DIR=/etc/elasticsearch</div><div class="line">DATA_DIR=/var/lib/elasticsearch</div><div class="line">LOG_DIR=/var/<span class="built_in">log</span>/elasticsearch</div><div class="line">PID_DIR=/var/run/elasticsearch</div></pre></td></tr></table></figure>
+<h2 id="logstash"><a href="#logstash" class="headerlink" title="logstash"></a>logstash</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">rpm -ivh logstash-5.4.3.rpm</div><div class="line"></div><div class="line">## install plugin</div><div class="line">/usr/share/logstash/bin/logstash-plugin install logstash-input-beats</div><div class="line">Validating logstash-input-beats</div><div class="line">Installing logstash-input-beats</div><div class="line">Installation successful</div><div class="line"></div><div class="line">## /etc/logstash/conf.d/01-beats-input.conf</div><div class="line">input &#123;</div><div class="line">  beats &#123;</div><div class="line">  port =&gt; 5044</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">## /etc/logstash/conf.d/10-syslog-filter.conf</div><div class="line">filter &#123;</div><div class="line">  if [type] == &quot;syslog&quot; &#123;</div><div class="line">  grok &#123;</div><div class="line">  match =&gt; &#123; &quot;message&quot; =&gt; &quot;%&#123;SYSLOGTIMESTAMP:syslog_timestamp&#125; %&#123;SYSLOGHOST:syslog_hostname&#125; %&#123;DATA:syslog_program&#125;(?:\[%&#123;POSINT:syslog_pid&#125;\])?: %&#123;GREEDYDATA:syslog_message&#125;&quot; &#125;</div><div class="line">  add_field =&gt; [ &quot;received_at&quot;, &quot;%&#123;@timestamp&#125;&quot; ]</div><div class="line">  add_field =&gt; [ &quot;received_from&quot;, &quot;%&#123;host&#125;&quot; ]</div><div class="line">  &#125;</div><div class="line">  syslog_pri &#123; &#125;</div><div class="line">  date &#123;</div><div class="line">  match =&gt; [ &quot;syslog_timestamp&quot;, &quot;MMM d HH:mm:ss&quot;, &quot;MMM dd HH:mm:ss&quot; ]</div><div class="line">  &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">## /etc/logstash/conf.d/logstash-simple.conf</div><div class="line">input &#123; stdin &#123; &#125; &#125;</div><div class="line">output &#123;</div><div class="line">  elasticsearch &#123; hosts =&gt; [&quot;localhost:9200&quot;] &#125;</div><div class="line">  stdout &#123; codec =&gt; rubydebug &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">## set up logstash</div><div class="line">#Doc: https://www.elastic.co/guide/en/beats/libbeat/5.4/logstash-installation.html#logstash-setup</div><div class="line"></div><div class="line">## Updating the Beats Input Plugin for Logstash</div><div class="line">/usr/share/logstash/bin/logstash-plugin update logstash-input-beats</div><div class="line"></div><div class="line">initctl start logstash</div></pre></td></tr></table></figure>
+<h2 id="Kibana"><a href="#Kibana" class="headerlink" title="Kibana"></a>Kibana</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">rpm -ivh kibana-5.4.3-x86_64.rpm</div><div class="line">chkconfig --add kibana</div><div class="line">chkconfig kibana on</div><div class="line"></div><div class="line">## /etc/kibana/kibana.yml</div><div class="line">server.port: 5601</div><div class="line">server.host: 0.0.0.0</div><div class="line"></div><div class="line">curl -i localhost:5601</div><div class="line">  HTTP/1.1 200 OK</div><div class="line">  kbn-name: kibana</div><div class="line">  kbn-version: 5.4.3</div><div class="line">  cache-control: no-cache</div><div class="line">  content-type: text/html; charset=utf-8</div><div class="line">  content-length: 217</div><div class="line">  accept-ranges: bytes</div><div class="line">  Date: Wed, 05 Jul 2017 07:59:59 GMT</div><div class="line"></div><div class="line"></div><div class="line">##在Elasticsearch中加载Filebeat索引模板</div><div class="line">```bash</div><div class="line">curl -O https://gist.githubusercontent.com/thisismitch/3429023e8438cc25b86c/raw/d8c479e2a1adcea8b1fe86570e42abab0f10f364/filebeat-index-template.json</div><div class="line">shell&gt; curl -XPUT &apos;http://localhost:9200/_template/filebeat?pretty&apos; -d@filebeat-index-template.json</div><div class="line">&#123;</div><div class="line">  &quot;acknowledged&quot; : true</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Filebeat"><a href="#Filebeat" class="headerlink" title="Filebeat"></a>Filebeat</h2><p><a href="https://www.elastic.co/downloads/beats/filebeat" target="_blank" rel="external">https://www.elastic.co/downloads/beats/filebeat</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.4.3-x86_64.rpm</div><div class="line">rpm -ivh filebeat-5.4.3-x86_64.rpm</div><div class="line"></div><div class="line"><span class="comment">## start</span></div><div class="line">chkconfig --add filebeat</div><div class="line">chkconfig filebeat on</div><div class="line"></div><div class="line">/etc/init.d/filebeat start</div><div class="line">./filebeat <span class="_">-e</span> -c filebeat.yml</div><div class="line"></div><div class="line"><span class="comment">## /etc/filebeat/filebeat.yml</span></div><div class="line">filebeat.prospectors:</div><div class="line">- input_type: <span class="built_in">log</span></div><div class="line">  paths:</div><div class="line">  - /var/<span class="built_in">log</span>/secure</div><div class="line">  - /var/<span class="built_in">log</span>/messages</div><div class="line">  - /var/<span class="built_in">log</span>/*.log</div><div class="line">output.elasticsearch:</div><div class="line">  hosts: [<span class="string">"192.168.1.28:9200"</span>]</div><div class="line">output.logstash:</div><div class="line">  hosts: [<span class="string">"192.168.1.28:5044"</span>]</div><div class="line"></div><div class="line"><span class="comment">#此时浏览http://localhost:9200/_search?pretty #也应该能看到一堆输出，表明elasticsearch接收到logstash的数据了</span></div></pre></td></tr></table></figure></p>
+<p><img src="/2017/07/18/ELK/ELK0.png" alt="pic"></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:424187951@qq.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
