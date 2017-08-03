@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="WebVirtMgr 是一个基于 libvirt 开发的用来管理虚拟机的Web接口。可创建和配置新的域，并调整域的资源分配，可通过 SSH 隧道的 VNC 浏览器提供完整的图形控制台来访问 guest 域，支持 KVM。
+1. Installation1234git https://github.c">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="WebVirtMgr"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="XJL"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>WebVirtMgr - XJL</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/xjlxy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>WebVirtMgr</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-07-22
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/webvirtmgr/">#webvirtmgr</a> <a href="/tags/kvm/">#kvm</a> <a href="/tags/virt/">#virt</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>WebVirtMgr 是一个基于 libvirt 开发的用来管理虚拟机的Web接口。可创建和配置新的域，并调整域的资源分配，可通过 SSH 隧道的 VNC 浏览器提供完整的图形控制台来访问 guest 域，支持 KVM。</p>
+<h2 id="1-Installation"><a href="#1-Installation" class="headerlink" title="1. Installation"></a>1. Installation</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git https://github.com/retspen/webvirtmgr/wiki/Install-WebVirtMgr</div><div class="line"></div><div class="line">$ sudo yum -y install http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm</div><div class="line">$ sudo yum -y install git python-pip libvirt-python libxml2-python python-websockify supervisor nginx</div></pre></td></tr></table></figure>
+<h2 id="2-Install-python-requirements-and-setup-Django-environment"><a href="#2-Install-python-requirements-and-setup-Django-environment" class="headerlink" title="2. Install python requirements and setup Django environment"></a>2. Install python requirements and setup Django environment</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> git://github.com/retspen/webvirtmgr.git</div><div class="line">$ <span class="built_in">cd</span> webvirtmgr</div><div class="line">$ sudo pip install -r requirements.txt <span class="comment"># or python-pip (RedHat, Fedora, CentOS, OpenSuse)</span></div><div class="line">$ ./manage.py syncdb</div><div class="line">$ ./manage.py collectstatic</div><div class="line"></div><div class="line"><span class="comment">##Enter the user information:</span></div><div class="line"></div><div class="line">You just installed Django<span class="string">'s auth system, which means you don'</span>t have any superusers defined.</div><div class="line">Would you like to create one now? (yes/no): yes (Put: yes)</div><div class="line">Username (Leave blank to use <span class="string">'admin'</span>): admin (Put: your username or login)</div><div class="line">E-mail address: username@domain.local (Put: your email)</div><div class="line">Password: xxxxxx (Put: your password)</div><div class="line">Password (again): xxxxxx (Put: confirm password)</div><div class="line">Superuser created successfully.</div><div class="line"></div><div class="line"><span class="comment">##Adding additional superusers</span></div><div class="line">$ ./manage.py createsuperuser</div></pre></td></tr></table></figure>
+<h2 id="3-Setup-Nginx"><a href="#3-Setup-Nginx" class="headerlink" title="3. Setup Nginx"></a>3. Setup Nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo cp <span class="_">-a</span>  webvirtmgr /var/www/</div><div class="line">mv /etc/nginx/conf.d/default.conf&#123;,.bak&#125;</div><div class="line">chown -R nginx:</div></pre></td></tr></table></figure>
+<h2 id="etc-nginx-conf-d-webvirtmgr-conf"><a href="#etc-nginx-conf-d-webvirtmgr-conf" class="headerlink" title="/etc/nginx/conf.d/webvirtmgr.conf"></a>/etc/nginx/conf.d/webvirtmgr.conf</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">  listen 80 default_server;</div><div class="line"></div><div class="line">  server_name <span class="formula">$hostname;</span></div><div class="line">  #access_log /var/log/nginx/webvirtmgr_access_log;</div><div class="line"></div><div class="line">  location /static/ &#123;</div><div class="line">  root /var/www/webvirtmgr/webvirtmgr; # or /srv instead of /var</div><div class="line">  expires max;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  location / &#123;</div><div class="line">  proxy_pass http://127.0.0.1:8000;</div><div class="line">  proxy_set_header X-Real-IP $remote_addr;</div><div class="line">  proxy_set_header X-Forwarded-for <span class="formula">$proxy_add_x_forwarded_for;</span></div><div class="line">  proxy_set_header Host $host:<span class="formula">$server_port;</span></div><div class="line">  proxy_set_header X-Forwarded-Proto $scheme;</div><div class="line">  proxy_connect_timeout 600;</div><div class="line">  proxy_read_timeout 600;</div><div class="line">  proxy_send_timeout 600;</div><div class="line">  client_max_body_size 1024M; # Set higher depending on your needs</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="4-Setup-Supervisor"><a href="#4-Setup-Supervisor" class="headerlink" title="4. Setup Supervisor"></a>4. Setup Supervisor</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">cat &gt;&gt; /etc/supervisor.conf</div><div class="line">[program:webvirtmgr]</div><div class="line">command=/usr/bin/python /var/www/webvirtmgr/manage.py run_gunicorn -c /var/www/webvirtmgr/conf/gunicorn.conf.py</div><div class="line">directory=/var/www/webvirtmgr</div><div class="line">autostart=true</div><div class="line">autorestart=true</div><div class="line">logfile=/var/log/supervisor/webvirtmgr.log</div><div class="line">log_stderr=true</div><div class="line">user=nginx</div><div class="line"></div><div class="line">[program:webvirtmgr-console]</div><div class="line">command=/usr/bin/python /var/www/webvirtmgr/console/webvirtmgr-console</div><div class="line">directory=/var/www/webvirtmgr</div><div class="line">autostart=true</div><div class="line">autorestart=true</div><div class="line">stdout_logfile=/var/log/supervisor/webvirtmgr-console.log</div><div class="line">redirect_stderr=true</div><div class="line">user=nginx</div><div class="line"></div><div class="line">vim +23 ./webvirtmgr/conf/gunicorn.conf.py</div><div class="line">0.0.0.0:8000</div><div class="line"></div><div class="line">```tex</div><div class="line">grep -Rn &apos;6080&apos; ./webvirtmgr</div><div class="line">./webvirtmgr/webvirtmgr/settings.py:147:WS_PORT = 6080</div><div class="line">./webvirtmgr/console/webvirtmgr-console:57: default=WS_PORT or 6080)</div></pre></td></tr></table></figure>
+<p>连接KVM<br><img src="/2017/07/22/WebVirtMgr/pic0.png" alt="pic"></p>
+<p>虚拟机设置<br><img src="/2017/07/22/WebVirtMgr/pic1.png" alt="pic"></p>
+<p>web连接虚拟机<br><img src="/2017/07/22/WebVirtMgr/pic2.png" alt="pic"></p>
+<h2 id="know-errors"><a href="#know-errors" class="headerlink" title="know errors"></a>know errors</h2><p>Cannot recv data: Host key verification failed.: Connection reset by peer</p>
+<p>su -s /bin/bash nginx<br>ssh-keygen<br>ssh-copy-id root@192.168.35.128</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:424187951@qq.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
