@@ -10,6 +10,9 @@
 
     <!--Description-->
     
+        <meta name="description" content="wsshwssh is a SSH to WebSockets Bridge that lets you invoke a remote shell using nothing but HTTP.
+The client connecting to wssh doesn’t need to speak">
+    
 
     <!--Author-->
     
@@ -18,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="XJL"/>
+        <meta property="og:title" content="wssh"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +32,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>page - Archiv - XJL</title>
+    <title>wssh - XJL</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -126,156 +129,78 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archiv</h1>
+                <div class="post-heading">
+                    <h1>wssh</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-08-07
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/ssh/">#ssh</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2017/05/06/cacti/">
-        <h1 class="post-title archive">
-            cacti 1.X
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-06
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2017/05/05/fork_boom/">
-        <h1 class="post-title archive">
-            Fork boom
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-05
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="wssh"><a href="#wssh" class="headerlink" title="wssh"></a>wssh</h2><p>wssh is a SSH to WebSockets Bridge that lets you invoke a remote shell using nothing but HTTP.</p>
+<p>The client connecting to wssh doesn’t need to speak the SSH protocol - rather, the SSH connection is terminated at the bridge level and the pty is wrapper through a thin layer of JSON and sent back to the client.</p>
+<p>This means you can implement a WSSH client in just a few lines of code, even for a web browser.</p>
+<h2 id="setup-wssh"><a href="#setup-wssh" class="headerlink" title="setup wssh"></a>setup wssh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum install python-pip</div><div class="line">pip install gevent gevent-websocket paramiko flask</div><div class="line">git clone https://github.com/aluzzardi/wssh.git</div></pre></td></tr></table></figure>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>Even though wssh primary purpose is to be used as a library in your applications, it ships with two command line tools: wsshd (the server) and wssh (the client).<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ wsshd </div><div class="line">wsshd/0.1.0 running on 0.0.0.0:5000</div><div class="line"></div><div class="line">$ wssh aluzzardi@mba -p</div><div class="line">Password: </div><div class="line">Last login: Mon Jul 23 23:20:27 2012 from localhost</div><div class="line">aluzzardi@mba:~$</div></pre></td></tr></table></figure></p>
+<h2 id="Web-Interface"><a href="#Web-Interface" class="headerlink" title="Web Interface"></a>Web Interface</h2><p>wsshd provides a web interface giving you access to a Javascript client</p>
+<p><img src="/2017/08/07/wssh/wssh0.png" alt=""></p>
+<p><img src="/2017/08/07/wssh/wssh1.png" alt=""></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2017/05/05/fpm/">
-        <h1 class="post-title archive">
-            make rpm
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-05
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2017/04/29/shell-fifo/">
-        <h1 class="post-title archive">
-            shell fifo
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-04-29
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/04/19/redis/">
-        <h1 class="post-title archive">
-            redis
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-04-19
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/04/16/webbench/">
-        <h1 class="post-title archive">
-            webbench
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-04-16
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/03/28/ubuntu-desktop-themes/">
-        <h1 class="post-title archive">
-            ubuntu desktop themes
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-03-28
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/03/16/hello-world/">
-        <h1 class="post-title archive">
-            Hello World
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-03-16
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2014/05/28/about-me/">
-        <h1 class="post-title archive">
-            About Me
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2014-05-28
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-        <li class="previous"><a href="/archives/page/3/">&larr;  Nächste Seite</a></li>
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
