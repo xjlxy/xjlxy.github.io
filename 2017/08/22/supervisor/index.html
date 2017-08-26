@@ -10,6 +10,9 @@
 
     <!--Description-->
     
+        <meta name="description" content="supervisorsupervisor是以Python开发的一套通用的进程管理程序，能将一个普通的命令行进程变为后台daemon，并监控进程状态，异常退出时能自动重启。
+install123456789yum install epel-releaseyum install supervisorcp">
+    
 
     <!--Author-->
     
@@ -18,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="XJL"/>
+        <meta property="og:title" content="Supervisor"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +32,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>Archiv: 2017/8 - XJL</title>
+    <title>Supervisor - XJL</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -126,102 +129,76 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2017/8</h1>
+                <div class="post-heading">
+                    <h1>Supervisor</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-08-22
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/supervisor/">#supervisor</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2017/08/22/supervisor/">
-        <h1 class="post-title archive">
-            Supervisor
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-08-22
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2017/08/22/ip-tunnel/">
-        <h1 class="post-title archive">
-            IP Tunnel
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-08-22
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="supervisor"><a href="#supervisor" class="headerlink" title="supervisor"></a>supervisor</h2><p>supervisor是以Python开发的一套通用的进程管理程序，能将一个普通的命令行进程变为后台daemon，并监控进程状态，异常退出时能自动重启。</p>
+<h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">yum install epel-release</div><div class="line">yum install supervisor</div><div class="line"></div><div class="line">cp -a /etc/supervisor/supervisord.conf&#123;,.bak&#125;</div><div class="line">echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf</div><div class="line">sed -i s@/tmp@/etc/supervisor@g /etc/supervisor/supervisord.conf</div><div class="line"></div><div class="line">echo &apos;[include]</div><div class="line">files = /etc/supervisor/conf.d/*.conf&apos; &gt;&gt; /etc/supervisor/supervisord.conf</div></pre></td></tr></table></figure>
+<h2 id="etc-supervisor-conf-d-mysql-5-6-conf"><a href="#etc-supervisor-conf-d-mysql-5-6-conf" class="headerlink" title="/etc/supervisor/conf.d/mysql_5.6.conf"></a>/etc/supervisor/conf.d/mysql_5.6.conf</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[program:mysql_5.6]</div><div class="line">command=/data/mysql-5.6.37-linux-glibc2.12-x86_64/bin/mysqld_safe --defaults-file=./my.cnf</div><div class="line">directory=/data/mysql-5.6.37-linux-glibc2.12-x86_64</div><div class="line">user=xy</div><div class="line">autostart=true</div><div class="line">autorestart=true</div><div class="line">startsecs=3</div><div class="line">redirect_stderr=/data/logs/mysql-5.6.37.err</div><div class="line">stdout_logfile=/data/logs/mysql-5.6.37.log</div><div class="line">stdout_logfile_maxbytes=10MB</div></pre></td></tr></table></figure>
+<h2 id="web-gui"><a href="#web-gui" class="headerlink" title="web gui"></a>web gui</h2><p>/etc/init.d/supervisor start<br>localhost:9001<br><img src="/2017/08/22/supervisor/pic0.png" alt=""></p>
+<p><img src="/2017/08/22/supervisor/pic1.png" alt=""></p>
+<p>注：supervisor还有许多选项，具体请参考supervisor文档<br><a href="http://supervisord.org/configuration.html" target="_blank" rel="external">http://supervisord.org/configuration.html</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2017/08/12/bond/">
-        <h1 class="post-title archive">
-            bond
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-08-12
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2017/08/07/bing-wallpapers/">
-        <h1 class="post-title archive">
-            bing wallpapers
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-08-07
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/08/07/wssh/">
-        <h1 class="post-title archive">
-            wssh
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-08-07
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
