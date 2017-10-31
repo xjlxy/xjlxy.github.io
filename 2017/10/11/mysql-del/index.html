@@ -10,6 +10,9 @@
 
     <!--Description-->
     
+        <meta name="description" content="背景在生产环境有可能有删除某个不重要大表的需求，因为大表占用的大量磁盘空间，如果我们直接drop掉此表，通常需要20秒以上的时间，总会觉得会卡主MySQL，现在给大家一个正确的删除方法。
+首先我们查看此大表12345678910shell&amp;gt;ls log_api_call_01_01* -l-r">
+    
 
     <!--Author-->
     
@@ -18,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="XJL"/>
+        <meta property="og:title" content="MySQL大表删除技巧 [转]"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +32,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>page - Archiv - XJL</title>
+    <title>MySQL大表删除技巧 [转] - XJL</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -126,171 +129,75 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archiv</h1>
+                <div class="post-heading">
+                    <h1>MySQL大表删除技巧 [转]</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-10-11
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/mysql/">#mysql</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2017/06/08/zabbix-discovery-tcp-status/">
-        <h1 class="post-title archive">
-            zabbix discovery tcp status
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-06-08
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2017/05/27/Grafana-configure/">
-        <h1 class="post-title archive">
-            Grafana configure
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-27
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在生产环境有可能有删除某个不重要大表的需求，因为大表占用的大量磁盘空间，如果我们直接drop掉此表，通常需要20秒以上的时间，总会觉得会卡主MySQL，现在给大家一个正确的删除方法。</p>
+<h3 id="首先我们查看此大表"><a href="#首先我们查看此大表" class="headerlink" title="首先我们查看此大表"></a>首先我们查看此大表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">shell&gt;ls log_api_call_01_01* -l</div><div class="line">-rw-r----- 1 mysql mysql 9362 Jun 22 15:35 log_api_call_01_01.frm</div><div class="line">-rw-r----- 1 mysql mysql 293334036112 Jun 22 15:38 log_api_call_01_01.ibd</div><div class="line">shell&gt;ln log_api_call_01_01.ibd log_api_call_01_01ibd.bak</div><div class="line">shell&gt;ls log_api_call_01_01* -l</div><div class="line">-rw-rw—- 1 MySQL mysql 9362 Apr 14 23:03 log_api_call_01_01.frm</div><div class="line">-rw-r----- 1 mysql mysql 293334036112 Jun 22 15:38 log_api_call_01_01.ibd</div><div class="line">-rw-r----- 1 mysql mysql 293334036112 Jun 22 15:38 log_api_call_01_01.ibd.bak</div><div class="line">mysql&gt;drop table log_api_call_01_01;</div><div class="line">Query Ok, 0 rows affacted(0.92 sec)</div></pre></td></tr></table></figure>
+<p>通过这样的操作，可以减少mysql drop大表hang住的时间，然后在业务低峰期再去删除真实的那个<em>.b文</em>.bak件。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理:"></a>原理:</h3><p>就是利用OS HARD LINK的原理,<br>当多个文件名同时指向同一个INODE时,这个INODE的引用数N&gt;1, 删除其中任何一个文件名都会很快.<br>因为其直接的物理文件块没有被删除.只是删除了一个指针而已;<br>当INODE的引用数N=1时, 删除文件需要去把这个文件相关的所有数据块清除,所以会比较耗时;</p>
+<h3 id="Tips："><a href="#Tips：" class="headerlink" title="Tips："></a>Tips：</h3><p>先用rename table替代drop table<br>mysql&gt; rename table log_api_call_01_01 to log_api_call_01_01_bak;<br>这个动作也很快只是相当于改一个文件名。<br>另外也可以考虑使用XFS文件系统，对于Drop表动作也比较快</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2017/05/27/zabbix-restart-agentd-services/">
-        <h1 class="post-title archive">
-            zabbix restart agentd services
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-27
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2017/05/27/grafana-zabbix/">
-        <h1 class="post-title archive">
-            grafana-zabbix
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-27
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/27/zabbix-discovery-network-interface-IPaddr/">
-        <h1 class="post-title archive">
-            zabbix discovery network interface IPaddr
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-27
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/25/zabbix-discovery-tcp-port/">
-        <h1 class="post-title archive">
-            zabbix discovery tcp port
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-25
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/25/zabbix-discovery-process-CPU-MEM/">
-        <h1 class="post-title archive">
-            zabbix discovery process CPU MEM
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-25
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/22/Pi-hole/">
-        <h1 class="post-title archive">
-            Pi-hole
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-22
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/22/LVS-Server/">
-        <h1 class="post-title archive">
-            LVS Server
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-22
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/18/iptables/">
-        <h1 class="post-title archive">
-            iptables
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-18
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-        <li class="previous"><a href="/archives/page/2/">&larr;  Nächste Seite</a></li>
-    
-    
-        <li class="next"><a href="/archives/page/4/">Vorherige Seite  &rarr;</a></li>
-    
-</ul>
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
