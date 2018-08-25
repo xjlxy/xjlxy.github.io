@@ -10,8 +10,8 @@
 
     <!--Description-->
     
-        <meta name="description" content="端口敲门
-适用于需要访问不向公众开放的服务器的用户。服务器可以关闭所有端口，直到用户提供一个秘密的敲门序列 （序列很容易实现，而且需要的资源不多）。打开秘密端口之后，应用常用的安全机制（比如密码或证书）。只需在防火墙级上提供一个额外的安全层，需要秘密端口的所有服务就会正常工作。这种方法的要点在于关闭">
+        <meta name="description" content="Port Knocking
+适用于需要访问不向公众开放的服务器的用户。服务器可以关闭所有端口，直到用户提供一个秘密的敲门序列 （序列很容易实现，而且需要的资源不多）。打开秘密端口之后，应用常用的安全机制（比如密码或证书）。只需在防火墙级上提供一个额外的安全层，需要秘密端口的所有服务就会正常工作。这种">
     
 
     <!--Author-->
@@ -163,7 +163,7 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h2 id="端口敲门"><a href="#端口敲门" class="headerlink" title="端口敲门"></a>端口敲门</h2><ul>
+                <h2 id="Port-Knocking"><a href="#Port-Knocking" class="headerlink" title="Port Knocking"></a>Port Knocking</h2><ul>
 <li><p>适用于需要访问不向公众开放的服务器的用户。服务器可以关闭所有端口，直到用户提供一个秘密的敲门序列 （序列很容易实现，而且需要的资源不多）。<br>打开秘密端口之后，应用常用的安全机制（比如密码或证书）。只需在防火墙级上提供一个额外的安全层，需要秘密端口的所有服务就会正常工作。<br>这种方法的要点在于关闭所有端口并监视外部连接尝试。当识别出预定义的尝试序列（称为敲门序列 ）时，可以执行打开端口等操作，让外部的用户能够进来。敲门序列的复杂程度由您决定，从简单的列表（比如依次尝试 TCP 端口 7000、UDP 端口 7100 和 TCP 端口 7200）到一次性序列集合都可以。（按密码学术语来说，一次性序列与 “一次一密” 相似，这是已知最安全的加密方法。）外面的用户必须知道使用 SSH 所需的端口号和密码，还必须知道打开端口并启用密码所需的敲门序列。如果没有这个序列，连接尝试就会静悄悄地失败。</p>
 </li>
 <li><p>wiki: <a href="https://en.wikipedia.org/wiki/Port_knocking" target="_blank" rel="external">https://en.wikipedia.org/wiki/Port_knocking</a></p>
