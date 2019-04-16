@@ -10,6 +10,9 @@
 
     <!--Description-->
     
+        <meta name="description" content="Dockerfile是docker构建镜像的基础，也是docker区别于其他容器的重要特征，正是有了Dockerfile，docker的自动化和可移植性才成为可能。
+FROM , 从一个基础镜像构建新的镜像MAINTAINER , 维护者信息ENV , 设置环境变量RUN , 非交互式运行shell">
+    
 
     <!--Author-->
     
@@ -18,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="XJL"/>
+        <meta property="og:title" content="dockerfile"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +32,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>page - Archiv - XJL</title>
+    <title>dockerfile - XJL</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -126,171 +129,73 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archiv</h1>
+                <div class="post-heading">
+                    <h1>dockerfile</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2018-05-02
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/docker/">#docker</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2017/06/19/freeNAS/">
-        <h1 class="post-title archive">
-            freeNAS
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-06-19
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2017/06/19/zabbix-discovery-access-user-ip/">
-        <h1 class="post-title archive">
-            zabbix discovery access user ip
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-06-19
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>Dockerfile是docker构建镜像的基础，也是docker区别于其他容器的重要特征，正是有了Dockerfile，docker的自动化和可移植性才成为可能。</p>
+<p>FROM , 从一个基础镜像构建新的镜像<br>MAINTAINER , 维护者信息<br>ENV , 设置环境变量<br>RUN , 非交互式运行shell命令<br>ADD , 将外部文件拷贝到镜像里,src可以为url<br>WORKDIR /path/to/workdir, 切换目录用，可以多次切换(相当于cd命令)，对RUN,CMD,ENTRYPOINT生效<br>USER , 设置用户ID<br>VULUME &lt;#dir&gt;, 设置volume<br>EXPOSE 80 443<br>ENTRYPOINT [‘executable’, ‘param1’,’param2’]执行命令<br>CMD [“param1”,”param2”]<br>CMD [“start”]</p>
+<p>docker创建、启动container时执行的命令，如果设置了ENTRYPOINT，则CMD将作为参数<br>container启动时执行的命令，但是一个Dockerfile中只能有一条CMD命令，多条则只执行最后一条CMD.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2017/06/08/MySQL-Slow-Query-Monitor-webpage/">
-        <h1 class="post-title archive">
-            MySQL Slow Query Monitor webpage
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-06-08
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2017/06/08/zabbix-discovery-tcp-status/">
-        <h1 class="post-title archive">
-            zabbix discovery tcp status
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-06-08
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/27/Grafana-configure/">
-        <h1 class="post-title archive">
-            Grafana configure
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-27
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/27/zabbix-restart-agentd-services/">
-        <h1 class="post-title archive">
-            zabbix restart agentd services
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-27
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/27/grafana-zabbix/">
-        <h1 class="post-title archive">
-            grafana-zabbix
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-27
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/27/zabbix-discovery-network-interface-IPaddr/">
-        <h1 class="post-title archive">
-            zabbix discovery network interface IPaddr
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-27
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/25/zabbix-discovery-tcp-port/">
-        <h1 class="post-title archive">
-            zabbix discovery tcp port
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-25
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/25/zabbix-discovery-process-CPU-MEM/">
-        <h1 class="post-title archive">
-            zabbix discovery process CPU MEM
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-25
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-        <li class="previous"><a href="/archives/page/3/">&larr;  Nächste Seite</a></li>
-    
-    
-        <li class="next"><a href="/archives/page/5/">Vorherige Seite  &rarr;</a></li>
-    
-</ul>
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
