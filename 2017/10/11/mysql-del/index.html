@@ -4,19 +4,22 @@
 <!-- Head tag -->
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <!--Description-->
+
+    
+
     
         <meta name="description" content="背景在生产环境有可能有删除某个不重要大表的需求，因为大表占用的大量磁盘空间，如果我们直接drop掉此表，通常需要20秒以上的时间，总会觉得会卡主MySQL，现在给大家一个正确的删除方法。
-首先我们查看此大表12345678910shell&amp;gt;ls log_api_call_01_01* -l-r">
+首先我们查看此大表12345678910shell&amp;gt;ls log_api_call_01_01* -l-r"/>
     
 
     <!--Author-->
     
-        <meta name="author" content="John Doe">
+        <meta name="author" content="John Doe"/>
     
 
     <!--Open Graph Title-->
@@ -26,19 +29,30 @@
 
     <!--Open Graph Description-->
     
+        <meta property="og:description" content="背景在生产环境有可能有删除某个不重要大表的需求，因为大表占用的大量磁盘空间，如果我们直接drop掉此表，通常需要20秒以上的时间，总会觉得会卡主MySQL，现在给大家一个正确的删除方法。
+首先我们查看此大表12345678910shell&amp;gt;ls log_api_call_01_01* -l-r"/>
+    
 
     <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="XJL"/>
+        <meta property="og:site_name" content="XJL"/>
 
     <!--Type page-->
     
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
     
+    
+        <meta property="og:image" content="http://yoursite.com/img/home-bg.jpg"/>
+    
 
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.com/img/home-bg.jpg"/>
     
 
     <!-- Title -->
@@ -52,9 +66,9 @@
     <link rel="stylesheet" href="/css/style.css">
 
     <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -64,7 +78,7 @@
     <![endif]-->
 
     <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
 
     <!-- Google Analytics -->
     
@@ -72,7 +86,7 @@
 
     <!-- favicon -->
     
-	
+
 </head>
 
 
@@ -106,17 +120,17 @@
                     </li>
                 
                     <li>
-                        <a href="/archives">
+                        <a href="/categories">
                             
-                                Archives
+                                Categories
                             
                         </a>
                     </li>
                 
                     <li>
-                        <a href="https://github.com/xjlxy">
+                        <a href="/tags">
                             
-                                <i class="fa fa-github fa-stack-2x"></i>
+                                Tags
                             
                         </a>
                     </li>
@@ -142,7 +156,9 @@
                     <span class="meta">
                         <!-- Date and Author -->
                         
-                        2017-10-11
+                        
+                            2017-10-11
+                        
                     </span>
                 </div>
             </div>

@@ -4,21 +4,24 @@
 <!-- Head tag -->
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <!--Description-->
+
+    
+
     
         <meta name="description" content="FastDFS介绍
 FastDFS 是一个开源的轻量级高性能分布式文件系统（DFS），主要解决了海量数据存储问题，特别适合以中小文件（建议范围：4KB &amp;lt; file_size &amp;lt; 500MB）为载体的在线服务。它的主要功能包括：文件存储，文件同步和文件访问，以及高容量和负载平衡。
 
-源码">
+源码"/>
     
 
     <!--Author-->
     
-        <meta name="author" content="John Doe">
+        <meta name="author" content="John Doe"/>
     
 
     <!--Open Graph Title-->
@@ -28,19 +31,32 @@ FastDFS 是一个开源的轻量级高性能分布式文件系统（DFS），主
 
     <!--Open Graph Description-->
     
+        <meta property="og:description" content="FastDFS介绍
+FastDFS 是一个开源的轻量级高性能分布式文件系统（DFS），主要解决了海量数据存储问题，特别适合以中小文件（建议范围：4KB &amp;lt; file_size &amp;lt; 500MB）为载体的在线服务。它的主要功能包括：文件存储，文件同步和文件访问，以及高容量和负载平衡。
+
+源码"/>
+    
 
     <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="XJL"/>
+        <meta property="og:site_name" content="XJL"/>
 
     <!--Type page-->
     
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
     
+    
+        <meta property="og:image" content="http://yoursite.com/img/home-bg.jpg"/>
+    
 
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.com/img/home-bg.jpg"/>
     
 
     <!-- Title -->
@@ -54,9 +70,9 @@ FastDFS 是一个开源的轻量级高性能分布式文件系统（DFS），主
     <link rel="stylesheet" href="/css/style.css">
 
     <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -66,7 +82,7 @@ FastDFS 是一个开源的轻量级高性能分布式文件系统（DFS），主
     <![endif]-->
 
     <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
 
     <!-- Google Analytics -->
     
@@ -74,7 +90,7 @@ FastDFS 是一个开源的轻量级高性能分布式文件系统（DFS），主
 
     <!-- favicon -->
     
-	
+
 </head>
 
 
@@ -108,17 +124,17 @@ FastDFS 是一个开源的轻量级高性能分布式文件系统（DFS），主
                     </li>
                 
                     <li>
-                        <a href="/archives">
+                        <a href="/categories">
                             
-                                Archives
+                                Categories
                             
                         </a>
                     </li>
                 
                     <li>
-                        <a href="https://github.com/xjlxy">
+                        <a href="/tags">
                             
-                                <i class="fa fa-github fa-stack-2x"></i>
+                                Tags
                             
                         </a>
                     </li>
@@ -144,7 +160,9 @@ FastDFS 是一个开源的轻量级高性能分布式文件系统（DFS），主
                     <span class="meta">
                         <!-- Date and Author -->
                         
-                        2018-03-31
+                        
+                            2018-03-31
+                        
                     </span>
                 </div>
             </div>
@@ -159,6 +177,18 @@ FastDFS 是一个开源的轻量级高性能分布式文件系统（DFS），主
 
             <!-- Tags and categories -->
            
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/linux/">linux</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
 
             <!-- Gallery -->
             
@@ -187,11 +217,10 @@ FastDFS 是一个开源的轻量级高性能分布式文件系统（DFS），主
 <h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">## https://github.com/happyfish100/fastdfs-nginx-module</div><div class="line"></div><div class="line">./configure --add-module=/home/fastdfs-nginx-module/src</div><div class="line">make;</div><div class="line">make install;</div></pre></td></tr></table></figure>
 <p>mkdir -p /data/fastDFS/{tracker,storage,client}</p>
 <h2 id="setup-tracker"><a href="#setup-tracker" class="headerlink" title="setup tracker"></a>setup tracker</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">## tracker.conf</div><div class="line">base_path=/data/fastDFS/tracker</div><div class="line">bind_addr=</div><div class="line">port=22122</div><div class="line"></div><div class="line">## tracker-nginx</div><div class="line">upstream fdfs &#123;</div><div class="line">ip_hash;</div><div class="line">server 192.168.1.239:7079;</div><div class="line">server 192.168.1.242:7079;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server&#123;</div><div class="line">listen 80;</div><div class="line">location /group1/ &#123;</div><div class="line">proxy_set_header Host \$host;</div><div class="line">proxy_set_header X-Real-IP \$remote_addr;</div><div class="line">proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;</div><div class="line"></div><div class="line">proxy_buffering off;</div><div class="line">proxy_pass http://fdfs;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="setup-Storage"><a href="#setup-Storage" class="headerlink" title="setup Storage"></a>setup Storage</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"># storage.conf</div><div class="line"></div><div class="line">base_path=/data/fastDFS/storage </div><div class="line">store_path0=/data/fastDFS/storage</div><div class="line">tracker_server=192.168.1.239:22122                    ##can&apos;t use localhost</div><div class="line"></div><div class="line"># /etc/fdfs/mod_fastdfs.conf</div><div class="line">#include http.conf</div><div class="line">connect_timeout=2</div><div class="line">network_timeout=30</div><div class="line">base_path=/tmp</div><div class="line">load_fdfs_parameters_from_tracker=true</div><div class="line">storage_sync_file_max_delay = 86400</div><div class="line">use_storage_id = false</div><div class="line">storage_ids_filename = storage_ids.conf</div><div class="line">tracker_server=192.168.1.241:22122</div><div class="line">storage_server_port=23000</div><div class="line">group_name=group1</div><div class="line">url_have_group_name = true</div><div class="line">store_path_count=2</div><div class="line">store_path0=/data/fastDFS/storage/S0</div><div class="line">store_path1=/data/fastDFS/storage/S1</div><div class="line">log_level=info</div><div class="line">log_filename=</div><div class="line">response_mode=proxy</div><div class="line">if_alias_prefix=</div><div class="line">flv_support = true</div><div class="line">flv_extension = flv</div><div class="line">group_count = 0</div><div class="line"></div><div class="line"></div><div class="line"># storage-nginx</div><div class="line">server &#123;</div><div class="line">    listen 7079;</div><div class="line"></div><div class="line">    location /group1/ &#123;</div><div class="line">        root /data/fastDFS/storage;</div><div class="line">        ngx_fastdfs_module;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Storage-conf"><a href="#Storage-conf" class="headerlink" title="Storage.conf"></a>Storage.conf</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"># storage.conf</div><div class="line"></div><div class="line">base_path=/data/fastDFS/storage </div><div class="line">store_path0=/data/fastDFS/storage</div><div class="line">tracker_server=192.168.1.239:22122                    ##can&apos;t use localhost</div><div class="line"></div><div class="line"># /etc/fdfs/mod_fastdfs.conf</div><div class="line">#include http.conf</div><div class="line">connect_timeout=2</div><div class="line">network_timeout=30</div><div class="line">base_path=/tmp</div><div class="line">load_fdfs_parameters_from_tracker=true</div><div class="line">storage_sync_file_max_delay = 86400</div><div class="line">use_storage_id = false</div><div class="line">storage_ids_filename = storage_ids.conf</div><div class="line">tracker_server=192.168.1.241:22122</div><div class="line">storage_server_port=23000</div><div class="line">group_name=group1</div><div class="line">url_have_group_name = true</div><div class="line">store_path_count=2</div><div class="line">store_path0=/data/fastDFS/storage/S0</div><div class="line">store_path1=/data/fastDFS/storage/S1</div><div class="line">log_level=info</div><div class="line">log_filename=</div><div class="line">response_mode=proxy</div><div class="line">if_alias_prefix=</div><div class="line">flv_support = true</div><div class="line">flv_extension = flv</div><div class="line">group_count = 0</div><div class="line"></div><div class="line"></div><div class="line"># storage-nginx</div><div class="line">server &#123;</div><div class="line">    listen 7079;</div><div class="line"></div><div class="line">    location /group1/ &#123;</div><div class="line">        root /data/fastDFS/storage;</div><div class="line">        ngx_fastdfs_module;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="client-conf"><a href="#client-conf" class="headerlink" title="client.conf"></a>client.conf</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">base_path=/data/fastDFS/client</div><div class="line">tracker_server=192.168.1.239:22122</div></pre></td></tr></table></figure>
 <h2 id="test"><a href="#test" class="headerlink" title="test"></a>test</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">fdfs_test client.conf upload 1.txt</div><div class="line">...</div><div class="line">[2018-03-30 23:49:38] DEBUG - base_path=/data/fastDFS/client, connect_timeout=30, network_timeout=60, tracker_server_count=1, anti_steal_token=0, anti_steal_secret_key length=0, use_connection_pool=0, g_connection_pool_max_idle_time=3600s, use_storage_id=0, storage server id count: 0</div><div class="line">storage_upload_by_filename</div><div class="line">group_name=group1, remote_filename=M00/00/00/rBCWJlq8mpKAao5IAE1SKjXnN3o586.txt</div><div class="line">...</div><div class="line">example file url: http://192.168.1.239/group1/M00/00/00/rBCWJlq8mpKAao5IAE1SKjXnN3o586_big.txt</div><div class="line"></div><div class="line">## fdfs_monitor client.conf</div><div class="line">[2018-03-31 01:37:43] DEBUG - base_path=/tmp/fastdfs, connect_timeout=30, network_timeout=60, tracker_server_count=1, anti_steal_token=0, anti_steal_secret_key length=0, use_connection_pool=0, g_connection_pool_max_idle_time=3600s, use_storage_id=0, storage server id count: 0</div><div class="line"></div><div class="line">server_count=1, server_index=0</div><div class="line"></div><div class="line">tracker server is 127.0.0.1:22122</div><div class="line"></div><div class="line">group count: 1</div><div class="line"></div><div class="line">Group 1:</div><div class="line">group name = group1</div><div class="line">disk total space = 98172 MB</div><div class="line">disk free space = 88804 MB</div><div class="line">trunk free space = 0 MB</div><div class="line">storage server count = 2</div><div class="line">active server count = 1</div><div class="line">storage server port = 23000</div><div class="line">storage HTTP port = 8888</div><div class="line">store path count = 2</div><div class="line">subdir count per path = 256</div><div class="line">current write server index = 0</div><div class="line">current trunk file id = 0</div><div class="line"></div><div class="line">Storage 1:</div><div class="line">id = 192.168.1.239</div><div class="line">ip_addr = 192.168.1.239 ACTIVE</div><div class="line">http domain = </div><div class="line">version = 5.11</div><div class="line">join time = 2018-03-31 01:17:30</div><div class="line">...</div><div class="line">Storage 2:</div><div class="line">id = 192.168.1.242</div><div class="line">ip_addr = 192.168.1.242 INIT</div><div class="line">http domain = </div><div class="line">version = 5.05</div><div class="line">join time = 2018-03-31 01:22:23</div><div class="line">...</div></pre></td></tr></table></figure>
-<h2 id="more-commands"><a href="#more-commands" class="headerlink" title="more commands"></a>more commands</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## 删除节点</div><div class="line">fdfs_monitor client.conf delete group2 192.168.1.242</div></pre></td></tr></table></figure>
-
+<h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## 删除节点</div><div class="line">fdfs_monitor client.conf delete group2 192.168.1.242</div></pre></td></tr></table></figure>
 
                 
             </div>
