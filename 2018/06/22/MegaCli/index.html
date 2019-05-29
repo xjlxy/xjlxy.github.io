@@ -16,7 +16,7 @@
         <meta name="description" content="MegaCli
 一款管理维护硬件RAID软件，可以通过它来了解当前raid卡的所有信息，包括 raid卡的型号，raid的阵列类型，raid 上各磁盘状态等等。
 
-通常，我们对硬盘当前的状态不太好确定，一般通过机房人员巡检来完成，怎么通过软件的方式来检查确定这个问题呢？MegaCli就可以做到，一般"/>
+通常，我们对硬盘当前的状态不太好确定，一般通过机房人员巡检来完成，怎么通过软件的方式来检查确定这个问题呢？MegaCli就可以做到，一般通过 MegaCli 的Media Error Count: 0 Other Error Count: 0 这两个数值来确定阵列中磁盘是否有问题；Medai Error Count 表示磁盘可能错误，可能是磁盘有坏道，这个值不为0值得注意，数值越大，危险系数越高，Other Error Count 表示磁盘可能存在松动，可能需要重新再插入。MegaCli 可以对阵列中所有的磁盘进行检测，我们可以通过脚本的方式来检测相关参数，从而通知管理人员。"/>
     
 
     <!--Author-->
@@ -34,11 +34,11 @@
         <meta property="og:description" content="MegaCli
 一款管理维护硬件RAID软件，可以通过它来了解当前raid卡的所有信息，包括 raid卡的型号，raid的阵列类型，raid 上各磁盘状态等等。
 
-通常，我们对硬盘当前的状态不太好确定，一般通过机房人员巡检来完成，怎么通过软件的方式来检查确定这个问题呢？MegaCli就可以做到，一般"/>
+通常，我们对硬盘当前的状态不太好确定，一般通过机房人员巡检来完成，怎么通过软件的方式来检查确定这个问题呢？MegaCli就可以做到，一般通过 MegaCli 的Media Error Count: 0 Other Error Count: 0 这两个数值来确定阵列中磁盘是否有问题；Medai Error Count 表示磁盘可能错误，可能是磁盘有坏道，这个值不为0值得注意，数值越大，危险系数越高，Other Error Count 表示磁盘可能存在松动，可能需要重新再插入。MegaCli 可以对阵列中所有的磁盘进行检测，我们可以通过脚本的方式来检测相关参数，从而通知管理人员。"/>
     
 
     <!--Open Graph Site Name-->
-        <meta property="og:site_name" content="XJL"/>
+        <meta property="og:site_name" content="Xjl&#39;s Blog"/>
 
     <!--Type page-->
     
@@ -61,7 +61,7 @@
 
     <!-- Title -->
     
-    <title>MegaCli - XJL</title>
+    <title>MegaCli - Xjl&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -131,14 +131,6 @@
                         </a>
                     </li>
                 
-                    <li>
-                        <a href="/tags">
-                            
-                                Tags
-                            
-                        </a>
-                    </li>
-                
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -198,7 +190,7 @@
                 <h2 id="MegaCli"><a href="#MegaCli" class="headerlink" title="MegaCli"></a>MegaCli</h2><ul>
 <li>一款管理维护硬件RAID软件，可以通过它来了解当前raid卡的所有信息，包括 raid卡的型号，raid的阵列类型，raid 上各磁盘状态等等。</li>
 </ul>
-<p>通常，我们对硬盘当前的状态不太好确定，一般通过机房人员巡检来完成，怎么通过软件的方式来检查确定这个问题呢？MegaCli就可以做到，一般通过 MegaCli 的Media Error Count: 0 Other Error Count: 0 这两个数值来确定阵列中磁盘是否有问题；Medai Error Count 表示磁盘可能错误，可能是磁盘有坏道，这个值不为0值得注意，数值越大，危险系数越高，Other Error Count 表示磁盘可能存在松动，可能需要重新再插入。MegaCli 可以对阵列中所有的磁盘进行检测，我们可以通过脚本的方式来检测相关参数，从而通知管理人员。</p>
+<p>通常，我们对硬盘当前的状态不太好确定，一般通过机房人员巡检来完成，怎么通过软件的方式来检查确定这个问题呢？MegaCli就可以做到，一般通过 MegaCli 的Media Error Count: 0 Other Error Count: 0 这两个数值来确定阵列中磁盘是否有问题；Medai Error Count 表示磁盘可能错误，可能是磁盘有坏道，这个值不为0值得注意，数值越大，危险系数越高，Other Error Count 表示磁盘可能存在松动，可能需要重新再插入。MegaCli 可以对阵列中所有的磁盘进行检测，我们可以通过脚本的方式来检测相关参数，从而通知管理人员。<br><a id="more"></a></p>
 <h2 id="setup"><a href="#setup" class="headerlink" title="setup"></a>setup</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">unzip 8-07-14_MegaCLI.zip</div><div class="line">cd Linux</div><div class="line">rpm -Uvh MegaCli-8.07.14-1.noarch.rpm</div><div class="line">echo &quot;alias MegaCli=&apos;/opt/MegaRAID/MegaCli/MegaCli64&apos;&quot; &gt;&gt; ~/.bashrc</div><div class="line">source ~/.bashrc</div></pre></td></tr></table></figure>
 <h2 id="example"><a href="#example" class="headerlink" title="example"></a>example</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">显示适配器个数： MegaCli -adpCount</div><div class="line">显示适配器时间： MegaCli -AdpGetTime –aALL</div><div class="line">显示所有适配器信息： MegaCli -AdpAllInfo -aAll</div><div class="line">显示所有逻辑磁盘组信息： MegaCli -LDInfo -LALL -aAll</div><div class="line">显示所有的物理信息： MegaCli -PDList -aAll</div><div class="line">查看充电状态： MegaCli -AdpBbuCmd -GetBbuStatus -aALL |grep ‘Charger Status’</div><div class="line">显示BBU(后备电池)状态信息： MegaCli -AdpBbuCmd -GetBbuStatus -aALL</div><div class="line">显示BBU容量信息： MegaCli -AdpBbuCmd -GetBbuCapacityInfo -aALL</div><div class="line">显示BBU设计参数： MegaCli -AdpBbuCmd -GetBbuDesignInfo -aALL</div><div class="line">显示当前BBU属性： MegaCli -AdpBbuCmd -GetBbuProperties -aALL</div><div class="line">显示Raid卡型号，Raid设置，Disk相关信息： MegaCli -cfgdsply -aALL</div><div class="line">查看Cache 策略设置： MegaCli -cfgdsply -aALL |grep Policy</div><div class="line">查看充电进度百分比： MegaCli -AdpBbuCmd -GetBbuStatus -aALL |grep ‘Relative State of Charge’</div></pre></td></tr></table></figure>
 <p><img src="/2018/06/22/MegaCli/0.png" alt=""></p>
