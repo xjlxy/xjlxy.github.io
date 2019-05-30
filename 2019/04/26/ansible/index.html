@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="ansible简介Doc: https://docs.ansible.com/
+
+ansible是个什么东西呢？官方的title是“Ansible is Simple IT Automation”——简单的自动化IT工具。这个工具的目标有这么几项：让我们自动化部署APP；自动化管理配置项；自动化的持"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="."/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="ansible"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="ansible简介Doc: https://docs.ansible.com/
+
+ansible是个什么东西呢？官方的title是“Ansible is Simple IT Automation”——简单的自动化IT工具。这个工具的目标有这么几项：让我们自动化部署APP；自动化管理配置项；自动化的持"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Xjl&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://xjlxy.github.io/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://xjlxy.github.io/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>ansible - Xjl&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>ansible</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-04-26
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/ansible/">#ansible</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/dev-ops/">dev ops</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="ansible简介"><a href="#ansible简介" class="headerlink" title="ansible简介"></a>ansible简介</h2><p>Doc: <a href="https://docs.ansible.com/" target="_blank" rel="external">https://docs.ansible.com/</a></p>
+<ul>
+<li><p>ansible是个什么东西呢？官方的title是“Ansible is Simple IT Automation”——简单的自动化IT工具。这个工具的目标有这么几项：让我们自动化部署APP；自动化管理配置项；自动化的持续交付；自动化的（AWS）云服务管理。</p>
+</li>
+<li><p>ansible以SSH方式进行管理通讯</p>
+</li>
+<li><p>Ansible由5个部分组成：</p>
+</li>
+</ul>
+<ol>
+<li>Ansible： 核心</li>
+<li>Modules： 包括 Ansible 自带的核心模块及自定义模块</li>
+<li>Plugins： 完成模块功能的补充，包括连接插件、邮件插件等</li>
+<li>Playbooks： 剧本(编排好一步一步的执行)；定义 Ansible 多任务配置文件，有 Ansible 自动执行</li>
+<li>Inventory： 定义 Ansible 管理主机的清单</li>
+</ol>
+<h2 id="安装要求"><a href="#安装要求" class="headerlink" title="安装要求"></a>安装要求</h2><ul>
+<li>控制器：Python2.6/2.7</li>
+<li>受管节点要求：Python2.4 以上版本，若低于 Python2.5 需要安装 pythonsimplejson; 若启用了 selinux，则需要安装 libselinux-python。</li>
+<li>如果存在多环境Python 记得修改主控端的/usr/bin/ansible 的python环境</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install epel-release</div><div class="line">yum install ansibl</div></pre></td></tr></table></figure>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@ansible ~]# ansible 192.168.122.129 -m ping -k</div><div class="line">SSH password: </div><div class="line">192.168.122.129 | SUCCESS =&gt; &#123;</div><div class="line">    &quot;changed&quot;: false, </div><div class="line">    &quot;ping&quot;: &quot;pong&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#返回：  &quot;ping&quot;: &quot;pong&quot; 说明是成功了！</div></pre></td></tr></table></figure>
+<h3 id="common模块使用"><a href="#common模块使用" class="headerlink" title="common模块使用"></a>common模块使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">格式:</div><div class="line">ansbile 操作目标 -m 模块名 -a 模块参数</div><div class="line">ansible-doc -l 命令查看到当前 ansible 都支持哪些模块</div><div class="line">ansible-doc -s 模块名 又可以查看该模块有哪些参数可以使用</div><div class="line"></div><div class="line">ansible all -m command &apos;ip a eth0&apos;</div><div class="line">ansible all -m command -a &quot;echo jie |passwd --stdin testuser&quot; #command本身不理解这种形式的操作</div><div class="line">ansible all -m shell -a &quot;echo jie |passwd --stdin testuser&quot;</div></pre></td></tr></table></figure>
+<h2 id="常用命令的介绍"><a href="#常用命令的介绍" class="headerlink" title="常用命令的介绍"></a>常用命令的介绍</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">ansible --help</div><div class="line">-v,–verbose # 详细模式，如果命令执行成功，输出详细的结果(-vv –vvv -vvvv)</div><div class="line">-i PATH,–inventory=PATH #指定host文件的路径，默认是/etc/ansible/hosts</div><div class="line">-f NUM,–forks=NUM # NUM是指定一个整数，默认是5，指定fork开启同步进程的个数。</div><div class="line">-m NAME,–module-name=NAME #指定使用的module名称，默认是command</div><div class="line">-m DIRECTORY,–module-path=DIRECTORY #指定module的目录来加载module，默认是/usr/share/ansible,</div><div class="line">-a,MODULE_ARGS #指定module模块的参数</div><div class="line">-k,–ask-pass # 提示输入ssh的密码，而不是使用基于ssh的密钥认证</div><div class="line">–sudo # 指定使用sudo获得root权限</div><div class="line">-K,–ask-sudo-pass #提示输入sudo密码，与–sudo一起使用</div><div class="line">-u USERNAME,–user=USERNAME # 指定移动端的执行用户</div><div class="line">-C,–check #测试此命令执行会改变什么内容，不会真正的去执行</div></pre></td></tr></table></figure>
+<h2 id="hosts文件格式"><a href="#hosts文件格式" class="headerlink" title="hosts文件格式"></a>hosts文件格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">1、正常写法,name1为别名：</div><div class="line">[test1]</div><div class="line">name1 ansible_ssh_host=192.168.1.111 ansible_ssh_user=&quot;root&quot; ansible_ssh_pass=&quot;1234&quot; ansible_ssh_port=22</div><div class="line">name2 ansible_ssh_host=192.168.1.222 ansible_ssh_user=&quot;root&quot; ansible_ssh_pass=&quot;1234&quot; ansible_ssh_port=22</div><div class="line">2、连续的IP写法,表示192.168.1.20到192.168.1.50，共31台主机：</div><div class="line">[test1]</div><div class="line">name1 ansible_ssh_host=192.168.1.[20:50] ansible_ssh_user=&quot;root&quot; ansible_ssh_pass=&quot;1234&quot; ansible_ssh_port=22</div><div class="line">3、带参数的群组，vars底下为群组共同便变量，包括已定义变量和自定义变量：</div><div class="line">[test1]</div><div class="line">name1 ansible_ssh_host=192.168.1.[20:50]</div><div class="line">[test1:vars]</div><div class="line">ansible_ssh_user=root</div><div class="line">ansible_ssh_pass=&quot;1234&quot;</div><div class="line">testvar=&quot;test&quot;</div><div class="line">4、群组整合，children底下为父群组test的子群组，调用方式为ansible test -m ping：</div><div class="line">[dbtest]</div><div class="line">name1 ansible_ssh_host=192.168.1.[20:50] ansible_ssh_user=&quot;root&quot; ansible_ssh_pass=&quot;1234&quot; ansible_ssh_port=22</div><div class="line">[webtest]</div><div class="line">name2 ansible_ssh_host=192.168.2.[20:50] ansible_ssh_user=&quot;root&quot; ansible_ssh_pass=&quot;1234&quot; ansible_ssh_port=22</div><div class="line">[test:children]</div><div class="line">dbtest</div><div class="line">webtest</div><div class="line">5、调用两个主机组的写法，以下webservers和dbservers都会被调用：</div><div class="line">ansible webservers:dbservers -m win_ping</div><div class="line">6、在webservers组中但不在dbsersers中的调用：</div><div class="line">ansible webservers:!dbservers -m win_ping</div><div class="line">7、在webservers组中并且在dbservers组中的才会调用：</div><div class="line">ansible webservers:&amp;dbservers -m win_ping</div><div class="line">8、在调用前加~，代表正则表达式：</div><div class="line">ansible ~(web|db).*.91it.org -m win_ping</div><div class="line">9、组合的例子：</div><div class="line">webserver:dbservers:&amp;nginx:!ntp</div><div class="line">10、hosts文件中没有定义的IP或别名，在进行调用中，会提示错误。ansible对单台服务器的调用，服务器IP或域名必须有写在hosts里。</div></pre></td></tr></table></figure>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xjljob@qq.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 .<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

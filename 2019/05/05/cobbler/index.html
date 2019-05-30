@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="Setup PXE Boot Environment Using Cobbler On CentOS 7
+Install Cobbler12345#CentOS7#yum install -y ed patch perl perl-Compress-Zlib perl-Digest-SHA1 per"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="."/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="cobbler"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Setup PXE Boot Environment Using Cobbler On CentOS 7
+Install Cobbler12345#CentOS7#yum install -y ed patch perl perl-Compress-Zlib perl-Digest-SHA1 per"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Xjl&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://xjlxy.github.io/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://xjlxy.github.io/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>cobbler - Xjl&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>cobbler</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-05-05
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/cobbler/">#cobbler</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/dev-ops/">dev ops</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>Setup PXE Boot Environment Using Cobbler On CentOS 7</p>
+<h1 id="Install-Cobbler"><a href="#Install-Cobbler" class="headerlink" title="Install Cobbler"></a>Install Cobbler</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#CentOS7</div><div class="line">#yum install -y ed patch perl perl-Compress-Zlib perl-Digest-SHA1 perl-LockFile-Simple perl-libwww-perl #编译环境</div><div class="line"></div><div class="line">yum -y install epel-release</div><div class="line">yum install cobbler dnsmasq xinetd pykickstart debmirror</div></pre></td></tr></table></figure>
+<h1 id="Configure-Cobbler"><a href="#Configure-Cobbler" class="headerlink" title="Configure Cobbler"></a>Configure Cobbler</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">## /etc/cobbler/settings</div><div class="line"></div><div class="line">server=192.168.122.22</div><div class="line">sed -i &quot;s/server: 127.0.0.1/server: $server/&quot; /etc/cobbler/settings</div><div class="line">sed -i &quot;s/next_server: 127.0.0.1/next_server: $server/&quot; /etc/cobbler/settings</div><div class="line">sed -i &apos;s/manage_dhcp: 0/manage_dhcp: 1/&apos; /etc/cobbler/settings</div><div class="line">sed -i &apos;s/manage_dns: 0/manage_dns: 1/&apos; /etc/cobbler/settings</div><div class="line">sed -i &apos;s/pxe_just_once: 0/pxe_just_once: 1/&apos; /etc/cobbler/settings</div><div class="line">sed -ri &quot;/default_password_crypted/s#(.*: ).*#\1\&quot;`openssl passwd -1 -salt &apos;cobbler&apos; &apos;cobbler&apos;`\&quot;#&quot; /etc/cobbler/settings</div><div class="line"></div><div class="line">sed -i &apos;/disable/c\\tdisable\t\t\t= no&apos; /etc/xinetd.d/tftp</div><div class="line"></div><div class="line"># sed -i -e &apos;s/\=\ yes/\=\ no/g&apos; /etc/xinetd.d/rsync</div></pre></td></tr></table></figure>
+<p>/etc/cobbler/modules.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[dns]</div><div class="line">module = manage_dnsmasq</div><div class="line"></div><div class="line">[dhcp]</div><div class="line">module = manage_dnsmasq</div><div class="line"></div><div class="line">[tftpd]</div><div class="line">module = manage_in_tftpd</div></pre></td></tr></table></figure></p>
+<h2 id="Configure-DHCP"><a href="#Configure-DHCP" class="headerlink" title="Configure DHCP"></a>Configure DHCP</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"># Cobbler generated configuration file for dnsmasq</div><div class="line"># $date</div><div class="line">#</div><div class="line"></div><div class="line"># resolve.conf .. ?</div><div class="line">#no-poll</div><div class="line">#enable-dbus</div><div class="line">read-ethers</div><div class="line">addn-hosts = /var/lib/cobbler/cobbler_hosts</div><div class="line"></div><div class="line">dhcp-range=192.168.122.5,192.168.122.254,255.255.255.0</div><div class="line">dhcp-ignore=tag:!known</div><div class="line">dhcp-option=3,$next_server</div><div class="line">dhcp-lease-max=1000</div><div class="line">dhcp-authoritative</div><div class="line">dhcp-boot=pxelinux.0</div><div class="line">dhcp-boot=net:normalarch,pxelinux.0</div><div class="line">dhcp-boot=net:ia64,$elilo</div><div class="line"></div><div class="line">$insert_cobbler_system_definitions</div></pre></td></tr></table></figure>
+<h2 id="etc-debmirror-conf"><a href="#etc-debmirror-conf" class="headerlink" title="/etc/debmirror.conf"></a>/etc/debmirror.conf</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sed -i &apos;s/@dists=&quot;sid&quot;;/#@dists=&quot;sid&quot;;/g&apos; /etc/debmirror.conf</div><div class="line">sed -i &apos;s/@arches=&quot;i386&quot;;/#@arches=&quot;i386&quot;;/g&apos; /etc/debmirror.conf</div></pre></td></tr></table></figure>
+<h1 id="Importing-ISO-files-to-Cobbler-server"><a href="#Importing-ISO-files-to-Cobbler-server" class="headerlink" title="Importing ISO files to Cobbler server"></a>Importing ISO files to Cobbler server</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cobbler get-loaders #下载引导文件</div><div class="line">mount -o loop centos6.iso /mnt/</div><div class="line">cobbler import --arch=x86_64 --path=/mnt/ --name=Centos-6</div></pre></td></tr></table></figure>
+<p><img src="/2019/05/05/cobbler/import_iso.png" alt=""></p>
+<p>启动相关服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">systemctl enable xinetd</div><div class="line">systemctl enable cobblerd</div><div class="line">systemctl enable dnsmasq</div><div class="line">systemctl enable httpd</div><div class="line">systemctl enable rsyncd.service</div><div class="line"></div><div class="line">systemctl restart xinetd</div><div class="line">systemctl restart cobblerd</div><div class="line">systemctl restart dnsmasq</div><div class="line">systemctl restart httpd</div><div class="line">systemctl restart rsyncd.service</div></pre></td></tr></table></figure></p>
+<h2 id="cobbler-commands"><a href="#cobbler-commands" class="headerlink" title="cobbler commands"></a>cobbler commands</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">cobbler check		# 核对当前设置是否有问题</div><div class="line">cobbler list		# 列出所有的cobbler元素</div><div class="line">cobbler report		# 列出元素的详细信息</div><div class="line">cobbler sync		# 同步配置到数据目录,更改配置最好都要执行下</div><div class="line">cobbler reposync	# 同步yum仓库</div><div class="line">cobbler distro		# 查看导入的发行版系统信息</div><div class="line">cobbler system		# 查看添加的系统信息</div><div class="line">cobbler profile		# 查看配置信息</div></pre></td></tr></table></figure>
+<h2 id="测试tftp能否获取到引导文件"><a href="#测试tftp能否获取到引导文件" class="headerlink" title="测试tftp能否获取到引导文件"></a>测试tftp能否获取到引导文件</h2><p>curl tftp://192.168.122.22/pxelinux.0 |tail</p>
+<h2 id="Adding-Kickstart-file-to-Cobbler-server"><a href="#Adding-Kickstart-file-to-Cobbler-server" class="headerlink" title="Adding Kickstart file to Cobbler server"></a>Adding Kickstart file to Cobbler server</h2><p>system-config-kickstart<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cobbler profile add --name=CentOS-6.5-basic --distro=CentOS-6.5-x86_64 --kickstart=/var/lib/cobbler/kickstarts/cetos6.x86_64.cfg</div><div class="line"></div><div class="line">cobbler profile list</div></pre></td></tr></table></figure></p>
+<h2 id="boot"><a href="#boot" class="headerlink" title="boot"></a>boot</h2><p><img src="/2019/05/05/cobbler/pxe-boot.png" alt=""></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xjljob@qq.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 .<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

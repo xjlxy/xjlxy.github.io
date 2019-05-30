@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="Kubernetes 简介Kubernetes 是用于自动部署，扩展和管理容器化应用程序的开源系统。它将组成应用程序的容器组合成逻辑单元，以便于管理和服务发现，Kubernetes 构建在 Google 15 年生产环境经验基础之上,并结合来自社区的最佳创意和实践。
+k8s特性:
+
+自动包装根据资源"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="."/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Kubernetes"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Kubernetes 简介Kubernetes 是用于自动部署，扩展和管理容器化应用程序的开源系统。它将组成应用程序的容器组合成逻辑单元，以便于管理和服务发现，Kubernetes 构建在 Google 15 年生产环境经验基础之上,并结合来自社区的最佳创意和实践。
+k8s特性:
+
+自动包装根据资源"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Xjl&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://xjlxy.github.io/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://xjlxy.github.io/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Kubernetes - Xjl&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Kubernetes</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-05-20
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/kubernetes/">#kubernetes</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/dev-ops/">dev ops</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="Kubernetes-简介"><a href="#Kubernetes-简介" class="headerlink" title="Kubernetes 简介"></a>Kubernetes 简介</h2><p>Kubernetes 是用于自动部署，扩展和管理容器化应用程序的开源系统。<br>它将组成应用程序的容器组合成逻辑单元，以便于管理和服务发现，Kubernetes 构建在 Google 15 年生产环境经验基础之上,并结合来自社区的最佳创意和实践。</p>
+<p>k8s特性:</p>
+<ul>
+<li>自动包装<br>根据资源需求和其他约束自动放置容器，同时不会牺牲可用性，混合关键和最大努力的工作负载，以提高资源利用率并节省更多资源。</li>
+</ul>
+<ul>
+<li>自我修复<br>重新启动失败的容器，在节点不可用时，替换和重新调度节点上的容器，对用户定义的健康检查不响应的容器会被中止，并且在容器准备好服务之前不会把其向客户端广播。</li>
+</ul>
+<ul>
+<li>横向缩放<br>使用简单的命令或 UI，或者根据 CPU 的使用情况自动调整应用程序副本数。</li>
+</ul>
+<ul>
+<li>服务发现和负载均衡<br>不需要修改您的应用程序来使用不熟悉的服务发现机制，Kubernetes 为容器提供了自己的 IP 地址和一组容器的单个 DNS 名称，并可以在它们之间进行负载均衡。</li>
+</ul>
+<ul>
+<li>自动部署和回滚<br>Kubernetes 逐渐部署对应用程序或其配置的更改，同时监视应用程序运行状况，以确保它不会同时终止所有实例。 如果出现问题，Kubernetes会为您恢复更改，利用日益增长的部署解决方案的生态系统。</li>
+</ul>
+<ul>
+<li>密钥和配置管理<br>部署和更新密钥和应用程序配置，不会重新编译您的镜像，不会在堆栈配置中暴露密钥(secrets)。</li>
+</ul>
+<ul>
+<li>存储编排<br>自动安装您所选择的存储系统，无论是本地存储，如公有云提供商 GCP 或 AWS, 还是网络存储系统 NFS, iSCSI, Gluster, Ceph, Cinder, 或 Flocker。</li>
+</ul>
+<ul>
+<li>批处理<br>除了服务之外，Kubernetes还可以管理您的批处理和 CI 工作负载，如果需要，替换出现故障的容器。</li>
+</ul>
+<h2 id="安装k8s"><a href="#安装k8s" class="headerlink" title="安装k8s"></a>安装k8s</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ubuntu server 16.04</div><div class="line"></div><div class="line">master: 10.21.0.33</div><div class="line">node1: 10.21.0.35</div><div class="line">node2: 10.21.0.16</div></pre></td></tr></table></figure>
+<h3 id="修改源"><a href="#修改源" class="headerlink" title="修改源"></a>修改源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">cp /etc/apt/sources.list&#123;,_bak&#125;</div><div class="line"></div><div class="line">echo &apos;deb http://mirrors.aliyun.com/ubuntu/ xenial main</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main</div><div class="line"></div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main</div><div class="line"></div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial universe</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial universe</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates universe</div><div class="line"></div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security universe&apos; \</div><div class="line">&gt;/etc/apt/sources.list</div></pre></td></tr></table></figure>
+<h4 id="阿里k8s源"><a href="#阿里k8s源" class="headerlink" title="阿里k8s源"></a>阿里k8s源</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">apt-get update &amp;&amp; apt-get install -y apt-transport-https</div><div class="line">curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - </div><div class="line">cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list</div><div class="line">deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main</div><div class="line">EOF</div></pre></td></tr></table></figure>
+<h4 id="国内Docker源"><a href="#国内Docker源" class="headerlink" title="国内Docker源"></a>国内Docker源</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">echo &apos;&#123;</div><div class="line">&quot;registry-mirrors&quot;:[&quot;https://registry.docker-cn.com&quot;]</div><div class="line">&#125;&apos; &gt; /etc/docker/daemon.json</div></pre></td></tr></table></figure>
+<h4 id="安装docker、k8s"><a href="#安装docker、k8s" class="headerlink" title="安装docker、k8s"></a>安装docker、k8s</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get install docker.io</div><div class="line">apt-get install kubeadm</div></pre></td></tr></table></figure>
+<h2 id="Master"><a href="#Master" class="headerlink" title="Master"></a>Master</h2><h3 id="Install-and-Set-Up-kubectl"><a href="#Install-and-Set-Up-kubectl" class="headerlink" title="Install and Set Up kubectl"></a>Install and Set Up kubectl</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get update</div><div class="line">apt-get install kubelet kubeadm kubectl kubernetes-cni --allow-unauthenticated</div></pre></td></tr></table></figure>
+<h3 id="初始化master"><a href="#初始化master" class="headerlink" title="初始化master"></a>初始化master</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#初始化</div><div class="line">kubeadm version</div><div class="line">kubeadm init --kubernetes-version=&apos;v1.14.1&apos;</div><div class="line"></div><div class="line">export KUBECONFIG=/etc/kubernetes/admin.conf</div></pre></td></tr></table></figure>
+<p><img src="/2019/05/20/Kubernetes/init.png" alt=""></p>
+<h2 id="Node加入master"><a href="#Node加入master" class="headerlink" title="Node加入master"></a>Node加入master</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">kubeadm join 10.21.0.33:6443 --token q1trpk.x4ft1fibd02vuyd2 \</div><div class="line">--discovery-token-ca-cert-hash sha256:9fa3ba3fd1c43e46b8b4f6edaac9818a17cb4923537563a97313284c63d5bc50</div></pre></td></tr></table></figure>
+<p><img src="/2019/05/20/Kubernetes/add-nodes.png" alt=""></p>
+<h2 id="列出节点"><a href="#列出节点" class="headerlink" title="列出节点"></a>列出节点</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">shell&gt; kubectl get nodes</div><div class="line">NAME STATUS ROLES AGE VERSION</div><div class="line">k8s-master NotReady master 49m v1.14.1</div><div class="line">node1 NotReady &lt;none&gt; 52s v1.14.1</div><div class="line">node2 NotReady &lt;none&gt; 19s v1.14.1</div><div class="line"></div><div class="line">#状态显示NotReady，是因为集群内缺少网络控制器</div></pre></td></tr></table></figure>
+<h3 id="addons-Networking"><a href="#addons-Networking" class="headerlink" title="addons - Networking"></a>addons - Networking</h3><p>添加网络插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">kubectl apply -f &quot;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d &apos;\n&apos;)&quot;</div><div class="line"></div><div class="line">shell&gt; kubectl get node</div><div class="line">NAME STATUS ROLES AGE VERSION</div><div class="line">k8s-master Ready master 54m v1.14.1</div><div class="line">node1 Ready &lt;none&gt; 6m5s v1.14.1</div><div class="line">node2 Ready &lt;none&gt; 5m32s v1.14.1</div></pre></td></tr></table></figure></p>
+<p><img src="/2019/05/20/Kubernetes/addros.png" alt=""></p>
+<h3 id="token"><a href="#token" class="headerlink" title="token"></a>token</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">## 查看当前的 token 表</div><div class="line">kubeadm token list</div><div class="line"></div><div class="line">## 新建token</div><div class="line">kubeadm token create --print-join-command</div></pre></td></tr></table></figure>
+<h3 id="删除K8s节点"><a href="#删除K8s节点" class="headerlink" title="删除K8s节点"></a>删除K8s节点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">master上运行：</div><div class="line">kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets</div><div class="line">kubectl delete node &lt;node name&gt;</div><div class="line"></div><div class="line">节点上运行：</div><div class="line">kubeadm reset</div></pre></td></tr></table></figure>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xjljob@qq.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 .<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

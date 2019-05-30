@@ -4,6 +4,206 @@
   
     
     <entry>
+      <title>kubernetes configmap</title>
+      <link href="/2019/05/29/kubernetes-configmap/"/>
+      <url>/2019/05/29/kubernetes-configmap/</url>
+      
+        <content type="html"><![CDATA[<h2 id="configmap主要作用"><a href="#configmap主要作用" class="headerlink" title="configmap主要作用"></a>configmap主要作用</h2><ul><li>configMap卷将条目暴露为文件</li><li>实现pod与配置解耦</li><li>实现配置热更新</li></ul><h2 id="pod"><a href="#pod" class="headerlink" title="pod"></a>pod</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">---                                                                                                       </div><div class="line">apiVersion: v1</div><div class="line">kind: Pod</div><div class="line">metadata:</div><div class="line">  name: nginx-configmap</div><div class="line">  labels:</div><div class="line">     app: nginx-configmap</div><div class="line">spec:</div><div class="line">  restartPolicy: OnFailure</div><div class="line"># Always, OnFailure, Never. Default to Always.</div><div class="line">  volumes:</div><div class="line">    - name: nginx-configmap</div><div class="line">      configMap:</div><div class="line">        name: sean-nginx-config</div><div class="line">        items:</div><div class="line">        - key: nginx.conf</div><div class="line">          path: nginx.conf</div><div class="line">  containers:</div><div class="line">  - name: nginx</div><div class="line">    image: nginx</div><div class="line">    imagePullPolicy: IfNotPresent</div><div class="line">    ports:</div><div class="line">    - containerPort: 80</div><div class="line">    volumeMounts:</div><div class="line">    - mountPath: /etc/nginx/nginx.conf </div><div class="line">      subPath: nginx.conf</div><div class="line">      name: nginx-configmap</div></pre></td></tr></table></figure><h2 id="create-configmap"><a href="#create-configmap" class="headerlink" title="create configmap"></a>create configmap</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">shell&gt; kubectl create configmap sean-nginx-config --from-file=nginx.conf </div><div class="line">configmap/sean-nginx-config created</div><div class="line"></div><div class="line">shell&gt; kubectl describe configmaps sean-nginx-config</div></pre></td></tr></table></figure><p><img src="/2019/05/29/kubernetes-configmap/0.png" alt=""></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## nginx.conf</div><div class="line">gzip on;</div><div class="line">gzip_types text/plain application/xml;</div></pre></td></tr></table></figure><h2 id="检测配置是否生效"><a href="#检测配置是否生效" class="headerlink" title="检测配置是否生效"></a>检测配置是否生效</h2><p>curl -I -H “Accept-Encoding: gzip” 10.32.0.3<br><img src="/2019/05/29/kubernetes-configmap/1.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> dev ops </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> kubernetes </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Kubernetes</title>
+      <link href="/2019/05/20/Kubernetes/"/>
+      <url>/2019/05/20/Kubernetes/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Kubernetes-简介"><a href="#Kubernetes-简介" class="headerlink" title="Kubernetes 简介"></a>Kubernetes 简介</h2><p>Kubernetes 是用于自动部署，扩展和管理容器化应用程序的开源系统。<br>它将组成应用程序的容器组合成逻辑单元，以便于管理和服务发现，Kubernetes 构建在 Google 15 年生产环境经验基础之上,并结合来自社区的最佳创意和实践。</p><p>k8s特性:</p><ul><li>自动包装<br>根据资源需求和其他约束自动放置容器，同时不会牺牲可用性，混合关键和最大努力的工作负载，以提高资源利用率并节省更多资源。</li></ul><ul><li>自我修复<br>重新启动失败的容器，在节点不可用时，替换和重新调度节点上的容器，对用户定义的健康检查不响应的容器会被中止，并且在容器准备好服务之前不会把其向客户端广播。</li></ul><ul><li>横向缩放<br>使用简单的命令或 UI，或者根据 CPU 的使用情况自动调整应用程序副本数。</li></ul><ul><li>服务发现和负载均衡<br>不需要修改您的应用程序来使用不熟悉的服务发现机制，Kubernetes 为容器提供了自己的 IP 地址和一组容器的单个 DNS 名称，并可以在它们之间进行负载均衡。</li></ul><ul><li>自动部署和回滚<br>Kubernetes 逐渐部署对应用程序或其配置的更改，同时监视应用程序运行状况，以确保它不会同时终止所有实例。 如果出现问题，Kubernetes会为您恢复更改，利用日益增长的部署解决方案的生态系统。</li></ul><ul><li>密钥和配置管理<br>部署和更新密钥和应用程序配置，不会重新编译您的镜像，不会在堆栈配置中暴露密钥(secrets)。</li></ul><ul><li>存储编排<br>自动安装您所选择的存储系统，无论是本地存储，如公有云提供商 GCP 或 AWS, 还是网络存储系统 NFS, iSCSI, Gluster, Ceph, Cinder, 或 Flocker。</li></ul><ul><li>批处理<br>除了服务之外，Kubernetes还可以管理您的批处理和 CI 工作负载，如果需要，替换出现故障的容器。</li></ul><h2 id="安装k8s"><a href="#安装k8s" class="headerlink" title="安装k8s"></a>安装k8s</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ubuntu server 16.04</div><div class="line"></div><div class="line">master: 10.21.0.33</div><div class="line">node1: 10.21.0.35</div><div class="line">node2: 10.21.0.16</div></pre></td></tr></table></figure><h3 id="修改源"><a href="#修改源" class="headerlink" title="修改源"></a>修改源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">cp /etc/apt/sources.list&#123;,_bak&#125;</div><div class="line"></div><div class="line">echo &apos;deb http://mirrors.aliyun.com/ubuntu/ xenial main</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main</div><div class="line"></div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main</div><div class="line"></div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial universe</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial universe</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates universe</div><div class="line"></div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security universe&apos; \</div><div class="line">&gt;/etc/apt/sources.list</div></pre></td></tr></table></figure><h4 id="阿里k8s源"><a href="#阿里k8s源" class="headerlink" title="阿里k8s源"></a>阿里k8s源</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">apt-get update &amp;&amp; apt-get install -y apt-transport-https</div><div class="line">curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - </div><div class="line">cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list</div><div class="line">deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main</div><div class="line">EOF</div></pre></td></tr></table></figure><h4 id="国内Docker源"><a href="#国内Docker源" class="headerlink" title="国内Docker源"></a>国内Docker源</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">echo &apos;&#123;</div><div class="line">&quot;registry-mirrors&quot;:[&quot;https://registry.docker-cn.com&quot;]</div><div class="line">&#125;&apos; &gt; /etc/docker/daemon.json</div></pre></td></tr></table></figure><h4 id="安装docker、k8s"><a href="#安装docker、k8s" class="headerlink" title="安装docker、k8s"></a>安装docker、k8s</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get install docker.io</div><div class="line">apt-get install kubeadm</div></pre></td></tr></table></figure><h2 id="Master"><a href="#Master" class="headerlink" title="Master"></a>Master</h2><h3 id="Install-and-Set-Up-kubectl"><a href="#Install-and-Set-Up-kubectl" class="headerlink" title="Install and Set Up kubectl"></a>Install and Set Up kubectl</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get update</div><div class="line">apt-get install kubelet kubeadm kubectl kubernetes-cni --allow-unauthenticated</div></pre></td></tr></table></figure><h3 id="初始化master"><a href="#初始化master" class="headerlink" title="初始化master"></a>初始化master</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#初始化</div><div class="line">kubeadm version</div><div class="line">kubeadm init --kubernetes-version=&apos;v1.14.1&apos;</div><div class="line"></div><div class="line">export KUBECONFIG=/etc/kubernetes/admin.conf</div></pre></td></tr></table></figure><p><img src="/2019/05/20/Kubernetes/init.png" alt=""></p><h2 id="Node加入master"><a href="#Node加入master" class="headerlink" title="Node加入master"></a>Node加入master</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">kubeadm join 10.21.0.33:6443 --token q1trpk.x4ft1fibd02vuyd2 \</div><div class="line">--discovery-token-ca-cert-hash sha256:9fa3ba3fd1c43e46b8b4f6edaac9818a17cb4923537563a97313284c63d5bc50</div></pre></td></tr></table></figure><p><img src="/2019/05/20/Kubernetes/add-nodes.png" alt=""></p><h2 id="列出节点"><a href="#列出节点" class="headerlink" title="列出节点"></a>列出节点</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">shell&gt; kubectl get nodes</div><div class="line">NAME STATUS ROLES AGE VERSION</div><div class="line">k8s-master NotReady master 49m v1.14.1</div><div class="line">node1 NotReady &lt;none&gt; 52s v1.14.1</div><div class="line">node2 NotReady &lt;none&gt; 19s v1.14.1</div><div class="line"></div><div class="line">#状态显示NotReady，是因为集群内缺少网络控制器</div></pre></td></tr></table></figure><h3 id="addons-Networking"><a href="#addons-Networking" class="headerlink" title="addons - Networking"></a>addons - Networking</h3><p>添加网络插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">kubectl apply -f &quot;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d &apos;\n&apos;)&quot;</div><div class="line"></div><div class="line">shell&gt; kubectl get node</div><div class="line">NAME STATUS ROLES AGE VERSION</div><div class="line">k8s-master Ready master 54m v1.14.1</div><div class="line">node1 Ready &lt;none&gt; 6m5s v1.14.1</div><div class="line">node2 Ready &lt;none&gt; 5m32s v1.14.1</div></pre></td></tr></table></figure></p><p><img src="/2019/05/20/Kubernetes/addros.png" alt=""></p><h3 id="token"><a href="#token" class="headerlink" title="token"></a>token</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">## 查看当前的 token 表</div><div class="line">kubeadm token list</div><div class="line"></div><div class="line">## 新建token</div><div class="line">kubeadm token create --print-join-command</div></pre></td></tr></table></figure><h3 id="删除K8s节点"><a href="#删除K8s节点" class="headerlink" title="删除K8s节点"></a>删除K8s节点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">master上运行：</div><div class="line">kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets</div><div class="line">kubectl delete node &lt;node name&gt;</div><div class="line"></div><div class="line">节点上运行：</div><div class="line">kubeadm reset</div></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> dev ops </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> kubernetes </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Cobbler Web Interface</title>
+      <link href="/2019/05/17/Cobbler-Web-Interface/"/>
+      <url>/2019/05/17/Cobbler-Web-Interface/</url>
+      
+        <content type="html"><![CDATA[<h1 id="cobbler-web"><a href="#cobbler-web" class="headerlink" title="cobbler-web"></a>cobbler-web</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install cobbler-web</div><div class="line">systemctl restart httpd</div></pre></td></tr></table></figure><p>web: <a href="https://you_ip/cobbler_web" target="_blank" rel="external">https://you_ip/cobbler_web</a><br>usr/pwd:cobbler</p><p><img src="/2019/05/17/Cobbler-Web-Interface/0.png" alt=""></p><h2 id="know-error"><a href="#know-error" class="headerlink" title="know error:"></a>know error:</h2><ul><li><p>cobbler web</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Internal Server Error</div><div class="line">The server encountered an internal error or misconfiguration and was unable to complete your request.</div><div class="line"></div><div class="line">Please contact the server administrator at root@localhost to inform them of the time this error occurred, and the actions you performed just before this error.</div><div class="line"></div><div class="line">More information about this error may be available in the server error log.</div></pre></td></tr></table></figure></li><li><p>fix</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">wget https://bootstrap.pypa.io/get-pip.py</div><div class="line"></div><div class="line">python get-pip.py</div><div class="line"></div><div class="line">pip install Django==1.8.9</div><div class="line"></div><div class="line">python -c &quot;import django; print(django.get_version())&quot;</div><div class="line"></div><div class="line">systemctl restart httpd</div></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> dev ops </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> cobbler </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>cobbler with VIP</title>
+      <link href="/2019/05/15/cobbler-with-VIP/"/>
+      <url>/2019/05/15/cobbler-with-VIP/</url>
+      
+        <content type="html"><![CDATA[<h2 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h2><p><img src="/2019/05/15/cobbler-with-VIP/cobbler-vip.svg" alt=""></p><p>主要从两个方面实现跨域</p><ul><li>virtual network<br>实现网络互通</li><li>DHCP relay<br>实现dhcp分配</li></ul><h2 id="cobbler-Server"><a href="#cobbler-Server" class="headerlink" title="cobbler Server"></a>cobbler Server</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## 修改dnsmasq配置，统一指定为tftp外网ip</div><div class="line">dhcp-boot=pxelinux.0,server.name,172.16.1.181</div></pre></td></tr></table></figure><h2 id="dhcp-relay"><a href="#dhcp-relay" class="headerlink" title="dhcp relay"></a>dhcp relay</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dhcrelay -i ens160 -d 10.10.10.1</div></pre></td></tr></table></figure><p>dhcp relay内主机测试</p><p>cobbler log:<br><img src="/2019/05/15/cobbler-with-VIP/cobbler-log.png" alt=""></p><p>dhcp relay log：<br><img src="/2019/05/15/cobbler-with-VIP/dhcrelay.png" alt=""></p><p><img src="/2019/05/15/cobbler-with-VIP/vip-pxe.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> dev ops </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> cobbler </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>cobbler</title>
+      <link href="/2019/05/05/cobbler/"/>
+      <url>/2019/05/05/cobbler/</url>
+      
+        <content type="html"><![CDATA[<p>Setup PXE Boot Environment Using Cobbler On CentOS 7</p><h1 id="Install-Cobbler"><a href="#Install-Cobbler" class="headerlink" title="Install Cobbler"></a>Install Cobbler</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#CentOS7</div><div class="line">#yum install -y ed patch perl perl-Compress-Zlib perl-Digest-SHA1 perl-LockFile-Simple perl-libwww-perl #编译环境</div><div class="line"></div><div class="line">yum -y install epel-release</div><div class="line">yum install cobbler dnsmasq xinetd pykickstart debmirror</div></pre></td></tr></table></figure><h1 id="Configure-Cobbler"><a href="#Configure-Cobbler" class="headerlink" title="Configure Cobbler"></a>Configure Cobbler</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">## /etc/cobbler/settings</div><div class="line"></div><div class="line">server=192.168.122.22</div><div class="line">sed -i &quot;s/server: 127.0.0.1/server: $server/&quot; /etc/cobbler/settings</div><div class="line">sed -i &quot;s/next_server: 127.0.0.1/next_server: $server/&quot; /etc/cobbler/settings</div><div class="line">sed -i &apos;s/manage_dhcp: 0/manage_dhcp: 1/&apos; /etc/cobbler/settings</div><div class="line">sed -i &apos;s/manage_dns: 0/manage_dns: 1/&apos; /etc/cobbler/settings</div><div class="line">sed -i &apos;s/pxe_just_once: 0/pxe_just_once: 1/&apos; /etc/cobbler/settings</div><div class="line">sed -ri &quot;/default_password_crypted/s#(.*: ).*#\1\&quot;`openssl passwd -1 -salt &apos;cobbler&apos; &apos;cobbler&apos;`\&quot;#&quot; /etc/cobbler/settings</div><div class="line"></div><div class="line">sed -i &apos;/disable/c\\tdisable\t\t\t= no&apos; /etc/xinetd.d/tftp</div><div class="line"></div><div class="line"># sed -i -e &apos;s/\=\ yes/\=\ no/g&apos; /etc/xinetd.d/rsync</div></pre></td></tr></table></figure><p>/etc/cobbler/modules.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[dns]</div><div class="line">module = manage_dnsmasq</div><div class="line"></div><div class="line">[dhcp]</div><div class="line">module = manage_dnsmasq</div><div class="line"></div><div class="line">[tftpd]</div><div class="line">module = manage_in_tftpd</div></pre></td></tr></table></figure></p><h2 id="Configure-DHCP"><a href="#Configure-DHCP" class="headerlink" title="Configure DHCP"></a>Configure DHCP</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"># Cobbler generated configuration file for dnsmasq</div><div class="line"># $date</div><div class="line">#</div><div class="line"></div><div class="line"># resolve.conf .. ?</div><div class="line">#no-poll</div><div class="line">#enable-dbus</div><div class="line">read-ethers</div><div class="line">addn-hosts = /var/lib/cobbler/cobbler_hosts</div><div class="line"></div><div class="line">dhcp-range=192.168.122.5,192.168.122.254,255.255.255.0</div><div class="line">dhcp-ignore=tag:!known</div><div class="line">dhcp-option=3,$next_server</div><div class="line">dhcp-lease-max=1000</div><div class="line">dhcp-authoritative</div><div class="line">dhcp-boot=pxelinux.0</div><div class="line">dhcp-boot=net:normalarch,pxelinux.0</div><div class="line">dhcp-boot=net:ia64,$elilo</div><div class="line"></div><div class="line">$insert_cobbler_system_definitions</div></pre></td></tr></table></figure><h2 id="etc-debmirror-conf"><a href="#etc-debmirror-conf" class="headerlink" title="/etc/debmirror.conf"></a>/etc/debmirror.conf</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sed -i &apos;s/@dists=&quot;sid&quot;;/#@dists=&quot;sid&quot;;/g&apos; /etc/debmirror.conf</div><div class="line">sed -i &apos;s/@arches=&quot;i386&quot;;/#@arches=&quot;i386&quot;;/g&apos; /etc/debmirror.conf</div></pre></td></tr></table></figure><h1 id="Importing-ISO-files-to-Cobbler-server"><a href="#Importing-ISO-files-to-Cobbler-server" class="headerlink" title="Importing ISO files to Cobbler server"></a>Importing ISO files to Cobbler server</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cobbler get-loaders #下载引导文件</div><div class="line">mount -o loop centos6.iso /mnt/</div><div class="line">cobbler import --arch=x86_64 --path=/mnt/ --name=Centos-6</div></pre></td></tr></table></figure><p><img src="/2019/05/05/cobbler/import_iso.png" alt=""></p><p>启动相关服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">systemctl enable xinetd</div><div class="line">systemctl enable cobblerd</div><div class="line">systemctl enable dnsmasq</div><div class="line">systemctl enable httpd</div><div class="line">systemctl enable rsyncd.service</div><div class="line"></div><div class="line">systemctl restart xinetd</div><div class="line">systemctl restart cobblerd</div><div class="line">systemctl restart dnsmasq</div><div class="line">systemctl restart httpd</div><div class="line">systemctl restart rsyncd.service</div></pre></td></tr></table></figure></p><h2 id="cobbler-commands"><a href="#cobbler-commands" class="headerlink" title="cobbler commands"></a>cobbler commands</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">cobbler check# 核对当前设置是否有问题</div><div class="line">cobbler list# 列出所有的cobbler元素</div><div class="line">cobbler report# 列出元素的详细信息</div><div class="line">cobbler sync# 同步配置到数据目录,更改配置最好都要执行下</div><div class="line">cobbler reposync# 同步yum仓库</div><div class="line">cobbler distro# 查看导入的发行版系统信息</div><div class="line">cobbler system# 查看添加的系统信息</div><div class="line">cobbler profile# 查看配置信息</div></pre></td></tr></table></figure><h2 id="测试tftp能否获取到引导文件"><a href="#测试tftp能否获取到引导文件" class="headerlink" title="测试tftp能否获取到引导文件"></a>测试tftp能否获取到引导文件</h2><p>curl tftp://192.168.122.22/pxelinux.0 |tail</p><h2 id="Adding-Kickstart-file-to-Cobbler-server"><a href="#Adding-Kickstart-file-to-Cobbler-server" class="headerlink" title="Adding Kickstart file to Cobbler server"></a>Adding Kickstart file to Cobbler server</h2><p>system-config-kickstart<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cobbler profile add --name=CentOS-6.5-basic --distro=CentOS-6.5-x86_64 --kickstart=/var/lib/cobbler/kickstarts/cetos6.x86_64.cfg</div><div class="line"></div><div class="line">cobbler profile list</div></pre></td></tr></table></figure></p><h2 id="boot"><a href="#boot" class="headerlink" title="boot"></a>boot</h2><p><img src="/2019/05/05/cobbler/pxe-boot.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> dev ops </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> cobbler </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ansible optimize</title>
+      <link href="/2019/04/30/ansible-optimize/"/>
+      <url>/2019/04/30/ansible-optimize/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-开启SSH长连接"><a href="#1-开启SSH长连接" class="headerlink" title="1. 开启SSH长连接"></a>1. 开启SSH长连接</h2><p>[ssh_connection]<br>ssh_args = -o ControlMaster=auto -o ControlPersist=4h<br>control_path = /etc/ansible/ssh-socket/%%h-%%p-%%r</p><h2 id="2-开启pipelining"><a href="#2-开启pipelining" class="headerlink" title="2. 开启pipelining"></a>2. 开启pipelining</h2><p>pipelining = True<br>PS：如果开启pipelining，需要被控的远程服务器将/etc/sudoers中的”Defaults requiretty”注释掉，否则会出现类似如：you must have a ttyto run sudo 的报错。</p><h2 id="3-开启accelerate模式"><a href="#3-开启accelerate模式" class="headerlink" title="3. 开启accelerate模式"></a>3. 开启accelerate模式</h2><p>playbook中配置accelerate: true</p><p>[accelerate]<br>accelerate_port = 5099<br>accelerate_timeout = 30<br>accelerate_connect_timeout = 5.0<br>PS：使用accelerate模式，需要控制服务器和远程服务器都安装python-keyczar包</p><h2 id="4-对facts设置优化"><a href="#4-对facts设置优化" class="headerlink" title="4. 对facts设置优化"></a>4. 对facts设置优化</h2><p>各种方式的配置都是在ansible.cfg中配置。</p><p>1）json文件方式</p><p>gathering=smart<br>fact_caching_timeout=86400<br>fact_caching=jsonfile<br>fact_caching_connection=/path/to/ansible_fact_cache<br>这里的86400单位为秒，表示缓存的过期时间。保存facts信息的json文件保存在/path/to/ansible_fact_cache下面，文件名是按照inventory hostname来命名的。</p><p>2）redis方式</p><p>gathering=smart<br>fact_caching_timeout=86400<br>fact_caching=redis<br>需要注意的是，facts存储不支持远端的redis，需要在ansible的控制服务器上安装redis；同时，还需要安装python的redis模块。</p><p>3）memcache方式</p><p>gathering=smart<br>fact_caching_timeout=86400<br>fact_caching=memcached<br>与redis方式类似，需要运行memcached服务，同时，安装python的memcached依赖包。</p><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>优化前平均real为2s，以下为不同虚拟化及物理机优化后效果</p><p>host<br><img src="/2019/04/30/ansible-optimize/0.png" alt=""></p><p>kvm [NAT]<br><img src="/2019/04/30/ansible-optimize/1.png" alt=""></p><p>vmware [NAT]<br><img src="/2019/04/30/ansible-optimize/2.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> dev ops </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ansible </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ansible-tower</title>
+      <link href="/2019/04/28/ansible-tower/"/>
+      <url>/2019/04/28/ansible-tower/</url>
+      
+        <content type="html"><![CDATA[<p>批量添加主机</p><h2 id="tower-manage"><a href="#tower-manage" class="headerlink" title="tower-manage"></a>tower-manage</h2><p>通过Tower自带的命令行工具tower-manage来批量导入主机，可以从主机的/etc/ansible/hosts中直接导入</p><ul><li>先创建名为test-1的inventory</li></ul><p><img src="/2019/04/28/ansible-tower/1.png" alt=""></p><ul><li>tower-manage 导入主机<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@AnsibleTower ansible]# tower-manage inventory_import --source=/etc/ansible/hosts --group-filter=test --inventory-name=test-1 --keep-vars</div><div class="line">2.427 INFO Updating inventory 2: test-1</div><div class="line">2.598 INFO Reading Ansible inventory source: /etc/ansible/hosts</div><div class="line">4.813 INFO Processing JSON output...</div><div class="line">4.814 INFO Loaded 1 groups, 2 hosts</div><div class="line">5.056 INFO Inventory import completed for (test-1 - 7) in 2.6s</div></pre></td></tr></table></figure></li></ul><p><img src="/2019/04/28/ansible-tower/2.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> dev ops </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ansible </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ansible</title>
+      <link href="/2019/04/26/ansible/"/>
+      <url>/2019/04/26/ansible/</url>
+      
+        <content type="html"><![CDATA[<h2 id="ansible简介"><a href="#ansible简介" class="headerlink" title="ansible简介"></a>ansible简介</h2><p>Doc: <a href="https://docs.ansible.com/" target="_blank" rel="external">https://docs.ansible.com/</a></p><ul><li><p>ansible是个什么东西呢？官方的title是“Ansible is Simple IT Automation”——简单的自动化IT工具。这个工具的目标有这么几项：让我们自动化部署APP；自动化管理配置项；自动化的持续交付；自动化的（AWS）云服务管理。</p></li><li><p>ansible以SSH方式进行管理通讯</p></li><li><p>Ansible由5个部分组成：</p></li></ul><ol><li>Ansible： 核心</li><li>Modules： 包括 Ansible 自带的核心模块及自定义模块</li><li>Plugins： 完成模块功能的补充，包括连接插件、邮件插件等</li><li>Playbooks： 剧本(编排好一步一步的执行)；定义 Ansible 多任务配置文件，有 Ansible 自动执行</li><li>Inventory： 定义 Ansible 管理主机的清单</li></ol><h2 id="安装要求"><a href="#安装要求" class="headerlink" title="安装要求"></a>安装要求</h2><ul><li>控制器：Python2.6/2.7</li><li>受管节点要求：Python2.4 以上版本，若低于 Python2.5 需要安装 pythonsimplejson; 若启用了 selinux，则需要安装 libselinux-python。</li><li>如果存在多环境Python 记得修改主控端的/usr/bin/ansible 的python环境</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install epel-release</div><div class="line">yum install ansibl</div></pre></td></tr></table></figure><h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@ansible ~]# ansible 192.168.122.129 -m ping -k</div><div class="line">SSH password: </div><div class="line">192.168.122.129 | SUCCESS =&gt; &#123;</div><div class="line">    &quot;changed&quot;: false, </div><div class="line">    &quot;ping&quot;: &quot;pong&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#返回：  &quot;ping&quot;: &quot;pong&quot; 说明是成功了！</div></pre></td></tr></table></figure><h3 id="common模块使用"><a href="#common模块使用" class="headerlink" title="common模块使用"></a>common模块使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">格式:</div><div class="line">ansbile 操作目标 -m 模块名 -a 模块参数</div><div class="line">ansible-doc -l 命令查看到当前 ansible 都支持哪些模块</div><div class="line">ansible-doc -s 模块名 又可以查看该模块有哪些参数可以使用</div><div class="line"></div><div class="line">ansible all -m command &apos;ip a eth0&apos;</div><div class="line">ansible all -m command -a &quot;echo jie |passwd --stdin testuser&quot; #command本身不理解这种形式的操作</div><div class="line">ansible all -m shell -a &quot;echo jie |passwd --stdin testuser&quot;</div></pre></td></tr></table></figure><h2 id="常用命令的介绍"><a href="#常用命令的介绍" class="headerlink" title="常用命令的介绍"></a>常用命令的介绍</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">ansible --help</div><div class="line">-v,–verbose # 详细模式，如果命令执行成功，输出详细的结果(-vv –vvv -vvvv)</div><div class="line">-i PATH,–inventory=PATH #指定host文件的路径，默认是/etc/ansible/hosts</div><div class="line">-f NUM,–forks=NUM # NUM是指定一个整数，默认是5，指定fork开启同步进程的个数。</div><div class="line">-m NAME,–module-name=NAME #指定使用的module名称，默认是command</div><div class="line">-m DIRECTORY,–module-path=DIRECTORY #指定module的目录来加载module，默认是/usr/share/ansible,</div><div class="line">-a,MODULE_ARGS #指定module模块的参数</div><div class="line">-k,–ask-pass # 提示输入ssh的密码，而不是使用基于ssh的密钥认证</div><div class="line">–sudo # 指定使用sudo获得root权限</div><div class="line">-K,–ask-sudo-pass #提示输入sudo密码，与–sudo一起使用</div><div class="line">-u USERNAME,–user=USERNAME # 指定移动端的执行用户</div><div class="line">-C,–check #测试此命令执行会改变什么内容，不会真正的去执行</div></pre></td></tr></table></figure><h2 id="hosts文件格式"><a href="#hosts文件格式" class="headerlink" title="hosts文件格式"></a>hosts文件格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">1、正常写法,name1为别名：</div><div class="line">[test1]</div><div class="line">name1 ansible_ssh_host=192.168.1.111 ansible_ssh_user=&quot;root&quot; ansible_ssh_pass=&quot;1234&quot; ansible_ssh_port=22</div><div class="line">name2 ansible_ssh_host=192.168.1.222 ansible_ssh_user=&quot;root&quot; ansible_ssh_pass=&quot;1234&quot; ansible_ssh_port=22</div><div class="line">2、连续的IP写法,表示192.168.1.20到192.168.1.50，共31台主机：</div><div class="line">[test1]</div><div class="line">name1 ansible_ssh_host=192.168.1.[20:50] ansible_ssh_user=&quot;root&quot; ansible_ssh_pass=&quot;1234&quot; ansible_ssh_port=22</div><div class="line">3、带参数的群组，vars底下为群组共同便变量，包括已定义变量和自定义变量：</div><div class="line">[test1]</div><div class="line">name1 ansible_ssh_host=192.168.1.[20:50]</div><div class="line">[test1:vars]</div><div class="line">ansible_ssh_user=root</div><div class="line">ansible_ssh_pass=&quot;1234&quot;</div><div class="line">testvar=&quot;test&quot;</div><div class="line">4、群组整合，children底下为父群组test的子群组，调用方式为ansible test -m ping：</div><div class="line">[dbtest]</div><div class="line">name1 ansible_ssh_host=192.168.1.[20:50] ansible_ssh_user=&quot;root&quot; ansible_ssh_pass=&quot;1234&quot; ansible_ssh_port=22</div><div class="line">[webtest]</div><div class="line">name2 ansible_ssh_host=192.168.2.[20:50] ansible_ssh_user=&quot;root&quot; ansible_ssh_pass=&quot;1234&quot; ansible_ssh_port=22</div><div class="line">[test:children]</div><div class="line">dbtest</div><div class="line">webtest</div><div class="line">5、调用两个主机组的写法，以下webservers和dbservers都会被调用：</div><div class="line">ansible webservers:dbservers -m win_ping</div><div class="line">6、在webservers组中但不在dbsersers中的调用：</div><div class="line">ansible webservers:!dbservers -m win_ping</div><div class="line">7、在webservers组中并且在dbservers组中的才会调用：</div><div class="line">ansible webservers:&amp;dbservers -m win_ping</div><div class="line">8、在调用前加~，代表正则表达式：</div><div class="line">ansible ~(web|db).*.91it.org -m win_ping</div><div class="line">9、组合的例子：</div><div class="line">webserver:dbservers:&amp;nginx:!ntp</div><div class="line">10、hosts文件中没有定义的IP或别名，在进行调用中，会提示错误。ansible对单台服务器的调用，服务器IP或域名必须有写在hosts里。</div></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> dev ops </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ansible </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>portainer</title>
       <link href="/2018/07/02/portainer/"/>
       <url>/2018/07/02/portainer/</url>
@@ -552,13 +752,13 @@
             
             <tag> ELK </tag>
             
+            <tag> log </tag>
+            
             <tag> logstash </tag>
             
             <tag> elasticsearch </tag>
             
             <tag> kibana </tag>
-            
-            <tag> log </tag>
             
         </tags>
       
