@@ -192,7 +192,7 @@ Linux I/O 系统简介Linux I/O调度器(Linux"/>
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Linux I/O 调度器是Linux内核中的一个组成部分，用户可以通过调整这个调度器来优化系统性能。本文首先介绍Linux I/O 调度器的结构，然后介绍如何根据不同的存储器来设置Linux I/O 调度器从而达到优化系统性能。</p>
 <h2 id="Linux-I-O-系统简介"><a href="#Linux-I-O-系统简介" class="headerlink" title="Linux I/O 系统简介"></a>Linux I/O 系统简介</h2><p>Linux I/O调度器(Linux I/O Scheduler)是LinuxI/O体系的一个组件，它介于通用块层和块设备驱动程序之间。如图 1 所示。</p>
-<p>图1 Linux I/O调度器介于通用块层和块设备驱动程序之间<br><img src="/2017/11/22/Linux-I-O-Scheduler/pic0.png" alt=""></p>
+<p>图1 Linux I/O调度器介于通用块层和块设备驱动程序之间<br><img src="/2017/11/22/Linux-I-O-Scheduler/./pic0.png" alt=""></p>
 <p>当Linux内核组件要读写一些数据时，并不是请求一发出，内核便立即执行该请求，而是将其推迟执行。当传输一个新数据块时，内核需要检查它能否通过。Linux IO调度程序是介于通用块层和块设备驱动程序之间，所以它接收来自通用块层的请求，试图合并请求，并找到最合适的请求下发到块设备驱动程序中。之后块设备驱动程序会调用一个函数来响应这个请求。</p>
 <h2 id="Linux整体I-O体系可以分为七层，它们分别是："><a href="#Linux整体I-O体系可以分为七层，它们分别是：" class="headerlink" title="Linux整体I/O体系可以分为七层，它们分别是："></a>Linux整体I/O体系可以分为七层，它们分别是：</h2><ul>
 <li><p>VFS虚拟文件系统：内核要跟多种文件系统打交道，内核抽象了这VFS，专门用来适配各种文件系统，并对外提供统一操作接口。</p>
@@ -222,13 +222,13 @@ Linux I/O 系统简介Linux I/O调度器(Linux"/>
 <p>  Deadline翻译成中文是截止时间调度器，是对Linus Elevator的一种改进，它避免有些请求太长时间不能被处理。另外可以区分对待读操作和写操作。DEADLINE额外分别为读I/O和写I/O提供了FIFO队列。Deadline的工作流程如图 2 所示。</p>
 </li>
 </ul>
-<p>图2 Deadline的工作流程<br><img src="/2017/11/22/Linux-I-O-Scheduler/pic1.png" alt=""></p>
+<p>图2 Deadline的工作流程<br><img src="/2017/11/22/Linux-I-O-Scheduler/./pic1.png" alt=""></p>
 <ul>
 <li><p>CFQ</p>
 <p>  CFQ全称Completely Fair Scheduler ，中文名称完全公平调度器，它是现在许多 Linux 发行版的默认调度器，CFQ是内核默认选择的I/O调度器。它将由进程提交的同步请求放到多个进程队列中，然后为每个队列分配时间片以访问磁盘。对于通用的服务器是最好的选择,CFQ均匀地分布对I/O带宽的访问。CFQ为每个进程和线程,单独创建一个队列来管理该进程所产生的请求,以此来保证每个进程都能被很好的分配到I/O带宽，I/O调度器每次执行一个进程的4次请求。该算法的特点是按照I/O请求的地址进行排序，而不是按照先来后到的顺序来进行响应。简单来说就是给所有同步进程分配时间片，然后才排队访问磁盘，CFQ的工作流程如图 3 所示 。</p>
 </li>
 </ul>
-<p>图3 CFQ的工作流程<br><img src="/2017/11/22/Linux-I-O-Scheduler/pic2.png" alt=""></p>
+<p>图3 CFQ的工作流程<br><img src="/2017/11/22/Linux-I-O-Scheduler/./pic2.png" alt=""></p>
 <ul>
 <li><p>NOOP</p>
 <p>  NOOP全称No Operation,中文名称电梯式调度器，该算法实现了最简单的FIFO队列，所有I/O请求大致按照先来后到的顺序进行操作。NOOP实现了一个简单的FIFO队列,它像电梯的工作主法一样对I/O请求进行组织。它是基于先入先出(FIFO)队列概念的 Linux 内核里最简单的I/O 调度器。此调度程序最适合于固态硬盘。</p>

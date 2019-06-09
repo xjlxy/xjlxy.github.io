@@ -194,9 +194,9 @@ zabbix webConfig"/>
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <h2 id="zabbix-agentd-conf"><a href="#zabbix-agentd-conf" class="headerlink" title="zabbix_agentd.conf"></a>zabbix_agentd.conf</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">EnableRemoteCommands=1</div></pre></td></tr></table></figure>
 <h2 id="etc-sudoers"><a href="#etc-sudoers" class="headerlink" title="/etc/sudoers"></a>/etc/sudoers</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">zabbix ALL=NOPASSWD: /usr/bin/python</div><div class="line"></div><div class="line">##注释掉如下一行，否则命令无法执行：</div><div class="line"># Default requiretty</div></pre></td></tr></table></figure>
-<h2 id="zabbix-web"><a href="#zabbix-web" class="headerlink" title="zabbix web"></a>zabbix web</h2><p>Configuration–&gt; Actions–&gt; Create action<br>Conditions:可以加入更多信息，使判断更具针对性<br><img src="/2017/05/27/zabbix-restart-agentd-services/zabbix0.png" alt="pic"></p>
-<h3 id="Operations"><a href="#Operations" class="headerlink" title="Operations:"></a>Operations:</h3><p>每分钟执行一次commands，一共执行5次，条件不存在则中断commands<br><img src="/2017/05/27/zabbix-restart-agentd-services/zabbix1.png" alt="pic"></p>
-<h3 id="Action-logs"><a href="#Action-logs" class="headerlink" title="Action logs:"></a>Action logs:</h3><p>可以看到已经触发动作;<br><img src="/2017/05/27/zabbix-restart-agentd-services/zabbix2.png" alt="pic"></p>
+<h2 id="zabbix-web"><a href="#zabbix-web" class="headerlink" title="zabbix web"></a>zabbix web</h2><p>Configuration–&gt; Actions–&gt; Create action<br>Conditions:可以加入更多信息，使判断更具针对性<br><img src="/2017/05/27/zabbix-restart-agentd-services/./zabbix0.png" alt="pic"></p>
+<h3 id="Operations"><a href="#Operations" class="headerlink" title="Operations:"></a>Operations:</h3><p>每分钟执行一次commands，一共执行5次，条件不存在则中断commands<br><img src="/2017/05/27/zabbix-restart-agentd-services/./zabbix1.png" alt="pic"></p>
+<h3 id="Action-logs"><a href="#Action-logs" class="headerlink" title="Action logs:"></a>Action logs:</h3><p>可以看到已经触发动作;<br><img src="/2017/05/27/zabbix-restart-agentd-services/./zabbix2.png" alt="pic"></p>
 
 
                 

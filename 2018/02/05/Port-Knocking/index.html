@@ -197,8 +197,8 @@
 <h2 id="Configurations"><a href="#Configurations" class="headerlink" title="Configurations"></a>Configurations</h2><p>/etc/knockd.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[options]</div><div class="line">    logfile = /var/log/knockd.log</div><div class="line"></div><div class="line">[opencloseSSH]</div><div class="line">  sequence = 2222:udp,3333:tcp,4444:udp</div><div class="line">  seq_timeout = 5</div><div class="line">  tcpflags = syn</div><div class="line">  start_command = /sbin/iptables -I INPUT -s %IP% -p tcp --dport 22 -j ACCEPT</div><div class="line">  cmd_timeout = 10</div><div class="line">  stop_command = /sbin/iptables -D INPUT -s %IP% -p tcp --dport 22 -j ACCEPT</div></pre></td></tr></table></figure></p>
 <p>/etc/default/knockd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">START_KNOCKD=1</div><div class="line">KNOCKD_OPTS=&quot;-i eth0&quot;</div></pre></td></tr></table></figure></p>
 <h2 id="start-amp-test"><a href="#start-amp-test" class="headerlink" title="start &amp; test"></a>start &amp; test</h2><p>knockd -d -c /etc/knockd.conf</p>
-<p>open port<br><img src="/2018/02/05/Port-Knocking/pic0.png" alt=""></p>
-<p>close port<br><img src="/2018/02/05/Port-Knocking/pic2.png" alt=""></p>
+<p>open port<br><img src="/2018/02/05/Port-Knocking/./pic0.png" alt=""></p>
+<p>close port<br><img src="/2018/02/05/Port-Knocking/./pic2.png" alt=""></p>
 
 
                 
