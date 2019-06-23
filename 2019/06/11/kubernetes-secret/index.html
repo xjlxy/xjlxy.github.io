@@ -13,6 +13,9 @@
     
 
     
+        <meta name="description" content="sslopenssl genrsa -out nginx-https.key 2048openssl req -new -x509 -days 3650 -key nginx-https.key -out nginx-https.cert -subj /CN=www.xy.com
+configmap"/>
+    
 
     <!--Author-->
     
@@ -21,10 +24,13 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Xjl&#39;s Blog"/>
+        <meta property="og:title" content="kubernetes secret"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="sslopenssl genrsa -out nginx-https.key 2048openssl req -new -x509 -days 3650 -key nginx-https.key -out nginx-https.cert -subj /CN=www.xy.com
+configmap"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +38,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +57,7 @@
 
     <!-- Title -->
     
-    <title>Archiv: 2019/6 - Xjl&#39;s Blog</title>
+    <title>kubernetes secret - Xjl&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -129,75 +135,81 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2019/6</h1>
+                <div class="post-heading">
+                    <h1>kubernetes secret</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-06-11
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/kubernetes/">#kubernetes</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/dev-ops/">dev ops</a>
+
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2019/06/19/kubeedge/">
-        <h1 class="post-title archive">
-            kubeedge
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-06-19
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2019/06/11/kubernetes-secret/">
-        <h1 class="post-title archive">
-            kubernetes secret
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-06-11
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="ssl"><a href="#ssl" class="headerlink" title="ssl"></a>ssl</h2><p>openssl genrsa -out nginx-https.key 2048<br>openssl req -new -x509 -days 3650 -key nginx-https.key -out nginx-https.cert -subj /CN=www.xy.com</p>
+<h2 id="configmap"><a href="#configmap" class="headerlink" title="configmap"></a>configmap</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">listen 443 ssl;	</div><div class="line">ssl_certificate certs/nginx-https.cert;</div><div class="line">ssl_certificate_key certs/nginx-https.key;</div><div class="line">ssl_session_cache shared:SSL:1m;</div><div class="line">ssl_session_timeout 5m;</div><div class="line">ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</div><div class="line">ssl_ciphers HIGH:!aNULL:!MD5;</div><div class="line">ssl_prefer_server_ciphers on;</div></pre></td></tr></table></figure>
+<h2 id="secret"><a href="#secret" class="headerlink" title="secret"></a>secret</h2><p>kubectl create secret generic nginx-https –from-file=nginx-https.cert –from-file=nginx-https.key</p>
+<h2 id="test"><a href="#test" class="headerlink" title="test"></a>test</h2><p>kubectl port-forward nginx-configmap-ssl 8443:443 &amp;<br>curl <a href="https://localhost:8443" target="_blank" rel="external">https://localhost:8443</a> -k -v<br><img src="/2019/06/11/kubernetes-secret/0.png" alt=""></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2019/06/06/kubernetes-Ingress/">
-        <h1 class="post-title archive">
-            kubernetes Ingress
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-06-06
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />

@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>kubeedge</title>
+      <link href="/2019/06/19/kubeedge/"/>
+      <url>/2019/06/19/kubeedge/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul><li>KubeEdge是一个开源系统，用于将容器化应用程序编排功能扩展到Edge的主机。它基于kubernetes构建，并为网络应用程序提供基础架构支持。云和边缘之间的部署和元数据同步。 KubeEdge使用Apache 2.0许可。并且绝对可以免费用于个人或商业用途。我们欢迎贡献者！</li><li>目标是创建一个开放平台，使能边缘计算，将容器化应用编排功能扩展到边缘的节点和设备，后者基于kubernetes构建，并为云和边缘之间的网络，应用部署和元数据同步提供基础架构支持。</li><li>Doc: <a href="https://docs.kubeedge.io" target="_blank" rel="external">https://docs.kubeedge.io</a></li></ul><h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>先决条件</p><ul><li>docker</li><li>Kubernetes</li></ul><p>修改 controller.yaml 文件，使KubeEdge通过https方式与Kubernetes apiserver连接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">controller:</div><div class="line">  kube:</div><div class="line">    master: https://localhost:6443</div><div class="line">    namespace: &quot;&quot;</div><div class="line">    content_type: &quot;application/vnd.kubernetes.protobuf&quot;</div><div class="line">    qps: 5</div><div class="line">    burst: 10</div><div class="line">    node_update_frequency: 10</div><div class="line">    kubeconfig: &quot;/etc/kubernetes/admin.conf&quot;   #Enter path to kubeconfig file to enable https connection to k8s apiserver</div><div class="line">cloudhub:</div><div class="line">  protocol_websocket: true # enable websocket protocol</div><div class="line">  port: 10000 # open port for websocket server</div><div class="line">  protocol_quic: true # enable quic protocol</div><div class="line">  quic_port: 10001 # open prot for quic server</div><div class="line">  max_incomingstreams: 10000 # the max incoming stream for quic server</div><div class="line">  address: 0.0.0.0</div><div class="line">  ca: /etc/kubeedge/ca/rootCA.crt</div><div class="line">  cert: /etc/kubeedge/certs/edge.crt</div><div class="line">  key: /etc/kubeedge/certs/edge.key</div><div class="line">  keepalive-interval: 30</div><div class="line">  write-timeout: 30</div><div class="line">  node-limit: 10</div><div class="line">devicecontroller:</div><div class="line">  kube:</div><div class="line">    master: https://localhost:6443</div><div class="line">    namespace: &quot;&quot;</div><div class="line">    content_type: &quot;application/vnd.kubernetes.protobuf&quot;</div><div class="line">    qps: 5</div><div class="line">    burst: 10</div><div class="line">    kubeconfig: &quot;/etc/kubernetes/admin.conf&quot;</div></pre></td></tr></table></figure></p><p>获取二进制包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">VERSION=&quot;v0.3.0&quot;</div><div class="line">OS=&quot;linux&quot;</div><div class="line">ARCH=&quot;amd64&quot;</div><div class="line">curl -L &quot;https://github.com/kubeedge/kubeedge/releases/download/$&#123;VERSION&#125;/kubeedge-$&#123;VERSION&#125;-$&#123;OS&#125;-$&#123;ARCH&#125;.tar.gz&quot; \</div><div class="line">  --output kubeedge-$&#123;VERSION&#125;-$&#123;OS&#125;-$&#123;ARCH&#125;.tar.gz \</div><div class="line">  &amp;&amp; tar -xf kubeedge-$&#123;VERSION&#125;-$&#123;OS&#125;-$&#123;ARCH&#125;.tar.gz  -C /opt</div></pre></td></tr></table></figure></p><p>创建证书<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget -L https://github.com/kubeedge/kubeedge/raw/master/build/tools/certgen.sh</div><div class="line">bash ./certgen.sh genCertAndKey edge</div><div class="line">证书和密钥会分别自动生成在/etc/kubeedge/ca 和 /etc/kubeedge/certs 目录下，同时该证书需要传到边缘设备。</div></pre></td></tr></table></figure></p><p><img src="/2019/06/19/kubeedge/0.png" alt=""></p><p>创建 device model 和 device CRDs<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">wget -L https://github.com/kubeedge/kubeedge/raw/master/build/crds/devices/devices_v1alpha1_devicemodel.yaml</div><div class="line">kubectl create -f devices_v1alpha1_devicemodel.yaml</div><div class="line"></div><div class="line">wget -L https://github.com/kubeedge/kubeedge/raw/master/build/crds/devices/devices_v1alpha1_device.yaml</div><div class="line">kubectl create -f devices_v1alpha1_device.yaml</div></pre></td></tr></table></figure></p><p>运行Cloud<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /opt/kubeedge/</div><div class="line">nohup ./cloud/edgecontroller &gt; edgecontroller.log 2&gt;&amp;1 &amp;</div></pre></td></tr></table></figure></p><p>部署边缘设备<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># Deploy node</div><div class="line"> wget -L https://github.com/kubeedge/kubeedge/raw/master/build/node.json</div><div class="line"> #Modify the node.json` file and change `metadata.name` to the name of the edge node </div><div class="line"> kubectl apply -f node.json</div></pre></td></tr></table></figure></p><p>部署 Edge node<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># MQTT</div><div class="line">  apt install -y mosquitto</div><div class="line">  mosquitto -d -p 1883</div><div class="line"></div><div class="line">  nohup ./edge/edge_core &gt; edge_core.log 2&gt;&amp;1 &amp;</div></pre></td></tr></table></figure></p><p>检查状态<br><img src="/2019/06/19/kubeedge/1.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> dev ops </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> kubernetes </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>kubernetes secret</title>
+      <link href="/2019/06/11/kubernetes-secret/"/>
+      <url>/2019/06/11/kubernetes-secret/</url>
+      
+        <content type="html"><![CDATA[<h2 id="ssl"><a href="#ssl" class="headerlink" title="ssl"></a>ssl</h2><p>openssl genrsa -out nginx-https.key 2048<br>openssl req -new -x509 -days 3650 -key nginx-https.key -out nginx-https.cert -subj /CN=www.xy.com</p><h2 id="configmap"><a href="#configmap" class="headerlink" title="configmap"></a>configmap</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">listen 443 ssl;</div><div class="line">ssl_certificate certs/nginx-https.cert;</div><div class="line">ssl_certificate_key certs/nginx-https.key;</div><div class="line">ssl_session_cache shared:SSL:1m;</div><div class="line">ssl_session_timeout 5m;</div><div class="line">ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</div><div class="line">ssl_ciphers HIGH:!aNULL:!MD5;</div><div class="line">ssl_prefer_server_ciphers on;</div></pre></td></tr></table></figure><h2 id="secret"><a href="#secret" class="headerlink" title="secret"></a>secret</h2><p>kubectl create secret generic nginx-https –from-file=nginx-https.cert –from-file=nginx-https.key</p><h2 id="test"><a href="#test" class="headerlink" title="test"></a>test</h2><p>kubectl port-forward nginx-configmap-ssl 8443:443 &amp;<br>curl <a href="https://localhost:8443" target="_blank" rel="external">https://localhost:8443</a> -k -v<br><img src="/2019/06/11/kubernetes-secret/0.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> dev ops </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> kubernetes </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>kubernetes Ingress</title>
       <link href="/2019/06/06/kubernetes-Ingress/"/>
       <url>/2019/06/06/kubernetes-Ingress/</url>
